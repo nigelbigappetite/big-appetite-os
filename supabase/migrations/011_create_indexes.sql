@@ -125,17 +125,21 @@ CREATE INDEX IF NOT EXISTS idx_contradiction_analysis ON ai.contradiction_logs(b
 -- MAINTENANCE AND CLEANUP INDEXES
 -- =====================================================
 
--- Old signals cleanup
-CREATE INDEX IF NOT EXISTS idx_signals_cleanup ON signals.signals_base(received_at) WHERE received_at < NOW() - INTERVAL '2 years';
+-- Note: Cleanup indexes with NOW() functions are commented out
+-- as they cause issues with index predicates. Use application-level
+-- cleanup instead.
 
--- Inactive actors cleanup
-CREATE INDEX IF NOT EXISTS idx_actors_cleanup ON actors.actors(last_seen_at) WHERE is_active = false AND last_seen_at < NOW() - INTERVAL '1 year';
+-- Old signals cleanup (commented out - use application logic)
+-- CREATE INDEX IF NOT EXISTS idx_signals_cleanup ON signals.signals_base(received_at) WHERE received_at < NOW() - INTERVAL '2 years';
 
--- Completed function calls cleanup
-CREATE INDEX IF NOT EXISTS idx_function_calls_cleanup ON ai.function_calls(call_timestamp) WHERE execution_status = 'completed' AND call_timestamp < NOW() - INTERVAL '6 months';
+-- Inactive actors cleanup (commented out - use application logic)
+-- CREATE INDEX IF NOT EXISTS idx_actors_cleanup ON actors.actors(last_seen_at) WHERE is_active = false AND last_seen_at < NOW() - INTERVAL '1 year';
 
--- Old learning logs cleanup
-CREATE INDEX IF NOT EXISTS idx_learning_logs_cleanup ON ai.learning_logs(learned_at) WHERE is_active = false AND learned_at < NOW() - INTERVAL '1 year';
+-- Completed function calls cleanup (commented out - use application logic)
+-- CREATE INDEX IF NOT EXISTS idx_function_calls_cleanup ON ai.function_calls(call_timestamp) WHERE execution_status = 'completed' AND call_timestamp < NOW() - INTERVAL '6 months';
+
+-- Old learning logs cleanup (commented out - use application logic)
+-- CREATE INDEX IF NOT EXISTS idx_learning_logs_cleanup ON ai.learning_logs(learned_at) WHERE is_active = false AND learned_at < NOW() - INTERVAL '1 year';
 
 -- =====================================================
 -- COMPOSITE INDEXES FOR COMPLEX QUERIES
