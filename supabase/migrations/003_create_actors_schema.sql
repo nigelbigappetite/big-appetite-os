@@ -9,14 +9,15 @@
 -- - Source signals (traceability)
 
 -- Enable pgvector extension for belief vector similarity searches
-CREATE EXTENSION IF NOT EXISTS vector;
+-- Note: pgvector may need to be enabled in Supabase dashboard
+-- CREATE EXTENSION IF NOT EXISTS vector;
 
 -- =====================================================
 -- ACTORS CORE TABLE
 -- =====================================================
 -- Central actor registry with basic identification
 CREATE TABLE actors.actors (
-    actor_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    actor_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Primary identification
@@ -60,7 +61,7 @@ CREATE TABLE actors.actors (
 -- =====================================================
 -- Bayesian demographic beliefs with uncertainty
 CREATE TABLE actors.actor_demographics (
-    demographic_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    demographic_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Demographic attributes
@@ -95,7 +96,7 @@ CREATE TABLE actors.actor_demographics (
 -- =====================================================
 -- How the actor sees themselves vs. how they behave
 CREATE TABLE actors.actor_identity_beliefs (
-    identity_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    identity_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Identity attributes
@@ -137,7 +138,7 @@ CREATE TABLE actors.actor_identity_beliefs (
 -- =====================================================
 -- Context-dependent behavioral patterns
 CREATE TABLE actors.actor_behavioral_scores (
-    behavioral_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    behavioral_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Behavioral dimensions
@@ -178,7 +179,7 @@ CREATE TABLE actors.actor_behavioral_scores (
 -- =====================================================
 -- How to best communicate with this actor
 CREATE TABLE actors.actor_communication_profiles (
-    communication_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    communication_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Communication preferences
@@ -226,7 +227,7 @@ CREATE TABLE actors.actor_communication_profiles (
 -- =====================================================
 -- What motivates and influences this actor
 CREATE TABLE actors.actor_psychological_triggers (
-    trigger_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    trigger_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Trigger information
@@ -270,7 +271,7 @@ CREATE TABLE actors.actor_psychological_triggers (
 -- =====================================================
 -- Stated vs. actual preferences with contradiction tracking
 CREATE TABLE actors.actor_preferences (
-    preference_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    preference_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Preference information
@@ -319,7 +320,7 @@ CREATE TABLE actors.actor_preferences (
 -- =====================================================
 -- Recurring patterns and habits
 CREATE TABLE actors.actor_memory_loops (
-    memory_loop_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    memory_loop_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Loop information
@@ -368,7 +369,7 @@ CREATE TABLE actors.actor_memory_loops (
 -- =====================================================
 -- What creates friction in their experience
 CREATE TABLE actors.actor_friction_points (
-    friction_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    friction_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Friction information
@@ -412,7 +413,7 @@ CREATE TABLE actors.actor_friction_points (
 -- =====================================================
 -- Explicit tracking of contradictions between beliefs and behavior
 CREATE TABLE actors.actor_contradictions (
-    contradiction_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    contradiction_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Contradiction details
@@ -463,12 +464,12 @@ CREATE TABLE actors.actor_contradictions (
 -- =====================================================
 -- Numeric vector representation for clustering and similarity
 CREATE TABLE actors.actor_belief_vectors (
-    vector_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    vector_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Vector information
     vector_name TEXT NOT NULL, -- 'primary', 'demographic', 'behavioral', 'preference', etc.
-    vector_data VECTOR(1536), -- Embedding vector (adjust size as needed)
+    vector_data TEXT, -- Embedding vector as JSONB for now (adjust when pgvector is enabled)
     vector_dimensions INTEGER NOT NULL,
     
     -- Vector metadata
@@ -507,7 +508,7 @@ CREATE TABLE actors.actor_belief_vectors (
 -- =====================================================
 -- Metadata about how this actor has been clustered
 CREATE TABLE actors.actor_clustering_metadata (
-    clustering_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    clustering_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
     -- Clustering information
@@ -596,10 +597,11 @@ CREATE INDEX idx_actor_clustering_metadata_run_id ON actors.actor_clustering_met
 CREATE INDEX idx_actor_clustering_metadata_algorithm ON actors.actor_clustering_metadata(algorithm_used);
 
 -- Vector similarity search index (using pgvector)
-CREATE INDEX idx_actor_belief_vectors_similarity 
-ON actors.actor_belief_vectors 
-USING ivfflat (vector_data vector_cosine_ops) 
-WITH (lists = 100);
+-- Note: Enable when pgvector extension is available
+-- CREATE INDEX idx_actor_belief_vectors_similarity 
+-- ON actors.actor_belief_vectors 
+-- USING ivfflat (vector_data vector_cosine_ops) 
+-- WITH (lists = 100);
 
 -- =====================================================
 -- TRIGGERS FOR ACTORS SCHEMA

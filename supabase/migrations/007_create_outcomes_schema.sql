@@ -10,7 +10,7 @@
 -- =====================================================
 -- Central outcomes tracking with full traceability
 CREATE TABLE outcomes.outcomes (
-    outcome_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    outcome_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Source stimulus
@@ -86,7 +86,7 @@ CREATE TABLE outcomes.outcomes (
 -- =====================================================
 -- Aggregate outcome data by cohort for analysis
 CREATE TABLE outcomes.cohort_outcome_summary (
-    summary_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    summary_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     cohort_id UUID NOT NULL REFERENCES cohorts.cohorts(cohort_id) ON DELETE CASCADE,
     stimulus_id UUID REFERENCES stimuli.stimuli_base(stimulus_id),
@@ -156,7 +156,7 @@ CREATE TABLE outcomes.cohort_outcome_summary (
 -- =====================================================
 -- Detailed analysis of outcome patterns and success factors
 CREATE TABLE outcomes.outcome_analysis (
-    analysis_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    analysis_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Analysis scope
@@ -220,7 +220,7 @@ CREATE TABLE outcomes.outcome_analysis (
 -- =====================================================
 -- What the system learned from outcomes
 CREATE TABLE outcomes.outcome_learning (
-    learning_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    learning_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Learning details
@@ -293,7 +293,7 @@ CREATE TABLE outcomes.outcome_learning (
 -- =====================================================
 -- Track how outcomes feed back into the system
 CREATE TABLE outcomes.outcome_feedback_loop (
-    feedback_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    feedback_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Feedback details

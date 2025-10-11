@@ -10,7 +10,7 @@
 -- =====================================================
 -- Common fields for all signal types
 CREATE TABLE signals.signals_base (
-    signal_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    signal_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     signal_type TEXT NOT NULL,
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     

@@ -10,7 +10,7 @@
 -- =====================================================
 -- Registry of all logic functions used by the system
 CREATE TABLE ai.functions (
-    function_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    function_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID REFERENCES core.brands(brand_id) ON DELETE CASCADE, -- NULL for global functions
     
     -- Function identification
@@ -92,7 +92,7 @@ CREATE TABLE ai.functions (
 -- =====================================================
 -- Log of every function execution with inputs and outputs
 CREATE TABLE ai.function_calls (
-    call_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    call_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     function_id UUID NOT NULL REFERENCES ai.functions(function_id) ON DELETE CASCADE,
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
@@ -167,7 +167,7 @@ CREATE TABLE ai.function_calls (
 -- =====================================================
 -- Detailed reasoning behind every decision made by the system
 CREATE TABLE ai.reasoning_logs (
-    reasoning_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    reasoning_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Reasoning context
@@ -232,7 +232,7 @@ CREATE TABLE ai.reasoning_logs (
 -- =====================================================
 -- What the system learned and how it updated its knowledge
 CREATE TABLE ai.learning_logs (
-    learning_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    learning_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Learning details
@@ -324,7 +324,7 @@ CREATE TABLE ai.learning_logs (
 -- =====================================================
 -- Track when beliefs conflict with behavior or other beliefs
 CREATE TABLE ai.contradiction_logs (
-    contradiction_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    contradiction_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Contradiction details
@@ -396,7 +396,7 @@ CREATE TABLE ai.contradiction_logs (
 -- =====================================================
 -- Current state of the AI system for monitoring and debugging
 CREATE TABLE ai.ai_system_state (
-    state_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    state_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID REFERENCES core.brands(brand_id) ON DELETE CASCADE, -- NULL for global state
     
     -- System state

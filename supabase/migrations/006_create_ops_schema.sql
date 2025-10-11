@@ -10,7 +10,7 @@
 -- =====================================================
 -- Physical locations and virtual sites
 CREATE TABLE ops.sites (
-    site_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    site_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Site identification
@@ -72,7 +72,7 @@ CREATE TABLE ops.sites (
 -- =====================================================
 -- Sales transactions and revenue data
 CREATE TABLE ops.sales_data (
-    sale_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    sale_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     site_id UUID REFERENCES ops.sites(site_id),
     
@@ -133,7 +133,7 @@ CREATE TABLE ops.sales_data (
 -- =====================================================
 -- Product inventory and stock management
 CREATE TABLE ops.inventory (
-    inventory_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    inventory_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     site_id UUID REFERENCES ops.sites(site_id),
     
@@ -193,7 +193,7 @@ CREATE TABLE ops.inventory (
 -- =====================================================
 -- Supply chain and vendor management
 CREATE TABLE ops.supply_chain (
-    supply_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    supply_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Supplier information
@@ -252,7 +252,7 @@ CREATE TABLE ops.supply_chain (
 -- =====================================================
 -- Customer relationship management events
 CREATE TABLE ops.crm_events (
-    crm_event_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    crm_event_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     actor_id UUID REFERENCES actors.actors(actor_id),
     
@@ -305,7 +305,7 @@ CREATE TABLE ops.crm_events (
 -- =====================================================
 -- Key business performance indicators
 CREATE TABLE ops.business_metrics (
-    metric_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    metric_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     site_id UUID REFERENCES ops.sites(site_id),
     
@@ -358,7 +358,7 @@ CREATE TABLE ops.business_metrics (
 -- =====================================================
 -- System alerts and notifications for operations
 CREATE TABLE ops.operational_alerts (
-    alert_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    alert_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     site_id UUID REFERENCES ops.sites(site_id),
     

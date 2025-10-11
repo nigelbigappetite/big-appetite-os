@@ -5,7 +5,6 @@
 -- and system-wide configuration that all other schemas depend on.
 
 -- Enable required extensions
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
 -- Create schemas
@@ -23,7 +22,7 @@ CREATE SCHEMA IF NOT EXISTS ai;
 -- =====================================================
 -- Central tenant isolation - every piece of data belongs to a brand
 CREATE TABLE core.brands (
-    brand_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    brand_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_name TEXT NOT NULL,
     brand_slug TEXT UNIQUE NOT NULL,
     description TEXT,
@@ -57,7 +56,7 @@ CREATE TABLE core.brands (
 -- =====================================================
 -- Brand-scoped user management
 CREATE TABLE core.users (
-    user_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     auth_user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
     
@@ -85,7 +84,7 @@ CREATE TABLE core.users (
 -- =====================================================
 -- Flexible configuration storage per brand
 CREATE TABLE core.brand_settings (
-    setting_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    setting_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Setting identification
@@ -112,7 +111,7 @@ CREATE TABLE core.brand_settings (
 -- =====================================================
 -- Global system configuration that affects all brands
 CREATE TABLE core.system_parameters (
-    parameter_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    parameter_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     
     -- Parameter identification
     parameter_key TEXT UNIQUE NOT NULL,
@@ -138,7 +137,7 @@ CREATE TABLE core.system_parameters (
 -- =====================================================
 -- External service connections per brand
 CREATE TABLE core.brand_integrations (
-    integration_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    integration_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Integration details
@@ -170,7 +169,7 @@ CREATE TABLE core.brand_integrations (
 -- =====================================================
 -- System-wide audit trail for all significant changes
 CREATE TABLE core.audit_log (
-    audit_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    audit_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID REFERENCES core.brands(brand_id) ON DELETE SET NULL,
     
     -- Action details

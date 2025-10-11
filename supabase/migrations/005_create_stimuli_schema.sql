@@ -10,7 +10,7 @@
 -- =====================================================
 -- Common fields for all stimulus types
 CREATE TABLE stimuli.stimuli_base (
-    stimulus_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    stimulus_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Stimulus identification
@@ -269,7 +269,7 @@ CREATE TABLE stimuli.messages (
 -- =====================================================
 -- Track actual deployments of stimuli to actors
 CREATE TABLE stimuli.stimulus_deployments (
-    deployment_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    deployment_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     stimulus_id UUID NOT NULL REFERENCES stimuli.stimuli_base(stimulus_id) ON DELETE CASCADE,
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     
@@ -327,7 +327,7 @@ CREATE TABLE stimuli.stimulus_deployments (
 -- =====================================================
 -- Reusable templates for generating stimuli
 CREATE TABLE stimuli.stimulus_templates (
-    template_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    template_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Template identification
@@ -381,7 +381,7 @@ CREATE TABLE stimuli.stimulus_templates (
 -- =====================================================
 -- Detailed performance tracking for stimuli
 CREATE TABLE stimuli.stimulus_performance_metrics (
-    metric_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    metric_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     stimulus_id UUID NOT NULL REFERENCES stimuli.stimuli_base(stimulus_id) ON DELETE CASCADE,
     
     -- Metric details

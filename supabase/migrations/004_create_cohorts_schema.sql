@@ -10,7 +10,7 @@
 -- =====================================================
 -- Discovered clusters with their characteristics and evolution
 CREATE TABLE cohorts.cohorts (
-    cohort_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    cohort_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Cohort identification
@@ -26,7 +26,7 @@ CREATE TABLE cohorts.cohorts (
     
     -- Cohort characteristics
     cohort_signature JSONB NOT NULL, -- Key characteristics that define this cohort
-    centroid_vector VECTOR(1536), -- Vector representation of cohort center
+    centroid_vector TEXT, -- Vector representation as JSONB for now (adjust when pgvector is enabled)
     centroid_dimensions INTEGER, -- Number of dimensions in centroid
     
     -- Size and composition
@@ -77,7 +77,7 @@ CREATE TABLE cohorts.cohorts (
 -- =====================================================
 -- Many-to-many relationship between actors and cohorts
 CREATE TABLE cohorts.actor_cohort_membership (
-    membership_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    membership_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     actor_id UUID NOT NULL REFERENCES actors.actors(actor_id) ON DELETE CASCADE,
     cohort_id UUID NOT NULL REFERENCES cohorts.cohorts(cohort_id) ON DELETE CASCADE,
     
@@ -122,7 +122,7 @@ CREATE TABLE cohorts.actor_cohort_membership (
 -- =====================================================
 -- Track all changes to cohorts over time
 CREATE TABLE cohorts.cohort_evolution_log (
-    evolution_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    evolution_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     cohort_id UUID REFERENCES cohorts.cohorts(cohort_id) ON DELETE SET NULL,
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
@@ -168,7 +168,7 @@ CREATE TABLE cohorts.cohort_evolution_log (
 -- =====================================================
 -- Metadata about each clustering execution
 CREATE TABLE cohorts.clustering_runs (
-    run_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    run_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Run details
@@ -228,7 +228,7 @@ CREATE TABLE cohorts.clustering_runs (
 -- =====================================================
 -- Detailed characteristics that define each cohort
 CREATE TABLE cohorts.cohort_characteristics (
-    characteristic_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    characteristic_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     cohort_id UUID NOT NULL REFERENCES cohorts.cohorts(cohort_id) ON DELETE CASCADE,
     
     -- Characteristic details
@@ -280,7 +280,7 @@ CREATE TABLE cohorts.cohort_characteristics (
 -- =====================================================
 -- Precomputed similarity scores between cohorts
 CREATE TABLE cohorts.cohort_similarity_matrix (
-    similarity_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    similarity_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     brand_id UUID NOT NULL REFERENCES core.brands(brand_id) ON DELETE CASCADE,
     
     -- Similarity details
@@ -328,7 +328,7 @@ CREATE TABLE cohorts.cohort_similarity_matrix (
 -- =====================================================
 -- Track how well cohorts perform over time
 CREATE TABLE cohorts.cohort_performance_metrics (
-    metric_id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    metric_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     cohort_id UUID NOT NULL REFERENCES cohorts.cohorts(cohort_id) ON DELETE CASCADE,
     
     -- Metric details
@@ -423,10 +423,11 @@ CREATE INDEX idx_cohort_performance_metrics_measurement_date ON cohorts.cohort_p
 CREATE INDEX idx_cohort_performance_metrics_context ON cohorts.cohort_performance_metrics(context_type);
 
 -- Vector similarity search index for centroids
-CREATE INDEX idx_cohorts_centroid_similarity 
-ON cohorts.cohorts 
-USING ivfflat (centroid_vector vector_cosine_ops) 
-WITH (lists = 100);
+-- Note: Enable when pgvector extension is available
+-- CREATE INDEX idx_cohorts_centroid_similarity 
+-- ON cohorts.cohorts 
+-- USING ivfflat (centroid_vector vector_cosine_ops) 
+-- WITH (lists = 100);
 
 -- =====================================================
 -- TRIGGERS FOR COHORTS SCHEMA
