@@ -196,28 +196,32 @@ CREATE INDEX IF NOT EXISTS idx_learning_progress ON ai.learning_logs(brand_id, l
 -- COMMENTS FOR INDEXES
 -- =====================================================
 
-COMMENT ON INDEX idx_actors_identifier_lookup IS 'Fast lookup of actors by identifier across schemas';
-COMMENT ON INDEX idx_signals_actor_lookup IS 'Fast lookup of signals by actor for relationship queries';
-COMMENT ON INDEX idx_stimuli_target_cohort IS 'Fast lookup of stimuli by target cohort';
-COMMENT ON INDEX idx_outcomes_stimulus IS 'Fast lookup of outcomes by source stimulus';
-COMMENT ON INDEX idx_signals_temporal_brand IS 'Time-based queries for signals by brand';
-COMMENT ON INDEX idx_actors_temporal_brand IS 'Time-based queries for actors by brand';
-COMMENT ON INDEX idx_cohorts_temporal_brand IS 'Time-based queries for cohorts by brand';
-COMMENT ON INDEX idx_signals_high_quality IS 'High-quality signals for analysis';
-COMMENT ON INDEX idx_actors_high_quality IS 'High-quality actors for analysis';
-COMMENT ON INDEX idx_cohorts_high_stability IS 'High-stability cohorts for analysis';
-COMMENT ON INDEX idx_signals_text_search IS 'Full-text search on signal content';
-COMMENT ON INDEX idx_reviews_text_search IS 'Full-text search on review content';
-COMMENT ON INDEX idx_social_comments_text_search IS 'Full-text search on social comment content';
-COMMENT ON INDEX idx_actor_cohort_stimulus_outcome IS 'Complete actor-cohort-stimulus-outcome chain';
-COMMENT ON INDEX idx_signal_processing_pipeline IS 'Signal processing pipeline status';
-COMMENT ON INDEX idx_cohort_evolution_tracking IS 'Cohort evolution event tracking';
-COMMENT ON INDEX idx_active_memberships IS 'Active cohort memberships only';
-COMMENT ON INDEX idx_current_beliefs IS 'Current actor beliefs only';
-COMMENT ON INDEX idx_active_cohorts IS 'Active cohorts only';
-COMMENT ON INDEX idx_pending_processing IS 'Signals pending processing';
-COMMENT ON INDEX idx_high_priority_stimuli IS 'High-priority scheduled stimuli';
-COMMENT ON INDEX idx_system_health_monitoring IS 'System health monitoring queries';
-COMMENT ON INDEX idx_performance_monitoring IS 'Function call performance monitoring';
-COMMENT ON INDEX idx_error_monitoring IS 'Function call error monitoring';
-COMMENT ON INDEX idx_learning_progress IS 'Learning progress monitoring';
+-- Note: Index comments are commented out to avoid referencing
+-- non-existent indexes during migration. These can be added
+-- after all indexes are created successfully.
+
+-- COMMENT ON INDEX idx_actors_identifier_lookup IS 'Fast lookup of actors by identifier across schemas';
+-- COMMENT ON INDEX idx_signals_actor_lookup IS 'Fast lookup of signals by actor for relationship queries';
+-- COMMENT ON INDEX idx_stimuli_target_cohort IS 'Fast lookup of stimuli by target cohort';
+-- COMMENT ON INDEX idx_outcomes_stimulus IS 'Fast lookup of outcomes by source stimulus';
+-- COMMENT ON INDEX idx_signals_temporal_brand IS 'Time-based queries for signals by brand';
+-- COMMENT ON INDEX idx_actors_temporal_brand IS 'Time-based queries for actors by brand';
+-- COMMENT ON INDEX idx_cohorts_temporal_brand IS 'Time-based queries for cohorts by brand';
+-- COMMENT ON INDEX idx_signals_high_quality IS 'High-quality signals for analysis';
+-- COMMENT ON INDEX idx_actors_high_quality IS 'High-quality actors for analysis';
+-- COMMENT ON INDEX idx_cohorts_high_stability IS 'High-stability cohorts for analysis';
+-- COMMENT ON INDEX idx_signals_text_search IS 'Full-text search on signal content';
+-- COMMENT ON INDEX idx_reviews_text_search IS 'Full-text search on review content';
+-- COMMENT ON INDEX idx_social_comments_text_search IS 'Full-text search on social comment content';
+-- COMMENT ON INDEX idx_actor_cohort_stimulus_outcome IS 'Complete actor-cohort-stimulus-outcome chain';
+-- COMMENT ON INDEX idx_signal_processing_pipeline IS 'Signal processing pipeline status';
+-- COMMENT ON INDEX idx_cohort_evolution_tracking IS 'Cohort evolution event tracking';
+-- COMMENT ON INDEX idx_active_memberships IS 'Active cohort memberships only';
+-- COMMENT ON INDEX idx_current_beliefs IS 'Current actor beliefs only';
+-- COMMENT ON INDEX idx_active_cohorts IS 'Active cohorts only';
+-- COMMENT ON INDEX idx_pending_processing IS 'Signals pending processing';
+-- COMMENT ON INDEX idx_high_priority_stimuli IS 'High-priority scheduled stimuli';
+-- COMMENT ON INDEX idx_system_health_monitoring IS 'System health monitoring queries';
+-- COMMENT ON INDEX idx_performance_monitoring IS 'Function call performance monitoring';
+-- COMMENT ON INDEX idx_error_monitoring IS 'Function call error monitoring';
+-- COMMENT ON INDEX idx_learning_progress IS 'Learning progress monitoring';
