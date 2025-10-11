@@ -408,65 +408,65 @@ CREATE TABLE ops.operational_alerts (
 -- =====================================================
 
 -- Sites indexes
-CREATE INDEX idx_sites_brand_id ON ops.sites(brand_id);
-CREATE INDEX idx_sites_site_code ON ops.sites(site_code);
-CREATE INDEX idx_sites_type ON ops.sites(site_type);
-CREATE INDEX idx_sites_active ON ops.sites(is_active) WHERE is_active = true;
-CREATE INDEX idx_sites_city ON ops.sites(city);
-CREATE INDEX idx_sites_state ON ops.sites(state_province);
+CREATE INDEX IF NOT EXISTS idx_sites_brand_id ON ops.sites(brand_id);
+CREATE INDEX IF NOT EXISTS idx_sites_site_code ON ops.sites(site_code);
+CREATE INDEX IF NOT EXISTS idx_sites_type ON ops.sites(site_type);
+CREATE INDEX IF NOT EXISTS idx_sites_active ON ops.sites(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_sites_city ON ops.sites(city);
+CREATE INDEX IF NOT EXISTS idx_sites_state ON ops.sites(state_province);
 
 -- Sales data indexes
-CREATE INDEX idx_sales_data_brand_id ON ops.sales_data(brand_id);
-CREATE INDEX idx_sales_data_site_id ON ops.sales_data(site_id);
-CREATE INDEX idx_sales_data_customer_id ON ops.sales_data(customer_id) WHERE customer_id IS NOT NULL;
-CREATE INDEX idx_sales_data_transaction_date ON ops.sales_data(transaction_date);
-CREATE INDEX idx_sales_data_transaction_type ON ops.sales_data(transaction_type);
-CREATE INDEX idx_sales_data_order_method ON ops.sales_data(order_method);
-CREATE INDEX idx_sales_data_status ON ops.sales_data(status);
+CREATE INDEX IF NOT EXISTS idx_sales_data_brand_id ON ops.sales_data(brand_id);
+CREATE INDEX IF NOT EXISTS idx_sales_data_site_id ON ops.sales_data(site_id);
+CREATE INDEX IF NOT EXISTS idx_sales_data_customer_id ON ops.sales_data(customer_id) WHERE customer_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_sales_data_transaction_date ON ops.sales_data(transaction_date);
+CREATE INDEX IF NOT EXISTS idx_sales_data_transaction_type ON ops.sales_data(transaction_type);
+CREATE INDEX IF NOT EXISTS idx_sales_data_order_method ON ops.sales_data(order_method);
+CREATE INDEX IF NOT EXISTS idx_sales_data_status ON ops.sales_data(status);
 
 -- Inventory indexes
-CREATE INDEX idx_inventory_brand_id ON ops.inventory(brand_id);
-CREATE INDEX idx_inventory_site_id ON ops.inventory(site_id);
-CREATE INDEX idx_inventory_product_id ON ops.inventory(product_id);
-CREATE INDEX idx_inventory_category ON ops.inventory(product_category);
-CREATE INDEX idx_inventory_type ON ops.inventory(product_type);
-CREATE INDEX idx_inventory_active ON ops.inventory(is_active) WHERE is_active = true;
-CREATE INDEX idx_inventory_available ON ops.inventory(is_available) WHERE is_available = true;
-CREATE INDEX idx_inventory_low_stock ON ops.inventory(current_stock) WHERE current_stock <= reorder_point;
+CREATE INDEX IF NOT EXISTS idx_inventory_brand_id ON ops.inventory(brand_id);
+CREATE INDEX IF NOT EXISTS idx_inventory_site_id ON ops.inventory(site_id);
+CREATE INDEX IF NOT EXISTS idx_inventory_product_id ON ops.inventory(product_id);
+CREATE INDEX IF NOT EXISTS idx_inventory_category ON ops.inventory(product_category);
+CREATE INDEX IF NOT EXISTS idx_inventory_type ON ops.inventory(product_type);
+CREATE INDEX IF NOT EXISTS idx_inventory_active ON ops.inventory(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_inventory_available ON ops.inventory(is_available) WHERE is_available = true;
+CREATE INDEX IF NOT EXISTS idx_inventory_low_stock ON ops.inventory(current_stock) WHERE current_stock <= reorder_point;
 
 -- Supply chain indexes
-CREATE INDEX idx_supply_chain_brand_id ON ops.supply_chain(brand_id);
-CREATE INDEX idx_supply_chain_supplier_id ON ops.supply_chain(supplier_id);
-CREATE INDEX idx_supply_chain_type ON ops.supply_chain(supplier_type);
-CREATE INDEX idx_supply_chain_active ON ops.supply_chain(is_active) WHERE is_active = true;
-CREATE INDEX idx_supply_chain_preferred ON ops.supply_chain(is_preferred) WHERE is_preferred = true;
+CREATE INDEX IF NOT EXISTS idx_supply_chain_brand_id ON ops.supply_chain(brand_id);
+CREATE INDEX IF NOT EXISTS idx_supply_chain_supplier_id ON ops.supply_chain(supplier_id);
+CREATE INDEX IF NOT EXISTS idx_supply_chain_type ON ops.supply_chain(supplier_type);
+CREATE INDEX IF NOT EXISTS idx_supply_chain_active ON ops.supply_chain(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_supply_chain_preferred ON ops.supply_chain(is_preferred) WHERE is_preferred = true;
 
 -- CRM events indexes
-CREATE INDEX idx_crm_events_brand_id ON ops.crm_events(brand_id);
-CREATE INDEX idx_crm_events_actor_id ON ops.crm_events(actor_id) WHERE actor_id IS NOT NULL;
-CREATE INDEX idx_crm_events_type ON ops.crm_events(event_type);
-CREATE INDEX idx_crm_events_category ON ops.crm_events(event_category);
-CREATE INDEX idx_crm_events_status ON ops.crm_events(status);
-CREATE INDEX idx_crm_events_priority ON ops.crm_events(event_priority);
-CREATE INDEX idx_crm_events_timestamp ON ops.crm_events(event_timestamp);
-CREATE INDEX idx_crm_events_assigned_to ON ops.crm_events(assigned_to) WHERE assigned_to IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_crm_events_brand_id ON ops.crm_events(brand_id);
+CREATE INDEX IF NOT EXISTS idx_crm_events_actor_id ON ops.crm_events(actor_id) WHERE actor_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_crm_events_type ON ops.crm_events(event_type);
+CREATE INDEX IF NOT EXISTS idx_crm_events_category ON ops.crm_events(event_category);
+CREATE INDEX IF NOT EXISTS idx_crm_events_status ON ops.crm_events(status);
+CREATE INDEX IF NOT EXISTS idx_crm_events_priority ON ops.crm_events(event_priority);
+CREATE INDEX IF NOT EXISTS idx_crm_events_timestamp ON ops.crm_events(event_timestamp);
+CREATE INDEX IF NOT EXISTS idx_crm_events_assigned_to ON ops.crm_events(assigned_to) WHERE assigned_to IS NOT NULL;
 
 -- Business metrics indexes
-CREATE INDEX idx_business_metrics_brand_id ON ops.business_metrics(brand_id);
-CREATE INDEX idx_business_metrics_site_id ON ops.business_metrics(site_id) WHERE site_id IS NOT NULL;
-CREATE INDEX idx_business_metrics_name ON ops.business_metrics(metric_name);
-CREATE INDEX idx_business_metrics_category ON ops.business_metrics(metric_category);
-CREATE INDEX idx_business_metrics_date ON ops.business_metrics(measurement_date);
-CREATE INDEX idx_business_metrics_period ON ops.business_metrics(measurement_period);
+CREATE INDEX IF NOT EXISTS idx_business_metrics_brand_id ON ops.business_metrics(brand_id);
+CREATE INDEX IF NOT EXISTS idx_business_metrics_site_id ON ops.business_metrics(site_id) WHERE site_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_business_metrics_name ON ops.business_metrics(metric_name);
+CREATE INDEX IF NOT EXISTS idx_business_metrics_category ON ops.business_metrics(metric_category);
+CREATE INDEX IF NOT EXISTS idx_business_metrics_date ON ops.business_metrics(measurement_date);
+CREATE INDEX IF NOT EXISTS idx_business_metrics_period ON ops.business_metrics(measurement_period);
 
 -- Operational alerts indexes
-CREATE INDEX idx_operational_alerts_brand_id ON ops.operational_alerts(brand_id);
-CREATE INDEX idx_operational_alerts_site_id ON ops.operational_alerts(site_id) WHERE site_id IS NOT NULL;
-CREATE INDEX idx_operational_alerts_type ON ops.operational_alerts(alert_type);
-CREATE INDEX idx_operational_alerts_severity ON ops.operational_alerts(alert_severity);
-CREATE INDEX idx_operational_alerts_status ON ops.operational_alerts(status);
-CREATE INDEX idx_operational_alerts_triggered_at ON ops.operational_alerts(triggered_at);
-CREATE INDEX idx_operational_alerts_assigned_to ON ops.operational_alerts(assigned_to) WHERE assigned_to IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_operational_alerts_brand_id ON ops.operational_alerts(brand_id);
+CREATE INDEX IF NOT EXISTS idx_operational_alerts_site_id ON ops.operational_alerts(site_id) WHERE site_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_operational_alerts_type ON ops.operational_alerts(alert_type);
+CREATE INDEX IF NOT EXISTS idx_operational_alerts_severity ON ops.operational_alerts(alert_severity);
+CREATE INDEX IF NOT EXISTS idx_operational_alerts_status ON ops.operational_alerts(status);
+CREATE INDEX IF NOT EXISTS idx_operational_alerts_triggered_at ON ops.operational_alerts(triggered_at);
+CREATE INDEX IF NOT EXISTS idx_operational_alerts_assigned_to ON ops.operational_alerts(assigned_to) WHERE assigned_to IS NOT NULL;
 
 -- =====================================================
 -- TRIGGERS FOR OPS SCHEMA

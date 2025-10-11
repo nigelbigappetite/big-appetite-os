@@ -376,55 +376,55 @@ CREATE TABLE cohorts.cohort_performance_metrics (
 -- =====================================================
 
 -- Cohorts indexes
-CREATE INDEX idx_cohorts_brand_id ON cohorts.cohorts(brand_id);
-CREATE INDEX idx_cohorts_type ON cohorts.cohorts(cohort_type);
-CREATE INDEX idx_cohorts_status ON cohorts.cohorts(cohort_status);
-CREATE INDEX idx_cohorts_discovered_at ON cohorts.cohorts(discovered_at);
-CREATE INDEX idx_cohorts_stability_score ON cohorts.cohorts(stability_score);
-CREATE INDEX idx_cohorts_parent_cohort_id ON cohorts.cohorts(parent_cohort_id) WHERE parent_cohort_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_cohorts_brand_id ON cohorts.cohorts(brand_id);
+CREATE INDEX IF NOT EXISTS idx_cohorts_type ON cohorts.cohorts(cohort_type);
+CREATE INDEX IF NOT EXISTS idx_cohorts_status ON cohorts.cohorts(cohort_status);
+CREATE INDEX IF NOT EXISTS idx_cohorts_discovered_at ON cohorts.cohorts(discovered_at);
+CREATE INDEX IF NOT EXISTS idx_cohorts_stability_score ON cohorts.cohorts(stability_score);
+CREATE INDEX IF NOT EXISTS idx_cohorts_parent_cohort_id ON cohorts.cohorts(parent_cohort_id) WHERE parent_cohort_id IS NOT NULL;
 
 -- Actor cohort membership indexes
-CREATE INDEX idx_actor_cohort_membership_actor_id ON cohorts.actor_cohort_membership(actor_id);
-CREATE INDEX idx_actor_cohort_membership_cohort_id ON cohorts.actor_cohort_membership(cohort_id);
-CREATE INDEX idx_actor_cohort_membership_active ON cohorts.actor_cohort_membership(is_active) WHERE is_active = true;
-CREATE INDEX idx_actor_cohort_membership_confidence ON cohorts.actor_cohort_membership(membership_confidence);
-CREATE INDEX idx_actor_cohort_membership_type ON cohorts.actor_cohort_membership(membership_type);
+CREATE INDEX IF NOT EXISTS idx_actor_cohort_membership_actor_id ON cohorts.actor_cohort_membership(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_cohort_membership_cohort_id ON cohorts.actor_cohort_membership(cohort_id);
+CREATE INDEX IF NOT EXISTS idx_actor_cohort_membership_active ON cohorts.actor_cohort_membership(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_actor_cohort_membership_confidence ON cohorts.actor_cohort_membership(membership_confidence);
+CREATE INDEX IF NOT EXISTS idx_actor_cohort_membership_type ON cohorts.actor_cohort_membership(membership_type);
 
 -- Cohort evolution log indexes
-CREATE INDEX idx_cohort_evolution_log_cohort_id ON cohorts.cohort_evolution_log(cohort_id);
-CREATE INDEX idx_cohort_evolution_log_brand_id ON cohorts.cohort_evolution_log(brand_id);
-CREATE INDEX idx_cohort_evolution_log_event_type ON cohorts.cohort_evolution_log(event_type);
-CREATE INDEX idx_cohort_evolution_log_timestamp ON cohorts.cohort_evolution_log(event_timestamp);
-CREATE INDEX idx_cohort_evolution_log_requires_review ON cohorts.cohort_evolution_log(requires_review) WHERE requires_review = true;
+CREATE INDEX IF NOT EXISTS idx_cohort_evolution_log_cohort_id ON cohorts.cohort_evolution_log(cohort_id);
+CREATE INDEX IF NOT EXISTS idx_cohort_evolution_log_brand_id ON cohorts.cohort_evolution_log(brand_id);
+CREATE INDEX IF NOT EXISTS idx_cohort_evolution_log_event_type ON cohorts.cohort_evolution_log(event_type);
+CREATE INDEX IF NOT EXISTS idx_cohort_evolution_log_timestamp ON cohorts.cohort_evolution_log(event_timestamp);
+CREATE INDEX IF NOT EXISTS idx_cohort_evolution_log_requires_review ON cohorts.cohort_evolution_log(requires_review) WHERE requires_review = true;
 
 -- Clustering runs indexes
-CREATE INDEX idx_clustering_runs_brand_id ON cohorts.clustering_runs(brand_id);
-CREATE INDEX idx_clustering_runs_algorithm ON cohorts.clustering_runs(algorithm_name);
-CREATE INDEX idx_clustering_runs_status ON cohorts.clustering_runs(status);
-CREATE INDEX idx_clustering_runs_started_at ON cohorts.clustering_runs(started_at);
-CREATE INDEX idx_clustering_runs_type ON cohorts.clustering_runs(run_type);
+CREATE INDEX IF NOT EXISTS idx_clustering_runs_brand_id ON cohorts.clustering_runs(brand_id);
+CREATE INDEX IF NOT EXISTS idx_clustering_runs_algorithm ON cohorts.clustering_runs(algorithm_name);
+CREATE INDEX IF NOT EXISTS idx_clustering_runs_status ON cohorts.clustering_runs(status);
+CREATE INDEX IF NOT EXISTS idx_clustering_runs_started_at ON cohorts.clustering_runs(started_at);
+CREATE INDEX IF NOT EXISTS idx_clustering_runs_type ON cohorts.clustering_runs(run_type);
 
 -- Cohort characteristics indexes
-CREATE INDEX idx_cohort_characteristics_cohort_id ON cohorts.cohort_characteristics(cohort_id);
-CREATE INDEX idx_cohort_characteristics_type ON cohorts.cohort_characteristics(characteristic_type);
-CREATE INDEX idx_cohort_characteristics_name ON cohorts.cohort_characteristics(characteristic_name);
-CREATE INDEX idx_cohort_characteristics_current ON cohorts.cohort_characteristics(is_current) WHERE is_current = true;
+CREATE INDEX IF NOT EXISTS idx_cohort_characteristics_cohort_id ON cohorts.cohort_characteristics(cohort_id);
+CREATE INDEX IF NOT EXISTS idx_cohort_characteristics_type ON cohorts.cohort_characteristics(characteristic_type);
+CREATE INDEX IF NOT EXISTS idx_cohort_characteristics_name ON cohorts.cohort_characteristics(characteristic_name);
+CREATE INDEX IF NOT EXISTS idx_cohort_characteristics_current ON cohorts.cohort_characteristics(is_current) WHERE is_current = true;
 
 -- Cohort similarity matrix indexes
-CREATE INDEX idx_cohort_similarity_matrix_brand_id ON cohorts.cohort_similarity_matrix(brand_id);
-CREATE INDEX idx_cohort_similarity_matrix_cohort_a ON cohorts.cohort_similarity_matrix(cohort_a_id);
-CREATE INDEX idx_cohort_similarity_matrix_cohort_b ON cohorts.cohort_similarity_matrix(cohort_b_id);
-CREATE INDEX idx_cohort_similarity_matrix_relationship ON cohorts.cohort_similarity_matrix(relationship_type);
+CREATE INDEX IF NOT EXISTS idx_cohort_similarity_matrix_brand_id ON cohorts.cohort_similarity_matrix(brand_id);
+CREATE INDEX IF NOT EXISTS idx_cohort_similarity_matrix_cohort_a ON cohorts.cohort_similarity_matrix(cohort_a_id);
+CREATE INDEX IF NOT EXISTS idx_cohort_similarity_matrix_cohort_b ON cohorts.cohort_similarity_matrix(cohort_b_id);
+CREATE INDEX IF NOT EXISTS idx_cohort_similarity_matrix_relationship ON cohorts.cohort_similarity_matrix(relationship_type);
 
 -- Cohort performance metrics indexes
-CREATE INDEX idx_cohort_performance_metrics_cohort_id ON cohorts.cohort_performance_metrics(cohort_id);
-CREATE INDEX idx_cohort_performance_metrics_name ON cohorts.cohort_performance_metrics(metric_name);
-CREATE INDEX idx_cohort_performance_metrics_measurement_date ON cohorts.cohort_performance_metrics(measurement_date);
-CREATE INDEX idx_cohort_performance_metrics_context ON cohorts.cohort_performance_metrics(context_type);
+CREATE INDEX IF NOT EXISTS idx_cohort_performance_metrics_cohort_id ON cohorts.cohort_performance_metrics(cohort_id);
+CREATE INDEX IF NOT EXISTS idx_cohort_performance_metrics_name ON cohorts.cohort_performance_metrics(metric_name);
+CREATE INDEX IF NOT EXISTS idx_cohort_performance_metrics_measurement_date ON cohorts.cohort_performance_metrics(measurement_date);
+CREATE INDEX IF NOT EXISTS idx_cohort_performance_metrics_context ON cohorts.cohort_performance_metrics(context_type);
 
 -- Vector similarity search index for centroids
 -- Note: Enable when pgvector extension is available
--- CREATE INDEX idx_cohorts_centroid_similarity 
+-- CREATE INDEX IF NOT EXISTS idx_cohorts_centroid_similarity 
 -- ON cohorts.cohorts 
 -- USING ivfflat (centroid_vector vector_cosine_ops) 
 -- WITH (lists = 100);

@@ -455,57 +455,57 @@ CREATE TABLE ai.ai_system_state (
 -- =====================================================
 
 -- Functions indexes
-CREATE INDEX idx_functions_brand_id ON ai.functions(brand_id) WHERE brand_id IS NOT NULL;
-CREATE INDEX idx_functions_name ON ai.functions(function_name);
-CREATE INDEX idx_functions_type ON ai.functions(function_type);
-CREATE INDEX idx_functions_category ON ai.functions(function_category);
-CREATE INDEX idx_functions_active ON ai.functions(is_active) WHERE is_active = true;
-CREATE INDEX idx_functions_deprecated ON ai.functions(is_deprecated) WHERE is_deprecated = true;
-CREATE INDEX idx_functions_validation_status ON ai.functions(validation_status);
+CREATE INDEX IF NOT EXISTS idx_functions_brand_id ON ai.functions(brand_id) WHERE brand_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_functions_name ON ai.functions(function_name);
+CREATE INDEX IF NOT EXISTS idx_functions_type ON ai.functions(function_type);
+CREATE INDEX IF NOT EXISTS idx_functions_category ON ai.functions(function_category);
+CREATE INDEX IF NOT EXISTS idx_functions_active ON ai.functions(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_functions_deprecated ON ai.functions(is_deprecated) WHERE is_deprecated = true;
+CREATE INDEX IF NOT EXISTS idx_functions_validation_status ON ai.functions(validation_status);
 
 -- Function calls indexes
-CREATE INDEX idx_function_calls_function_id ON ai.function_calls(function_id);
-CREATE INDEX idx_function_calls_brand_id ON ai.function_calls(brand_id);
-CREATE INDEX idx_function_calls_timestamp ON ai.function_calls(call_timestamp);
-CREATE INDEX idx_function_calls_type ON ai.function_calls(call_type);
-CREATE INDEX idx_function_calls_status ON ai.function_calls(execution_status);
-CREATE INDEX idx_function_calls_related_entity ON ai.function_calls(related_entity_type, related_entity_id) WHERE related_entity_id IS NOT NULL;
-CREATE INDEX idx_function_calls_parent ON ai.function_calls(parent_call_id) WHERE parent_call_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_function_calls_function_id ON ai.function_calls(function_id);
+CREATE INDEX IF NOT EXISTS idx_function_calls_brand_id ON ai.function_calls(brand_id);
+CREATE INDEX IF NOT EXISTS idx_function_calls_timestamp ON ai.function_calls(call_timestamp);
+CREATE INDEX IF NOT EXISTS idx_function_calls_type ON ai.function_calls(call_type);
+CREATE INDEX IF NOT EXISTS idx_function_calls_status ON ai.function_calls(execution_status);
+CREATE INDEX IF NOT EXISTS idx_function_calls_related_entity ON ai.function_calls(related_entity_type, related_entity_id) WHERE related_entity_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_function_calls_parent ON ai.function_calls(parent_call_id) WHERE parent_call_id IS NOT NULL;
 
 -- Reasoning logs indexes
-CREATE INDEX idx_reasoning_logs_brand_id ON ai.reasoning_logs(brand_id);
-CREATE INDEX idx_reasoning_logs_type ON ai.reasoning_logs(reasoning_type);
-CREATE INDEX idx_reasoning_logs_scope ON ai.reasoning_logs(reasoning_scope);
-CREATE INDEX idx_reasoning_logs_scope_id ON ai.reasoning_logs(scope_id) WHERE scope_id IS NOT NULL;
-CREATE INDEX idx_reasoning_logs_started_at ON ai.reasoning_logs(reasoning_started_at);
-CREATE INDEX idx_reasoning_logs_reviewed ON ai.reasoning_logs(is_reviewed) WHERE is_reviewed = true;
+CREATE INDEX IF NOT EXISTS idx_reasoning_logs_brand_id ON ai.reasoning_logs(brand_id);
+CREATE INDEX IF NOT EXISTS idx_reasoning_logs_type ON ai.reasoning_logs(reasoning_type);
+CREATE INDEX IF NOT EXISTS idx_reasoning_logs_scope ON ai.reasoning_logs(reasoning_scope);
+CREATE INDEX IF NOT EXISTS idx_reasoning_logs_scope_id ON ai.reasoning_logs(scope_id) WHERE scope_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_reasoning_logs_started_at ON ai.reasoning_logs(reasoning_started_at);
+CREATE INDEX IF NOT EXISTS idx_reasoning_logs_reviewed ON ai.reasoning_logs(is_reviewed) WHERE is_reviewed = true;
 
 -- Learning logs indexes
-CREATE INDEX idx_learning_logs_brand_id ON ai.learning_logs(brand_id);
-CREATE INDEX idx_learning_logs_type ON ai.learning_logs(learning_type);
-CREATE INDEX idx_learning_logs_category ON ai.learning_logs(learning_category);
-CREATE INDEX idx_learning_logs_method ON ai.learning_logs(learning_method);
-CREATE INDEX idx_learning_logs_impact_scope ON ai.learning_logs(impact_scope);
-CREATE INDEX idx_learning_logs_implementation_status ON ai.learning_logs(implementation_status);
-CREATE INDEX idx_learning_logs_validation_status ON ai.learning_logs(validation_status);
-CREATE INDEX idx_learning_logs_active ON ai.learning_logs(is_active) WHERE is_active = true;
-CREATE INDEX idx_learning_logs_learned_at ON ai.learning_logs(learned_at);
+CREATE INDEX IF NOT EXISTS idx_learning_logs_brand_id ON ai.learning_logs(brand_id);
+CREATE INDEX IF NOT EXISTS idx_learning_logs_type ON ai.learning_logs(learning_type);
+CREATE INDEX IF NOT EXISTS idx_learning_logs_category ON ai.learning_logs(learning_category);
+CREATE INDEX IF NOT EXISTS idx_learning_logs_method ON ai.learning_logs(learning_method);
+CREATE INDEX IF NOT EXISTS idx_learning_logs_impact_scope ON ai.learning_logs(impact_scope);
+CREATE INDEX IF NOT EXISTS idx_learning_logs_implementation_status ON ai.learning_logs(implementation_status);
+CREATE INDEX IF NOT EXISTS idx_learning_logs_validation_status ON ai.learning_logs(validation_status);
+CREATE INDEX IF NOT EXISTS idx_learning_logs_active ON ai.learning_logs(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_learning_logs_learned_at ON ai.learning_logs(learned_at);
 
 -- Contradiction logs indexes
-CREATE INDEX idx_contradiction_logs_brand_id ON ai.contradiction_logs(brand_id);
-CREATE INDEX idx_contradiction_logs_type ON ai.contradiction_logs(contradiction_type);
-CREATE INDEX idx_contradiction_logs_severity ON ai.contradiction_logs(contradiction_severity);
-CREATE INDEX idx_contradiction_logs_scope_type ON ai.contradiction_logs(scope_type);
-CREATE INDEX idx_contradiction_logs_scope_id ON ai.contradiction_logs(scope_id) WHERE scope_id IS NOT NULL;
-CREATE INDEX idx_contradiction_logs_resolution_status ON ai.contradiction_logs(resolution_status);
-CREATE INDEX idx_contradiction_logs_detected_at ON ai.contradiction_logs(detected_at);
-CREATE INDEX idx_contradiction_logs_investigation ON ai.contradiction_logs(requires_investigation) WHERE requires_investigation = true;
+CREATE INDEX IF NOT EXISTS idx_contradiction_logs_brand_id ON ai.contradiction_logs(brand_id);
+CREATE INDEX IF NOT EXISTS idx_contradiction_logs_type ON ai.contradiction_logs(contradiction_type);
+CREATE INDEX IF NOT EXISTS idx_contradiction_logs_severity ON ai.contradiction_logs(contradiction_severity);
+CREATE INDEX IF NOT EXISTS idx_contradiction_logs_scope_type ON ai.contradiction_logs(scope_type);
+CREATE INDEX IF NOT EXISTS idx_contradiction_logs_scope_id ON ai.contradiction_logs(scope_id) WHERE scope_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_contradiction_logs_resolution_status ON ai.contradiction_logs(resolution_status);
+CREATE INDEX IF NOT EXISTS idx_contradiction_logs_detected_at ON ai.contradiction_logs(detected_at);
+CREATE INDEX IF NOT EXISTS idx_contradiction_logs_investigation ON ai.contradiction_logs(requires_investigation) WHERE requires_investigation = true;
 
 -- AI system state indexes
-CREATE INDEX idx_ai_system_state_brand_id ON ai.ai_system_state(brand_id) WHERE brand_id IS NOT NULL;
-CREATE INDEX idx_ai_system_state_version ON ai.ai_system_state(system_version);
-CREATE INDEX idx_ai_system_state_last_updated ON ai.ai_system_state(last_updated_at);
-CREATE INDEX idx_ai_system_state_learning_mode ON ai.ai_system_state(learning_mode);
+CREATE INDEX IF NOT EXISTS idx_ai_system_state_brand_id ON ai.ai_system_state(brand_id) WHERE brand_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_ai_system_state_version ON ai.ai_system_state(system_version);
+CREATE INDEX IF NOT EXISTS idx_ai_system_state_last_updated ON ai.ai_system_state(last_updated_at);
+CREATE INDEX IF NOT EXISTS idx_ai_system_state_learning_mode ON ai.ai_system_state(learning_mode);
 
 -- =====================================================
 -- TRIGGERS FOR AI SCHEMA

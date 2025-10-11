@@ -538,67 +538,67 @@ CREATE TABLE actors.actor_clustering_metadata (
 -- =====================================================
 
 -- Actors core indexes
-CREATE INDEX idx_actors_brand_id ON actors.actors(brand_id);
-CREATE INDEX idx_actors_primary_identifier ON actors.actors(primary_identifier);
-CREATE INDEX idx_actors_primary_identifier_type ON actors.actors(primary_identifier_type);
-CREATE INDEX idx_actors_last_seen_at ON actors.actors(last_seen_at);
-CREATE INDEX idx_actors_is_active ON actors.actors(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_actors_brand_id ON actors.actors(brand_id);
+CREATE INDEX IF NOT EXISTS idx_actors_primary_identifier ON actors.actors(primary_identifier);
+CREATE INDEX IF NOT EXISTS idx_actors_primary_identifier_type ON actors.actors(primary_identifier_type);
+CREATE INDEX IF NOT EXISTS idx_actors_last_seen_at ON actors.actors(last_seen_at);
+CREATE INDEX IF NOT EXISTS idx_actors_is_active ON actors.actors(is_active) WHERE is_active = true;
 
 -- Demographics indexes
-CREATE INDEX idx_actor_demographics_actor_id ON actors.actor_demographics(actor_id);
-CREATE INDEX idx_actor_demographics_attribute_name ON actors.actor_demographics(attribute_name);
-CREATE INDEX idx_actor_demographics_is_current ON actors.actor_demographics(is_current) WHERE is_current = true;
+CREATE INDEX IF NOT EXISTS idx_actor_demographics_actor_id ON actors.actor_demographics(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_demographics_attribute_name ON actors.actor_demographics(attribute_name);
+CREATE INDEX IF NOT EXISTS idx_actor_demographics_is_current ON actors.actor_demographics(is_current) WHERE is_current = true;
 
 -- Identity beliefs indexes
-CREATE INDEX idx_actor_identity_beliefs_actor_id ON actors.actor_identity_beliefs(actor_id);
-CREATE INDEX idx_actor_identity_beliefs_dimension ON actors.actor_identity_beliefs(identity_dimension);
-CREATE INDEX idx_actor_identity_beliefs_contradiction ON actors.actor_identity_beliefs(is_contradiction) WHERE is_contradiction = true;
+CREATE INDEX IF NOT EXISTS idx_actor_identity_beliefs_actor_id ON actors.actor_identity_beliefs(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_identity_beliefs_dimension ON actors.actor_identity_beliefs(identity_dimension);
+CREATE INDEX IF NOT EXISTS idx_actor_identity_beliefs_contradiction ON actors.actor_identity_beliefs(is_contradiction) WHERE is_contradiction = true;
 
 -- Behavioral scores indexes
-CREATE INDEX idx_actor_behavioral_scores_actor_id ON actors.actor_behavioral_scores(actor_id);
-CREATE INDEX idx_actor_behavioral_scores_behavior_type ON actors.actor_behavioral_scores(behavior_type);
-CREATE INDEX idx_actor_behavioral_scores_context ON actors.actor_behavioral_scores(context) WHERE context IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_actor_behavioral_scores_actor_id ON actors.actor_behavioral_scores(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_behavioral_scores_behavior_type ON actors.actor_behavioral_scores(behavior_type);
+CREATE INDEX IF NOT EXISTS idx_actor_behavioral_scores_context ON actors.actor_behavioral_scores(context) WHERE context IS NOT NULL;
 
 -- Communication profiles indexes
-CREATE INDEX idx_actor_communication_profiles_actor_id ON actors.actor_communication_profiles(actor_id);
-CREATE INDEX idx_actor_communication_profiles_channel ON actors.actor_communication_profiles(preferred_channel);
+CREATE INDEX IF NOT EXISTS idx_actor_communication_profiles_actor_id ON actors.actor_communication_profiles(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_communication_profiles_channel ON actors.actor_communication_profiles(preferred_channel);
 
 -- Psychological triggers indexes
-CREATE INDEX idx_actor_psychological_triggers_actor_id ON actors.actor_psychological_triggers(actor_id);
-CREATE INDEX idx_actor_psychological_triggers_type ON actors.actor_psychological_triggers(trigger_type);
+CREATE INDEX IF NOT EXISTS idx_actor_psychological_triggers_actor_id ON actors.actor_psychological_triggers(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_psychological_triggers_type ON actors.actor_psychological_triggers(trigger_type);
 
 -- Preferences indexes
-CREATE INDEX idx_actor_preferences_actor_id ON actors.actor_preferences(actor_id);
-CREATE INDEX idx_actor_preferences_category ON actors.actor_preferences(preference_category);
-CREATE INDEX idx_actor_preferences_contradiction ON actors.actor_preferences(is_contradiction) WHERE is_contradiction = true;
+CREATE INDEX IF NOT EXISTS idx_actor_preferences_actor_id ON actors.actor_preferences(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_preferences_category ON actors.actor_preferences(preference_category);
+CREATE INDEX IF NOT EXISTS idx_actor_preferences_contradiction ON actors.actor_preferences(is_contradiction) WHERE is_contradiction = true;
 
 -- Memory loops indexes
-CREATE INDEX idx_actor_memory_loops_actor_id ON actors.actor_memory_loops(actor_id);
-CREATE INDEX idx_actor_memory_loops_type ON actors.actor_memory_loops(loop_type);
+CREATE INDEX IF NOT EXISTS idx_actor_memory_loops_actor_id ON actors.actor_memory_loops(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_memory_loops_type ON actors.actor_memory_loops(loop_type);
 
 -- Friction points indexes
-CREATE INDEX idx_actor_friction_points_actor_id ON actors.actor_friction_points(actor_id);
-CREATE INDEX idx_actor_friction_points_type ON actors.actor_friction_points(friction_type);
-CREATE INDEX idx_actor_friction_points_resolved ON actors.actor_friction_points(is_resolved) WHERE is_resolved = false;
+CREATE INDEX IF NOT EXISTS idx_actor_friction_points_actor_id ON actors.actor_friction_points(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_friction_points_type ON actors.actor_friction_points(friction_type);
+CREATE INDEX IF NOT EXISTS idx_actor_friction_points_resolved ON actors.actor_friction_points(is_resolved) WHERE is_resolved = false;
 
 -- Contradictions indexes
-CREATE INDEX idx_actor_contradictions_actor_id ON actors.actor_contradictions(actor_id);
-CREATE INDEX idx_actor_contradictions_type ON actors.actor_contradictions(contradiction_type);
-CREATE INDEX idx_actor_contradictions_resolved ON actors.actor_contradictions(is_resolved) WHERE is_resolved = false;
+CREATE INDEX IF NOT EXISTS idx_actor_contradictions_actor_id ON actors.actor_contradictions(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_contradictions_type ON actors.actor_contradictions(contradiction_type);
+CREATE INDEX IF NOT EXISTS idx_actor_contradictions_resolved ON actors.actor_contradictions(is_resolved) WHERE is_resolved = false;
 
 -- Belief vectors indexes
-CREATE INDEX idx_actor_belief_vectors_actor_id ON actors.actor_belief_vectors(actor_id);
-CREATE INDEX idx_actor_belief_vectors_type ON actors.actor_belief_vectors(vector_type);
-CREATE INDEX idx_actor_belief_vectors_current ON actors.actor_belief_vectors(is_current) WHERE is_current = true;
+CREATE INDEX IF NOT EXISTS idx_actor_belief_vectors_actor_id ON actors.actor_belief_vectors(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_belief_vectors_type ON actors.actor_belief_vectors(vector_type);
+CREATE INDEX IF NOT EXISTS idx_actor_belief_vectors_current ON actors.actor_belief_vectors(is_current) WHERE is_current = true;
 
 -- Clustering metadata indexes
-CREATE INDEX idx_actor_clustering_metadata_actor_id ON actors.actor_clustering_metadata(actor_id);
-CREATE INDEX idx_actor_clustering_metadata_run_id ON actors.actor_clustering_metadata(clustering_run_id);
-CREATE INDEX idx_actor_clustering_metadata_algorithm ON actors.actor_clustering_metadata(algorithm_used);
+CREATE INDEX IF NOT EXISTS idx_actor_clustering_metadata_actor_id ON actors.actor_clustering_metadata(actor_id);
+CREATE INDEX IF NOT EXISTS idx_actor_clustering_metadata_run_id ON actors.actor_clustering_metadata(clustering_run_id);
+CREATE INDEX IF NOT EXISTS idx_actor_clustering_metadata_algorithm ON actors.actor_clustering_metadata(algorithm_used);
 
 -- Vector similarity search index (using pgvector)
 -- Note: Enable when pgvector extension is available
--- CREATE INDEX idx_actor_belief_vectors_similarity 
+-- CREATE INDEX IF NOT EXISTS idx_actor_belief_vectors_similarity 
 -- ON actors.actor_belief_vectors 
 -- USING ivfflat (vector_data vector_cosine_ops) 
 -- WITH (lists = 100);

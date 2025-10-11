@@ -430,54 +430,54 @@ CREATE TABLE stimuli.stimulus_performance_metrics (
 -- =====================================================
 
 -- Stimuli base indexes
-CREATE INDEX idx_stimuli_base_brand_id ON stimuli.stimuli_base(brand_id);
-CREATE INDEX idx_stimuli_base_type ON stimuli.stimuli_base(stimulus_type);
-CREATE INDEX idx_stimuli_base_status ON stimuli.stimuli_base(status);
-CREATE INDEX idx_stimuli_base_target_cohort_id ON stimuli.stimuli_base(target_cohort_id) WHERE target_cohort_id IS NOT NULL;
-CREATE INDEX idx_stimuli_base_target_actor_id ON stimuli.stimuli_base(target_actor_id) WHERE target_actor_id IS NOT NULL;
-CREATE INDEX idx_stimuli_base_created_at ON stimuli.stimuli_base(created_at);
-CREATE INDEX idx_stimuli_base_scheduled_for ON stimuli.stimuli_base(scheduled_for) WHERE scheduled_for IS NOT NULL;
-CREATE INDEX idx_stimuli_base_priority ON stimuli.stimuli_base(priority);
+CREATE INDEX IF NOT EXISTS idx_stimuli_base_brand_id ON stimuli.stimuli_base(brand_id);
+CREATE INDEX IF NOT EXISTS idx_stimuli_base_type ON stimuli.stimuli_base(stimulus_type);
+CREATE INDEX IF NOT EXISTS idx_stimuli_base_status ON stimuli.stimuli_base(status);
+CREATE INDEX IF NOT EXISTS idx_stimuli_base_target_cohort_id ON stimuli.stimuli_base(target_cohort_id) WHERE target_cohort_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_stimuli_base_target_actor_id ON stimuli.stimuli_base(target_actor_id) WHERE target_actor_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_stimuli_base_created_at ON stimuli.stimuli_base(created_at);
+CREATE INDEX IF NOT EXISTS idx_stimuli_base_scheduled_for ON stimuli.stimuli_base(scheduled_for) WHERE scheduled_for IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_stimuli_base_priority ON stimuli.stimuli_base(priority);
 
 -- Offers indexes
-CREATE INDEX idx_offers_type ON stimuli.offers(offer_type);
-CREATE INDEX idx_offers_valid_from ON stimuli.offers(valid_from);
-CREATE INDEX idx_offers_valid_until ON stimuli.offers(valid_until);
-CREATE INDEX idx_offers_approval_status ON stimuli.offers(approval_status);
-CREATE INDEX idx_offers_redemption_count ON stimuli.offers(redemption_count);
+CREATE INDEX IF NOT EXISTS idx_offers_type ON stimuli.offers(offer_type);
+CREATE INDEX IF NOT EXISTS idx_offers_valid_from ON stimuli.offers(valid_from);
+CREATE INDEX IF NOT EXISTS idx_offers_valid_until ON stimuli.offers(valid_until);
+CREATE INDEX IF NOT EXISTS idx_offers_approval_status ON stimuli.offers(approval_status);
+CREATE INDEX IF NOT EXISTS idx_offers_redemption_count ON stimuli.offers(redemption_count);
 
 -- Campaigns indexes
-CREATE INDEX idx_campaigns_type ON stimuli.campaigns(campaign_type);
-CREATE INDEX idx_campaigns_goal ON stimuli.campaigns(campaign_goal);
-CREATE INDEX idx_campaigns_ab_test ON stimuli.campaigns(is_ab_test) WHERE is_ab_test = true;
-CREATE INDEX idx_campaigns_variant ON stimuli.campaigns(ab_test_variant);
+CREATE INDEX IF NOT EXISTS idx_campaigns_type ON stimuli.campaigns(campaign_type);
+CREATE INDEX IF NOT EXISTS idx_campaigns_goal ON stimuli.campaigns(campaign_goal);
+CREATE INDEX IF NOT EXISTS idx_campaigns_ab_test ON stimuli.campaigns(is_ab_test) WHERE is_ab_test = true;
+CREATE INDEX IF NOT EXISTS idx_campaigns_variant ON stimuli.campaigns(ab_test_variant);
 
 -- Messages indexes
-CREATE INDEX idx_messages_type ON stimuli.messages(message_type);
-CREATE INDEX idx_messages_channel ON stimuli.messages(message_channel);
-CREATE INDEX idx_messages_delivery_method ON stimuli.messages(delivery_method);
-CREATE INDEX idx_messages_expect_response ON stimuli.messages(expect_response) WHERE expect_response = true;
+CREATE INDEX IF NOT EXISTS idx_messages_type ON stimuli.messages(message_type);
+CREATE INDEX IF NOT EXISTS idx_messages_channel ON stimuli.messages(message_channel);
+CREATE INDEX IF NOT EXISTS idx_messages_delivery_method ON stimuli.messages(delivery_method);
+CREATE INDEX IF NOT EXISTS idx_messages_expect_response ON stimuli.messages(expect_response) WHERE expect_response = true;
 
 -- Stimulus deployments indexes
-CREATE INDEX idx_stimulus_deployments_stimulus_id ON stimuli.stimulus_deployments(stimulus_id);
-CREATE INDEX idx_stimulus_deployments_actor_id ON stimuli.stimulus_deployments(actor_id);
-CREATE INDEX idx_stimulus_deployments_channel ON stimuli.stimulus_deployments(deployment_channel);
-CREATE INDEX idx_stimulus_deployments_status ON stimuli.stimulus_deployments(delivery_status);
-CREATE INDEX idx_stimulus_deployments_deployed_at ON stimuli.stimulus_deployments(deployed_at);
-CREATE INDEX idx_stimulus_deployments_response_status ON stimuli.stimulus_deployments(response_status) WHERE response_status IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_stimulus_deployments_stimulus_id ON stimuli.stimulus_deployments(stimulus_id);
+CREATE INDEX IF NOT EXISTS idx_stimulus_deployments_actor_id ON stimuli.stimulus_deployments(actor_id);
+CREATE INDEX IF NOT EXISTS idx_stimulus_deployments_channel ON stimuli.stimulus_deployments(deployment_channel);
+CREATE INDEX IF NOT EXISTS idx_stimulus_deployments_status ON stimuli.stimulus_deployments(delivery_status);
+CREATE INDEX IF NOT EXISTS idx_stimulus_deployments_deployed_at ON stimuli.stimulus_deployments(deployed_at);
+CREATE INDEX IF NOT EXISTS idx_stimulus_deployments_response_status ON stimuli.stimulus_deployments(response_status) WHERE response_status IS NOT NULL;
 
 -- Stimulus templates indexes
-CREATE INDEX idx_stimulus_templates_brand_id ON stimuli.stimulus_templates(brand_id);
-CREATE INDEX idx_stimulus_templates_type ON stimuli.stimulus_templates(template_type);
-CREATE INDEX idx_stimulus_templates_category ON stimuli.stimulus_templates(template_category);
-CREATE INDEX idx_stimulus_templates_active ON stimuli.stimulus_templates(is_active) WHERE is_active = true;
-CREATE INDEX idx_stimulus_templates_usage_count ON stimuli.stimulus_templates(usage_count);
+CREATE INDEX IF NOT EXISTS idx_stimulus_templates_brand_id ON stimuli.stimulus_templates(brand_id);
+CREATE INDEX IF NOT EXISTS idx_stimulus_templates_type ON stimuli.stimulus_templates(template_type);
+CREATE INDEX IF NOT EXISTS idx_stimulus_templates_category ON stimuli.stimulus_templates(template_category);
+CREATE INDEX IF NOT EXISTS idx_stimulus_templates_active ON stimuli.stimulus_templates(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_stimulus_templates_usage_count ON stimuli.stimulus_templates(usage_count);
 
 -- Stimulus performance metrics indexes
-CREATE INDEX idx_stimulus_performance_metrics_stimulus_id ON stimuli.stimulus_performance_metrics(stimulus_id);
-CREATE INDEX idx_stimulus_performance_metrics_name ON stimuli.stimulus_performance_metrics(metric_name);
-CREATE INDEX idx_stimulus_performance_metrics_measurement_date ON stimuli.stimulus_performance_metrics(measurement_date);
-CREATE INDEX idx_stimulus_performance_metrics_context ON stimuli.stimulus_performance_metrics(context_type);
+CREATE INDEX IF NOT EXISTS idx_stimulus_performance_metrics_stimulus_id ON stimuli.stimulus_performance_metrics(stimulus_id);
+CREATE INDEX IF NOT EXISTS idx_stimulus_performance_metrics_name ON stimuli.stimulus_performance_metrics(metric_name);
+CREATE INDEX IF NOT EXISTS idx_stimulus_performance_metrics_measurement_date ON stimuli.stimulus_performance_metrics(measurement_date);
+CREATE INDEX IF NOT EXISTS idx_stimulus_performance_metrics_context ON stimuli.stimulus_performance_metrics(context_type);
 
 -- =====================================================
 -- TRIGGERS FOR STIMULI SCHEMA

@@ -196,34 +196,34 @@ CREATE TABLE core.audit_log (
 -- =====================================================
 
 -- Brands indexes
-CREATE INDEX idx_brands_slug ON core.brands(brand_slug);
-CREATE INDEX idx_brands_active ON core.brands(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_brands_slug ON core.brands(brand_slug);
+CREATE INDEX IF NOT EXISTS idx_brands_active ON core.brands(is_active) WHERE is_active = true;
 
 -- Users indexes
-CREATE INDEX idx_users_brand_id ON core.users(brand_id);
-CREATE INDEX idx_users_auth_user_id ON core.users(auth_user_id);
-CREATE INDEX idx_users_email ON core.users(email);
-CREATE INDEX idx_users_active ON core.users(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_users_brand_id ON core.users(brand_id);
+CREATE INDEX IF NOT EXISTS idx_users_auth_user_id ON core.users(auth_user_id);
+CREATE INDEX IF NOT EXISTS idx_users_email ON core.users(email);
+CREATE INDEX IF NOT EXISTS idx_users_active ON core.users(is_active) WHERE is_active = true;
 
 -- Brand settings indexes
-CREATE INDEX idx_brand_settings_brand_id ON core.brand_settings(brand_id);
-CREATE INDEX idx_brand_settings_key ON core.brand_settings(setting_key);
-CREATE INDEX idx_brand_settings_active ON core.brand_settings(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_brand_settings_brand_id ON core.brand_settings(brand_id);
+CREATE INDEX IF NOT EXISTS idx_brand_settings_key ON core.brand_settings(setting_key);
+CREATE INDEX IF NOT EXISTS idx_brand_settings_active ON core.brand_settings(is_active) WHERE is_active = true;
 
 -- System parameters indexes
-CREATE INDEX idx_system_parameters_key ON core.system_parameters(parameter_key);
-CREATE INDEX idx_system_parameters_editable ON core.system_parameters(is_editable) WHERE is_editable = true;
+CREATE INDEX IF NOT EXISTS idx_system_parameters_key ON core.system_parameters(parameter_key);
+CREATE INDEX IF NOT EXISTS idx_system_parameters_editable ON core.system_parameters(is_editable) WHERE is_editable = true;
 
 -- Brand integrations indexes
-CREATE INDEX idx_brand_integrations_brand_id ON core.brand_integrations(brand_id);
-CREATE INDEX idx_brand_integrations_service ON core.brand_integrations(service_name);
-CREATE INDEX idx_brand_integrations_status ON core.brand_integrations(status);
+CREATE INDEX IF NOT EXISTS idx_brand_integrations_brand_id ON core.brand_integrations(brand_id);
+CREATE INDEX IF NOT EXISTS idx_brand_integrations_service ON core.brand_integrations(service_name);
+CREATE INDEX IF NOT EXISTS idx_brand_integrations_status ON core.brand_integrations(status);
 
 -- Audit log indexes
-CREATE INDEX idx_audit_log_brand_id ON core.audit_log(brand_id);
-CREATE INDEX idx_audit_log_table_name ON core.audit_log(table_name);
-CREATE INDEX idx_audit_log_created_at ON core.audit_log(created_at);
-CREATE INDEX idx_audit_log_user_id ON core.audit_log(user_id);
+CREATE INDEX IF NOT EXISTS idx_audit_log_brand_id ON core.audit_log(brand_id);
+CREATE INDEX IF NOT EXISTS idx_audit_log_table_name ON core.audit_log(table_name);
+CREATE INDEX IF NOT EXISTS idx_audit_log_created_at ON core.audit_log(created_at);
+CREATE INDEX IF NOT EXISTS idx_audit_log_user_id ON core.audit_log(user_id);
 
 -- =====================================================
 -- TRIGGERS FOR CORE SCHEMA

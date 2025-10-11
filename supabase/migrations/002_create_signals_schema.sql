@@ -426,63 +426,63 @@ CREATE TABLE signals.crm_events (
 -- =====================================================
 
 -- Base signals indexes
-CREATE INDEX idx_signals_base_brand_id ON signals.signals_base(brand_id);
-CREATE INDEX idx_signals_base_signal_type ON signals.signals_base(signal_type);
-CREATE INDEX idx_signals_base_actor_id ON signals.signals_base(actor_id) WHERE actor_id IS NOT NULL;
-CREATE INDEX idx_signals_base_actor_identifier ON signals.signals_base(actor_identifier) WHERE actor_identifier IS NOT NULL;
-CREATE INDEX idx_signals_base_received_at ON signals.signals_base(received_at);
-CREATE INDEX idx_signals_base_processing_status ON signals.signals_base(processing_status);
-CREATE INDEX idx_signals_base_duplicate_of ON signals.signals_base(duplicate_of) WHERE duplicate_of IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_signals_base_brand_id ON signals.signals_base(brand_id);
+CREATE INDEX IF NOT EXISTS idx_signals_base_signal_type ON signals.signals_base(signal_type);
+CREATE INDEX IF NOT EXISTS idx_signals_base_actor_id ON signals.signals_base(actor_id) WHERE actor_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_signals_base_actor_identifier ON signals.signals_base(actor_identifier) WHERE actor_identifier IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_signals_base_received_at ON signals.signals_base(received_at);
+CREATE INDEX IF NOT EXISTS idx_signals_base_processing_status ON signals.signals_base(processing_status);
+CREATE INDEX IF NOT EXISTS idx_signals_base_duplicate_of ON signals.signals_base(duplicate_of) WHERE duplicate_of IS NOT NULL;
 
 -- WhatsApp messages indexes
-CREATE INDEX idx_whatsapp_messages_sender_phone ON signals.whatsapp_messages(sender_phone);
-CREATE INDEX idx_whatsapp_messages_conversation_id ON signals.whatsapp_messages(conversation_id);
-CREATE INDEX idx_whatsapp_messages_timestamp ON signals.whatsapp_messages(timestamp);
-CREATE INDEX idx_whatsapp_messages_is_inbound ON signals.whatsapp_messages(is_inbound);
+CREATE INDEX IF NOT EXISTS idx_whatsapp_messages_sender_phone ON signals.whatsapp_messages(sender_phone);
+CREATE INDEX IF NOT EXISTS idx_whatsapp_messages_conversation_id ON signals.whatsapp_messages(conversation_id);
+CREATE INDEX IF NOT EXISTS idx_whatsapp_messages_timestamp ON signals.whatsapp_messages(timestamp);
+CREATE INDEX IF NOT EXISTS idx_whatsapp_messages_is_inbound ON signals.whatsapp_messages(is_inbound);
 
 -- Reviews indexes
-CREATE INDEX idx_reviews_platform ON signals.reviews(platform);
-CREATE INDEX idx_reviews_rating ON signals.reviews(rating);
-CREATE INDEX idx_reviews_review_date ON signals.reviews(review_date);
-CREATE INDEX idx_reviews_platform_review_id ON signals.reviews(platform_review_id);
+CREATE INDEX IF NOT EXISTS idx_reviews_platform ON signals.reviews(platform);
+CREATE INDEX IF NOT EXISTS idx_reviews_rating ON signals.reviews(rating);
+CREATE INDEX IF NOT EXISTS idx_reviews_review_date ON signals.reviews(review_date);
+CREATE INDEX IF NOT EXISTS idx_reviews_platform_review_id ON signals.reviews(platform_review_id);
 
 -- Social comments indexes
-CREATE INDEX idx_social_comments_platform ON signals.social_comments(platform);
-CREATE INDEX idx_social_comments_commenter_username ON signals.social_comments(commenter_username);
-CREATE INDEX idx_social_comments_comment_date ON signals.social_comments(comment_date);
-CREATE INDEX idx_social_comments_platform_comment_id ON signals.social_comments(platform_comment_id);
+CREATE INDEX IF NOT EXISTS idx_social_comments_platform ON signals.social_comments(platform);
+CREATE INDEX IF NOT EXISTS idx_social_comments_commenter_username ON signals.social_comments(commenter_username);
+CREATE INDEX IF NOT EXISTS idx_social_comments_comment_date ON signals.social_comments(comment_date);
+CREATE INDEX IF NOT EXISTS idx_social_comments_platform_comment_id ON signals.social_comments(platform_comment_id);
 
 -- Order history indexes
-CREATE INDEX idx_order_history_order_number ON signals.order_history(order_number);
-CREATE INDEX idx_order_history_customer_phone ON signals.order_history(customer_phone) WHERE customer_phone IS NOT NULL;
-CREATE INDEX idx_order_history_customer_email ON signals.order_history(customer_email) WHERE customer_email IS NOT NULL;
-CREATE INDEX idx_order_history_order_date ON signals.order_history(order_date);
-CREATE INDEX idx_order_history_order_status ON signals.order_history(order_status);
+CREATE INDEX IF NOT EXISTS idx_order_history_order_number ON signals.order_history(order_number);
+CREATE INDEX IF NOT EXISTS idx_order_history_customer_phone ON signals.order_history(customer_phone) WHERE customer_phone IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_order_history_customer_email ON signals.order_history(customer_email) WHERE customer_email IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_order_history_order_date ON signals.order_history(order_date);
+CREATE INDEX IF NOT EXISTS idx_order_history_order_status ON signals.order_history(order_status);
 
 -- Web behavior indexes
-CREATE INDEX idx_web_behavior_session_id ON signals.web_behavior(session_id);
-CREATE INDEX idx_web_behavior_page_url ON signals.web_behavior(page_url);
-CREATE INDEX idx_web_behavior_timestamp ON signals.web_behavior(timestamp);
-CREATE INDEX idx_web_behavior_action_type ON signals.web_behavior(action_type);
+CREATE INDEX IF NOT EXISTS idx_web_behavior_session_id ON signals.web_behavior(session_id);
+CREATE INDEX IF NOT EXISTS idx_web_behavior_page_url ON signals.web_behavior(page_url);
+CREATE INDEX IF NOT EXISTS idx_web_behavior_timestamp ON signals.web_behavior(timestamp);
+CREATE INDEX IF NOT EXISTS idx_web_behavior_action_type ON signals.web_behavior(action_type);
 
 -- Email interactions indexes
-CREATE INDEX idx_email_interactions_sender_email ON signals.email_interactions(sender_email);
-CREATE INDEX idx_email_interactions_recipient_email ON signals.email_interactions(recipient_email);
-CREATE INDEX idx_email_interactions_campaign_id ON signals.email_interactions(campaign_id) WHERE campaign_id IS NOT NULL;
-CREATE INDEX idx_email_interactions_interaction_timestamp ON signals.email_interactions(interaction_timestamp);
+CREATE INDEX IF NOT EXISTS idx_email_interactions_sender_email ON signals.email_interactions(sender_email);
+CREATE INDEX IF NOT EXISTS idx_email_interactions_recipient_email ON signals.email_interactions(recipient_email);
+CREATE INDEX IF NOT EXISTS idx_email_interactions_campaign_id ON signals.email_interactions(campaign_id) WHERE campaign_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_email_interactions_interaction_timestamp ON signals.email_interactions(interaction_timestamp);
 
 -- Survey responses indexes
-CREATE INDEX idx_survey_responses_survey_id ON signals.survey_responses(survey_id);
-CREATE INDEX idx_survey_responses_respondent_email ON signals.survey_responses(respondent_email) WHERE respondent_email IS NOT NULL;
-CREATE INDEX idx_survey_responses_respondent_phone ON signals.survey_responses(respondent_phone) WHERE respondent_phone IS NOT NULL;
-CREATE INDEX idx_survey_responses_response_timestamp ON signals.survey_responses(response_timestamp);
+CREATE INDEX IF NOT EXISTS idx_survey_responses_survey_id ON signals.survey_responses(survey_id);
+CREATE INDEX IF NOT EXISTS idx_survey_responses_respondent_email ON signals.survey_responses(respondent_email) WHERE respondent_email IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_survey_responses_respondent_phone ON signals.survey_responses(respondent_phone) WHERE respondent_phone IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_survey_responses_response_timestamp ON signals.survey_responses(response_timestamp);
 
 -- CRM events indexes
-CREATE INDEX idx_crm_events_crm_system ON signals.crm_events(crm_system);
-CREATE INDEX idx_crm_events_event_type ON signals.crm_events(event_type);
-CREATE INDEX idx_crm_events_crm_record_id ON signals.crm_events(crm_record_id);
-CREATE INDEX idx_crm_events_event_timestamp ON signals.crm_events(event_timestamp);
-CREATE INDEX idx_crm_events_related_contact_id ON signals.crm_events(related_contact_id) WHERE related_contact_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_crm_events_crm_system ON signals.crm_events(crm_system);
+CREATE INDEX IF NOT EXISTS idx_crm_events_event_type ON signals.crm_events(event_type);
+CREATE INDEX IF NOT EXISTS idx_crm_events_crm_record_id ON signals.crm_events(crm_record_id);
+CREATE INDEX IF NOT EXISTS idx_crm_events_event_timestamp ON signals.crm_events(event_timestamp);
+CREATE INDEX IF NOT EXISTS idx_crm_events_related_contact_id ON signals.crm_events(related_contact_id) WHERE related_contact_id IS NOT NULL;
 
 -- =====================================================
 -- COMMENTS FOR SIGNALS SCHEMA

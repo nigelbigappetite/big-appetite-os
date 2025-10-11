@@ -357,50 +357,50 @@ CREATE TABLE outcomes.outcome_feedback_loop (
 -- =====================================================
 
 -- Outcomes indexes
-CREATE INDEX idx_outcomes_brand_id ON outcomes.outcomes(brand_id);
-CREATE INDEX idx_outcomes_stimulus_id ON outcomes.outcomes(stimulus_id) WHERE stimulus_id IS NOT NULL;
-CREATE INDEX idx_outcomes_target_cohort_id ON outcomes.outcomes(target_cohort_id) WHERE target_cohort_id IS NOT NULL;
-CREATE INDEX idx_outcomes_target_actor_id ON outcomes.outcomes(target_actor_id) WHERE target_actor_id IS NOT NULL;
-CREATE INDEX idx_outcomes_type ON outcomes.outcomes(outcome_type);
-CREATE INDEX idx_outcomes_category ON outcomes.outcomes(outcome_category);
-CREATE INDEX idx_outcomes_timestamp ON outcomes.outcomes(outcome_timestamp);
-CREATE INDEX idx_outcomes_processing_status ON outcomes.outcomes(processing_status);
+CREATE INDEX IF NOT EXISTS idx_outcomes_brand_id ON outcomes.outcomes(brand_id);
+CREATE INDEX IF NOT EXISTS idx_outcomes_stimulus_id ON outcomes.outcomes(stimulus_id) WHERE stimulus_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_outcomes_target_cohort_id ON outcomes.outcomes(target_cohort_id) WHERE target_cohort_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_outcomes_target_actor_id ON outcomes.outcomes(target_actor_id) WHERE target_actor_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_outcomes_type ON outcomes.outcomes(outcome_type);
+CREATE INDEX IF NOT EXISTS idx_outcomes_category ON outcomes.outcomes(outcome_category);
+CREATE INDEX IF NOT EXISTS idx_outcomes_timestamp ON outcomes.outcomes(outcome_timestamp);
+CREATE INDEX IF NOT EXISTS idx_outcomes_processing_status ON outcomes.outcomes(processing_status);
 
 -- Cohort outcome summary indexes
-CREATE INDEX idx_cohort_outcome_summary_brand_id ON outcomes.cohort_outcome_summary(brand_id);
-CREATE INDEX idx_cohort_outcome_summary_cohort_id ON outcomes.cohort_outcome_summary(cohort_id);
-CREATE INDEX idx_cohort_outcome_summary_stimulus_id ON outcomes.cohort_outcome_summary(stimulus_id) WHERE stimulus_id IS NOT NULL;
-CREATE INDEX idx_cohort_outcome_summary_type ON outcomes.cohort_outcome_summary(outcome_type);
-CREATE INDEX idx_cohort_outcome_summary_period_start ON outcomes.cohort_outcome_summary(summary_period_start);
-CREATE INDEX idx_cohort_outcome_summary_period_end ON outcomes.cohort_outcome_summary(summary_period_end);
+CREATE INDEX IF NOT EXISTS idx_cohort_outcome_summary_brand_id ON outcomes.cohort_outcome_summary(brand_id);
+CREATE INDEX IF NOT EXISTS idx_cohort_outcome_summary_cohort_id ON outcomes.cohort_outcome_summary(cohort_id);
+CREATE INDEX IF NOT EXISTS idx_cohort_outcome_summary_stimulus_id ON outcomes.cohort_outcome_summary(stimulus_id) WHERE stimulus_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_cohort_outcome_summary_type ON outcomes.cohort_outcome_summary(outcome_type);
+CREATE INDEX IF NOT EXISTS idx_cohort_outcome_summary_period_start ON outcomes.cohort_outcome_summary(summary_period_start);
+CREATE INDEX IF NOT EXISTS idx_cohort_outcome_summary_period_end ON outcomes.cohort_outcome_summary(summary_period_end);
 
 -- Outcome analysis indexes
-CREATE INDEX idx_outcome_analysis_brand_id ON outcomes.outcome_analysis(brand_id);
-CREATE INDEX idx_outcome_analysis_type ON outcomes.outcome_analysis(analysis_type);
-CREATE INDEX idx_outcome_analysis_scope ON outcomes.outcome_analysis(analysis_scope);
-CREATE INDEX idx_outcome_analysis_scope_id ON outcomes.outcome_analysis(scope_id) WHERE scope_id IS NOT NULL;
-CREATE INDEX idx_outcome_analysis_period_start ON outcomes.outcome_analysis(analysis_period_start);
-CREATE INDEX idx_outcome_analysis_period_end ON outcomes.outcome_analysis(analysis_period_end);
-CREATE INDEX idx_outcome_analysis_current ON outcomes.outcome_analysis(is_current) WHERE is_current = true;
+CREATE INDEX IF NOT EXISTS idx_outcome_analysis_brand_id ON outcomes.outcome_analysis(brand_id);
+CREATE INDEX IF NOT EXISTS idx_outcome_analysis_type ON outcomes.outcome_analysis(analysis_type);
+CREATE INDEX IF NOT EXISTS idx_outcome_analysis_scope ON outcomes.outcome_analysis(analysis_scope);
+CREATE INDEX IF NOT EXISTS idx_outcome_analysis_scope_id ON outcomes.outcome_analysis(scope_id) WHERE scope_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_outcome_analysis_period_start ON outcomes.outcome_analysis(analysis_period_start);
+CREATE INDEX IF NOT EXISTS idx_outcome_analysis_period_end ON outcomes.outcome_analysis(analysis_period_end);
+CREATE INDEX IF NOT EXISTS idx_outcome_analysis_current ON outcomes.outcome_analysis(is_current) WHERE is_current = true;
 
 -- Outcome learning indexes
-CREATE INDEX idx_outcome_learning_brand_id ON outcomes.outcome_learning(brand_id);
-CREATE INDEX idx_outcome_learning_type ON outcomes.outcome_learning(learning_type);
-CREATE INDEX idx_outcome_learning_category ON outcomes.outcome_learning(learning_category);
-CREATE INDEX idx_outcome_learning_impact_scope ON outcomes.outcome_learning(impact_scope);
-CREATE INDEX idx_outcome_learning_impact_scope_id ON outcomes.outcome_learning(impact_scope_id) WHERE impact_scope_id IS NOT NULL;
-CREATE INDEX idx_outcome_learning_implementation_status ON outcomes.outcome_learning(implementation_status);
-CREATE INDEX idx_outcome_learning_validation_status ON outcomes.outcome_learning(validation_status);
-CREATE INDEX idx_outcome_learning_active ON outcomes.outcome_learning(is_active) WHERE is_active = true;
+CREATE INDEX IF NOT EXISTS idx_outcome_learning_brand_id ON outcomes.outcome_learning(brand_id);
+CREATE INDEX IF NOT EXISTS idx_outcome_learning_type ON outcomes.outcome_learning(learning_type);
+CREATE INDEX IF NOT EXISTS idx_outcome_learning_category ON outcomes.outcome_learning(learning_category);
+CREATE INDEX IF NOT EXISTS idx_outcome_learning_impact_scope ON outcomes.outcome_learning(impact_scope);
+CREATE INDEX IF NOT EXISTS idx_outcome_learning_impact_scope_id ON outcomes.outcome_learning(impact_scope_id) WHERE impact_scope_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_outcome_learning_implementation_status ON outcomes.outcome_learning(implementation_status);
+CREATE INDEX IF NOT EXISTS idx_outcome_learning_validation_status ON outcomes.outcome_learning(validation_status);
+CREATE INDEX IF NOT EXISTS idx_outcome_learning_active ON outcomes.outcome_learning(is_active) WHERE is_active = true;
 
 -- Outcome feedback loop indexes
-CREATE INDEX idx_outcome_feedback_loop_brand_id ON outcomes.outcome_feedback_loop(brand_id);
-CREATE INDEX idx_outcome_feedback_loop_type ON outcomes.outcome_feedback_loop(feedback_type);
-CREATE INDEX idx_outcome_feedback_loop_target_entity_type ON outcomes.outcome_feedback_loop(target_entity_type);
-CREATE INDEX idx_outcome_feedback_loop_target_entity_id ON outcomes.outcome_feedback_loop(target_entity_id);
-CREATE INDEX idx_outcome_feedback_loop_processing_status ON outcomes.outcome_feedback_loop(processing_status);
-CREATE INDEX idx_outcome_feedback_loop_priority ON outcomes.outcome_feedback_loop(feedback_priority);
-CREATE INDEX idx_outcome_feedback_loop_created_at ON outcomes.outcome_feedback_loop(created_at);
+CREATE INDEX IF NOT EXISTS idx_outcome_feedback_loop_brand_id ON outcomes.outcome_feedback_loop(brand_id);
+CREATE INDEX IF NOT EXISTS idx_outcome_feedback_loop_type ON outcomes.outcome_feedback_loop(feedback_type);
+CREATE INDEX IF NOT EXISTS idx_outcome_feedback_loop_target_entity_type ON outcomes.outcome_feedback_loop(target_entity_type);
+CREATE INDEX IF NOT EXISTS idx_outcome_feedback_loop_target_entity_id ON outcomes.outcome_feedback_loop(target_entity_id);
+CREATE INDEX IF NOT EXISTS idx_outcome_feedback_loop_processing_status ON outcomes.outcome_feedback_loop(processing_status);
+CREATE INDEX IF NOT EXISTS idx_outcome_feedback_loop_priority ON outcomes.outcome_feedback_loop(feedback_priority);
+CREATE INDEX IF NOT EXISTS idx_outcome_feedback_loop_created_at ON outcomes.outcome_feedback_loop(created_at);
 
 -- =====================================================
 -- TRIGGERS FOR OUTCOMES SCHEMA
