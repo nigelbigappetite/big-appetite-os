@@ -100,7 +100,7 @@ CREATE INDEX idx_reviews_text_search ON signals.reviews USING gin(to_tsvector('e
 CREATE INDEX idx_social_comments_text_search ON signals.social_comments USING gin(to_tsvector('english', comment_text)) WHERE comment_text IS NOT NULL;
 
 -- Text search indexes for reasoning logs
-CREATE INDEX idx_reasoning_logs_text_search ON ai.reasoning_logs USING gin(to_tsvector('english', decision_made || ' ' || COALESCE(reasoning_description, '')));
+CREATE INDEX idx_reasoning_logs_text_search ON ai.reasoning_logs USING gin(to_tsvector('english', decision_made));
 
 -- Text search indexes for learning logs
 CREATE INDEX idx_learning_logs_text_search ON ai.learning_logs USING gin(to_tsvector('english', learning_description || ' ' || COALESCE(knowledge_gained::text, '')));
