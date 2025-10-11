@@ -1,0 +1,22 @@
+{
+  "name": "big-appetite-os-csv-ingestion",
+  "version": "1.0.0",
+  "description": "WhatsApp CSV signal ingestion tool for Big Appetite OS",
+  "main": "src/ingest.js",
+  "type": "module",
+  "scripts": {
+    "ingest": "node src/ingest.js",
+    "test": "node src/test.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "csv-parser": "^3.0.0",
+    "commander": "^11.1.0",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1",
+    "dotenv": "^16.3.1"
+  },
+  "keywords": ["whatsapp", "csv", "ingestion", "supabase", "signals"],
+  "author": "Big Appetite OS",
+  "license": "MIT"
+}

@@ -1,0 +1,11 @@
+timestamp,sender,message,phone_number,brand,direction,conversation_id
+2025-09-29 01:17:18,~George,Hi ordered through your Rayleigh shop...,447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:19:14,Wingverse,Hi there I'll have a look...,447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:20:45,~George,Thanks,447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:21:12,Wingverse,No problem! Your order is ready...,447473880264,wing_shack,outbound,conv_001
+2025-09-29 02:15:30,~Sarah,Are you open today?,447123456789,wing_shack,inbound,conv_002
+2025-09-29 02:16:45,Wingverse,Yes we're open until 10pm...,447123456789,wing_shack,outbound,conv_002
+2025-09-29 02:17:20,~Sarah,Great! I'll come by later,447123456789,wing_shack,inbound,conv_002
+2025-09-29 03:45:12,~Mike,What's your spiciest wing?,447987654321,wing_shack,inbound,conv_003
+2025-09-29 03:46:30,Wingverse,Our Carolina Reaper wings are...,447987654321,wing_shack,outbound,conv_003
+2025-09-29 03:47:15,~Mike,Perfect! I'll take 12 of those,447987654321,wing_shack,inbound,conv_003
