@@ -36,20 +36,20 @@ ON CONFLICT (actor_id) DO NOTHING;
 -- =====================================================
 
 -- Spice Lovers cohort
-INSERT INTO cohorts.cohorts (cohort_id, brand_id, cohort_name, cohort_type, cohort_status, discovered_at, discovery_algorithm, cohort_signature, member_count, stability_score, metadata) VALUES
-('cohort_001'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'Spice Lovers', 'behavioral', 'active', NOW() - INTERVAL '1 month', 'kmeans', '{"preferences": ["spicy_food"], "behavior": ["frequent_orders"], "demographics": ["young_adults"]}'::jsonb, 1, 0.85, '{"description": "Customers who prefer spicy options"}'::jsonb)
+INSERT INTO cohorts.cohorts (cohort_id, brand_id, cohort_name, cohort_type, cohort_status, discovered_at, discovery_algorithm, cohort_signature, member_count, stability_score) VALUES
+('cohort_001'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'Spice Lovers', 'behavioral', 'active', NOW() - INTERVAL '1 month', 'kmeans', '{"preferences": ["spicy_food"], "behavior": ["frequent_orders"], "demographics": ["young_adults"]}'::jsonb, 1, 0.85)
 ON CONFLICT (cohort_id) DO NOTHING;
 
 -- Health Conscious cohort
-INSERT INTO cohorts.cohorts (cohort_id, brand_id, cohort_name, cohort_type, cohort_status, discovered_at, discovery_algorithm, cohort_signature, member_count, stability_score, metadata) VALUES
-('cohort_002'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'Health Conscious', 'behavioral', 'active', NOW() - INTERVAL '1 month', 'kmeans', '{"preferences": ["healthy_options"], "behavior": ["asks_nutrition"], "demographics": ["middle_aged"]}'::jsonb, 1, 0.80, '{"description": "Customers focused on healthy eating"}'::jsonb)
+INSERT INTO cohorts.cohorts (cohort_id, brand_id, cohort_name, cohort_type, cohort_status, discovered_at, discovery_algorithm, cohort_signature, member_count, stability_score) VALUES
+('cohort_002'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'Health Conscious', 'behavioral', 'active', NOW() - INTERVAL '1 month', 'kmeans', '{"preferences": ["healthy_options"], "behavior": ["asks_nutrition"], "demographics": ["middle_aged"]}'::jsonb, 1, 0.80)
 ON CONFLICT (cohort_id) DO NOTHING;
 
 -- =====================================================
 -- COHORT MEMBERSHIPS
 -- =====================================================
 
-INSERT INTO cohorts.actor_cohort_membership (actor_id, cohort_id, membership_type, membership_confidence, joined_at, is_active, metadata) VALUES
-('550e8400-e29b-41d4-a716-446655440100'::UUID, 'cohort_001'::UUID, 'primary', 0.9, NOW() - INTERVAL '1 month', true, '{"reason": "Frequent spicy wing orders"}'::jsonb),
-('550e8400-e29b-41d4-a716-446655440101'::UUID, 'cohort_002'::UUID, 'primary', 0.85, NOW() - INTERVAL '1 month', true, '{"reason": "Asks about nutrition, orders grilled options"}'::jsonb)
+INSERT INTO cohorts.actor_cohort_membership (actor_id, cohort_id, membership_type, membership_confidence, joined_at, is_active) VALUES
+('550e8400-e29b-41d4-a716-446655440100'::UUID, 'cohort_001'::UUID, 'primary', 0.9, NOW() - INTERVAL '1 month', true),
+('550e8400-e29b-41d4-a716-446655440101'::UUID, 'cohort_002'::UUID, 'primary', 0.85, NOW() - INTERVAL '1 month', true)
 ON CONFLICT (actor_id, cohort_id) DO NOTHING;
