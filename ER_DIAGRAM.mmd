@@ -1,0 +1,201 @@
+graph TB
+    %% CORE Schema
+    subgraph CORE["CORE Schema - Global Configuration"]
+        BRANDS[brands<br/>Central tenant isolation]
+        USERS[users<br/>Brand-scoped user management]
+        SETTINGS[brand_settings<br/>Flexible configuration]
+        PARAMS[system_parameters<br/>Global configuration]
+        INTEGRATIONS[brand_integrations<br/>External service connections]
+        AUDIT[audit_log<br/>System-wide audit trail]
+    end
+
+    %% SIGNALS Schema
+    subgraph SIGNALS["SIGNALS Schema - Input from the World"]
+        SIGNALS_BASE[signals_base<br/>Common fields for all signals]
+        WHATSAPP[whatsapp_messages<br/>WhatsApp conversations]
+        REVIEWS[reviews<br/>Customer reviews]
+        SOCIAL[social_comments<br/>Social media interactions]
+        ORDERS[order_history<br/>Customer order history]
+        WEB[web_behavior<br/>Website user behavior]
+        EMAIL[email_interactions<br/>Email marketing]
+        SURVEYS[survey_responses<br/>Survey and feedback]
+        CRM[crm_events<br/>CRM system events]
+    end
+
+    %% ACTORS Schema
+    subgraph ACTORS["ACTORS Schema - Understanding of People"]
+        ACTORS_CORE[actors<br/>Central actor registry]
+        DEMOGRAPHICS[actor_demographics<br/>Bayesian demographic beliefs]
+        IDENTITY[actor_identity_beliefs<br/>Stated vs. behavioral identity]
+        BEHAVIORAL[actor_behavioral_scores<br/>Context-dependent patterns]
+        COMMUNICATION[actor_communication_profiles<br/>Communication preferences]
+        TRIGGERS[actor_psychological_triggers<br/>Motivational triggers]
+        PREFERENCES[actor_preferences<br/>Stated vs. actual preferences]
+        MEMORY[actor_memory_loops<br/>Recurring patterns]
+        FRICTION[actor_friction_points<br/>Experience friction]
+        CONTRADICTIONS[actor_contradictions<br/>Belief-behavior conflicts]
+        VECTORS[actor_belief_vectors<br/>Numeric representations]
+        CLUSTERING_META[actor_clustering_metadata<br/>Clustering assignments]
+    end
+
+    %% COHORTS Schema
+    subgraph COHORTS["COHORTS Schema - Emergent Pattern Discovery"]
+        COHORTS_CORE[cohorts<br/>Discovered clusters]
+        MEMBERSHIP[actor_cohort_membership<br/>Many-to-many with confidence]
+        EVOLUTION[cohort_evolution_log<br/>Complete change history]
+        CLUSTERING_RUNS[clustering_runs<br/>Algorithm execution metadata]
+        CHARACTERISTICS[cohort_characteristics<br/>Defining characteristics]
+        SIMILARITY[cohort_similarity_matrix<br/>Precomputed similarities]
+        PERFORMANCE[cohort_performance_metrics<br/>Performance tracking]
+    end
+
+    %% STIMULI Schema
+    subgraph STIMULI["STIMULI Schema - Outbound Responses"]
+        STIMULI_BASE[stimuli_base<br/>Common fields for all stimuli]
+        OFFERS[offers<br/>Specific offers and promotions]
+        CAMPAIGNS[campaigns<br/>Marketing campaigns]
+        MESSAGES[messages<br/>Individual messages]
+        DEPLOYMENTS[stimulus_deployments<br/>Actual deployments]
+        TEMPLATES[stimulus_templates<br/>Reusable templates]
+        STIMULI_PERF[stimulus_performance_metrics<br/>Performance tracking]
+    end
+
+    %% OPS Schema
+    subgraph OPS["OPS Schema - Internal Operations"]
+        SITES[sites<br/>Physical and virtual locations]
+        SALES[sales_data<br/>Sales transactions]
+        INVENTORY[inventory<br/>Product inventory management]
+        SUPPLY[supply_chain<br/>Supplier management]
+        OPS_CRM[crm_events<br/>CRM events]
+        METRICS[business_metrics<br/>Key performance indicators]
+        ALERTS[operational_alerts<br/>System alerts]
+    end
+
+    %% OUTCOMES Schema
+    subgraph OUTCOMES["OUTCOMES Schema - Results Tracking"]
+        OUTCOMES_CORE[outcomes<br/>Central outcomes tracking]
+        COHORT_SUMMARY[cohort_outcome_summary<br/>Aggregate by cohort]
+        ANALYSIS[outcome_analysis<br/>Pattern analysis]
+        LEARNING[outcome_learning<br/>Knowledge updates]
+        FEEDBACK[outcome_feedback_loop<br/>Feedback implementation]
+    end
+
+    %% AI Schema
+    subgraph AI["AI Schema - Reasoning & Learning"]
+        FUNCTIONS[functions<br/>Registry of all logic functions]
+        FUNCTION_CALLS[function_calls<br/>Execution logs with performance]
+        REASONING[reasoning_logs<br/>Decision reasoning]
+        AI_LEARNING[learning_logs<br/>Knowledge updates]
+        CONTRADICTIONS_AI[contradiction_logs<br/>Belief conflicts]
+        SYSTEM_STATE[ai_system_state<br/>Current system state]
+    end
+
+    %% Core Relationships
+    BRANDS --> USERS
+    BRANDS --> SETTINGS
+    BRANDS --> INTEGRATIONS
+    BRANDS --> AUDIT
+
+    %% Signals to Actors
+    BRANDS --> SIGNALS_BASE
+    SIGNALS_BASE --> WHATSAPP
+    SIGNALS_BASE --> REVIEWS
+    SIGNALS_BASE --> SOCIAL
+    SIGNALS_BASE --> ORDERS
+    SIGNALS_BASE --> WEB
+    SIGNALS_BASE --> EMAIL
+    SIGNALS_BASE --> SURVEYS
+    SIGNALS_BASE --> CRM
+    SIGNALS_BASE --> ACTORS_CORE
+
+    %% Actors Relationships
+    BRANDS --> ACTORS_CORE
+    ACTORS_CORE --> DEMOGRAPHICS
+    ACTORS_CORE --> IDENTITY
+    ACTORS_CORE --> BEHAVIORAL
+    ACTORS_CORE --> COMMUNICATION
+    ACTORS_CORE --> TRIGGERS
+    ACTORS_CORE --> PREFERENCES
+    ACTORS_CORE --> MEMORY
+    ACTORS_CORE --> FRICTION
+    ACTORS_CORE --> CONTRADICTIONS
+    ACTORS_CORE --> VECTORS
+    ACTORS_CORE --> CLUSTERING_META
+
+    %% Cohorts Relationships
+    BRANDS --> COHORTS_CORE
+    COHORTS_CORE --> MEMBERSHIP
+    COHORTS_CORE --> EVOLUTION
+    COHORTS_CORE --> CLUSTERING_RUNS
+    COHORTS_CORE --> CHARACTERISTICS
+    COHORTS_CORE --> SIMILARITY
+    COHORTS_CORE --> PERFORMANCE
+    ACTORS_CORE --> MEMBERSHIP
+
+    %% Stimuli Relationships
+    BRANDS --> STIMULI_BASE
+    STIMULI_BASE --> OFFERS
+    STIMULI_BASE --> CAMPAIGNS
+    STIMULI_BASE --> MESSAGES
+    STIMULI_BASE --> DEPLOYMENTS
+    STIMULI_BASE --> TEMPLATES
+    STIMULI_BASE --> STIMULI_PERF
+    COHORTS_CORE --> STIMULI_BASE
+    ACTORS_CORE --> STIMULI_BASE
+    REASONING --> STIMULI_BASE
+
+    %% Ops Relationships
+    BRANDS --> SITES
+    BRANDS --> SALES
+    BRANDS --> INVENTORY
+    BRANDS --> SUPPLY
+    BRANDS --> OPS_CRM
+    BRANDS --> METRICS
+    BRANDS --> ALERTS
+    SITES --> SALES
+    ACTORS_CORE --> SALES
+
+    %% Outcomes Relationships
+    BRANDS --> OUTCOMES_CORE
+    OUTCOMES_CORE --> COHORT_SUMMARY
+    OUTCOMES_CORE --> ANALYSIS
+    OUTCOMES_CORE --> LEARNING
+    OUTCOMES_CORE --> FEEDBACK
+    STIMULI_BASE --> OUTCOMES_CORE
+    COHORTS_CORE --> OUTCOMES_CORE
+    ACTORS_CORE --> OUTCOMES_CORE
+
+    %% AI Relationships
+    BRANDS --> FUNCTIONS
+    FUNCTIONS --> FUNCTION_CALLS
+    BRANDS --> REASONING
+    BRANDS --> AI_LEARNING
+    BRANDS --> CONTRADICTIONS_AI
+    BRANDS --> SYSTEM_STATE
+
+    %% Data Flow Arrows
+    SIGNALS_BASE -.->|"Actor Matching"| ACTORS_CORE
+    ACTORS_CORE -.->|"Clustering"| COHORTS_CORE
+    COHORTS_CORE -.->|"Targeting"| STIMULI_BASE
+    STIMULI_BASE -.->|"Deployment"| OUTCOMES_CORE
+    OUTCOMES_CORE -.->|"Learning"| AI_LEARNING
+    AI_LEARNING -.->|"Belief Updates"| ACTORS_CORE
+
+    %% Styling
+    classDef coreSchema fill:#e1f5fe
+    classDef signalsSchema fill:#f3e5f5
+    classDef actorsSchema fill:#e8f5e8
+    classDef cohortsSchema fill:#fff3e0
+    classDef stimuliSchema fill:#fce4ec
+    classDef opsSchema fill:#f1f8e9
+    classDef outcomesSchema fill:#e0f2f1
+    classDef aiSchema fill:#fff8e1
+
+    class BRANDS,USERS,SETTINGS,PARAMS,INTEGRATIONS,AUDIT coreSchema
+    class SIGNALS_BASE,WHATSAPP,REVIEWS,SOCIAL,ORDERS,WEB,EMAIL,SURVEYS,CRM signalsSchema
+    class ACTORS_CORE,DEMOGRAPHICS,IDENTITY,BEHAVIORAL,COMMUNICATION,TRIGGERS,PREFERENCES,MEMORY,FRICTION,CONTRADICTIONS,VECTORS,CLUSTERING_META actorsSchema
+    class COHORTS_CORE,MEMBERSHIP,EVOLUTION,CLUSTERING_RUNS,CHARACTERISTICS,SIMILARITY,PERFORMANCE cohortsSchema
+    class STIMULI_BASE,OFFERS,CAMPAIGNS,MESSAGES,DEPLOYMENTS,TEMPLATES,STIMULI_PERF stimuliSchema
+    class SITES,SALES,INVENTORY,SUPPLY,OPS_CRM,METRICS,ALERTS opsSchema
+    class OUTCOMES_CORE,COHORT_SUMMARY,ANALYSIS,LEARNING,FEEDBACK outcomesSchema
+    class FUNCTIONS,FUNCTION_CALLS,REASONING,AI_LEARNING,CONTRADICTIONS_AI,SYSTEM_STATE aiSchema
