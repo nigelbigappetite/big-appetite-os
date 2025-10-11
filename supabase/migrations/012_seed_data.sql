@@ -24,22 +24,22 @@ ON CONFLICT (actor_id) DO NOTHING;
 
 -- Mike - Health Conscious
 INSERT INTO actors.actors (actor_id, brand_id, primary_identifier, primary_identifier_type, first_seen_at, last_seen_at, is_active) VALUES
-('550e8400-e29b-41d4-a716-446655440101'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'mike.chen@email.com', 'email', NOW() - INTERVAL '4 months', NOW() - INTERVAL '1 week', true, '{"notes": "Prefers grilled options, asks about nutrition"}'::jsonb)
+('550e8400-e29b-41d4-a716-446655440101'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'mike.chen@email.com', 'email', NOW() - INTERVAL '4 months', NOW() - INTERVAL '1 week', true)
 ON CONFLICT (actor_id) DO NOTHING;
 
 -- Lisa - Value Seeker
 INSERT INTO actors.actors (actor_id, brand_id, primary_identifier, primary_identifier_type, first_seen_at, last_seen_at, is_active) VALUES
-('550e8400-e29b-41d4-a716-446655440102'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'lisa.smith@email.com', 'email', NOW() - INTERVAL '3 months', NOW() - INTERVAL '3 days', true, '{"notes": "Always looks for deals and promotions"}'::jsonb)
+('550e8400-e29b-41d4-a716-446655440102'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'lisa.smith@email.com', 'email', NOW() - INTERVAL '3 months', NOW() - INTERVAL '3 days', true)
 ON CONFLICT (actor_id) DO NOTHING;
 
 -- Tom - Social Butterfly
 INSERT INTO actors.actors (actor_id, brand_id, primary_identifier, primary_identifier_type, first_seen_at, last_seen_at, is_active) VALUES
-('550e8400-e29b-41d4-a716-446655440103'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'tom.wilson@email.com', 'email', NOW() - INTERVAL '8 months', NOW() - INTERVAL '1 day', true, '{"notes": "Orders for groups, very social"}'::jsonb)
+('550e8400-e29b-41d4-a716-446655440103'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'tom.wilson@email.com', 'email', NOW() - INTERVAL '8 months', NOW() - INTERVAL '1 day', true)
 ON CONFLICT (actor_id) DO NOTHING;
 
 -- Emma - Occasional Customer
 INSERT INTO actors.actors (actor_id, brand_id, primary_identifier, primary_identifier_type, first_seen_at, last_seen_at, is_active) VALUES
-('550e8400-e29b-41d4-a716-446655440104'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'emma.davis@email.com', 'email', NOW() - INTERVAL '2 months', NOW() - INTERVAL '2 weeks', true, '{"notes": "Orders occasionally, prefers delivery"}'::jsonb)
+('550e8400-e29b-41d4-a716-446655440104'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'emma.davis@email.com', 'email', NOW() - INTERVAL '2 months', NOW() - INTERVAL '2 weeks', true)
 ON CONFLICT (actor_id) DO NOTHING;
 
 -- =====================================================
@@ -69,12 +69,12 @@ ON CONFLICT (signal_id) DO NOTHING;
 -- =====================================================
 
 -- Spice Lovers cohort
-INSERT INTO cohorts.cohorts (cohort_id, brand_id, cohort_name, cohort_type, cohort_status, discovered_at, discovery_algorithm, cohort_signature, member_count, stability_score) VALUES
+INSERT INTO cohorts.cohorts (cohort_id, brand_id, cohort_name, cohort_type, cohort_status, discovered_at, discovery_algorithm, cohort_signature, member_count, stability_score, metadata) VALUES
 ('cohort_001'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'Spice Lovers', 'behavioral', 'active', NOW() - INTERVAL '1 month', 'kmeans', '{"preferences": ["spicy_food"], "behavior": ["frequent_orders"], "demographics": ["young_adults"]}'::jsonb, 1, 0.85, '{"description": "Customers who prefer spicy options"}'::jsonb)
 ON CONFLICT (cohort_id) DO NOTHING;
 
 -- Health Conscious cohort
-INSERT INTO cohorts.cohorts (cohort_id, brand_id, cohort_name, cohort_type, cohort_status, discovered_at, discovery_algorithm, cohort_signature, member_count, stability_score) VALUES
+INSERT INTO cohorts.cohorts (cohort_id, brand_id, cohort_name, cohort_type, cohort_status, discovered_at, discovery_algorithm, cohort_signature, member_count, stability_score, metadata) VALUES
 ('cohort_002'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'Health Conscious', 'behavioral', 'active', NOW() - INTERVAL '1 month', 'kmeans', '{"preferences": ["healthy_options"], "behavior": ["asks_nutrition"], "demographics": ["middle_aged"]}'::jsonb, 1, 0.80, '{"description": "Customers focused on healthy eating"}'::jsonb)
 ON CONFLICT (cohort_id) DO NOTHING;
 
@@ -82,7 +82,7 @@ ON CONFLICT (cohort_id) DO NOTHING;
 -- COHORT MEMBERSHIPS
 -- =====================================================
 
-INSERT INTO cohorts.actor_cohort_membership (actor_id, cohort_id, membership_type, membership_confidence, joined_at, is_active) VALUES
+INSERT INTO cohorts.actor_cohort_membership (actor_id, cohort_id, membership_type, membership_confidence, joined_at, is_active, metadata) VALUES
 ('550e8400-e29b-41d4-a716-446655440100'::UUID, 'cohort_001'::UUID, 'primary', 0.9, NOW() - INTERVAL '1 month', true, '{"reason": "Frequent spicy wing orders"}'::jsonb),
 ('550e8400-e29b-41d4-a716-446655440101'::UUID, 'cohort_002'::UUID, 'primary', 0.85, NOW() - INTERVAL '1 month', true, '{"reason": "Asks about nutrition, orders grilled options"}'::jsonb)
 ON CONFLICT (actor_id, cohort_id) DO NOTHING;
@@ -101,6 +101,6 @@ ON CONFLICT (stimulus_id) DO NOTHING;
 -- =====================================================
 
 -- Sarah's response to spicy wings deal
-INSERT INTO outcomes.outcomes (outcome_id, brand_id, stimulus_id, actor_id, outcome_type, outcome_value, occurred_at) VALUES
+INSERT INTO outcomes.outcomes (outcome_id, brand_id, stimulus_id, actor_id, outcome_type, outcome_value, occurred_at, metadata) VALUES
 ('outcome_001'::UUID, 'a1b2c3d4-e5f6-7890-1234-567890abcdef'::UUID, 'stim_001'::UUID, '550e8400-e29b-41d4-a716-446655440100'::UUID, 'purchase', 24.99, NOW() - INTERVAL '1 day', '{"order_id": "ORD-12347", "items": ["spicy_wings"], "discount_applied": true}'::jsonb)
 ON CONFLICT (outcome_id) DO NOTHING;
