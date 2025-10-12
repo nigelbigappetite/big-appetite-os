@@ -1,0 +1,166 @@
+{
+  "Bundles": [
+    {
+      "item": "Deluxe Bundle for 1",
+      "price": 19.95
+    },
+    {
+      "item": "Snuggle Bundle for 2",
+      "price": 34.95
+    },
+    {
+      "item": "Family Feast (for 3–4)",
+      "price": 54.95
+    }
+  ],
+  "Sandwiches": [
+    {
+      "item": "Jarv's Banging Buffalo Chicken Sandwich",
+      "price": 8.95,
+      "default_sauce": "jarvs_tangy_buffalo"
+    },
+    {
+      "item": "Island BBQ Chicken Sandwich",
+      "price": 8.95,
+      "default_sauce": "island_bbq"
+    },
+    {
+      "item": "Original Chicken Sandwich",
+      "price": 8.95,
+      "default_sauce": "plain"
+    },
+    {
+      "item": "Banging Buffalo Chicken Sandwich",
+      "price": 8.95,
+      "default_sauce": "jarvs_tangy_buffalo"
+    }
+  ],
+  "Wraps": [
+    {
+      "item": "Original Chicken Wrap",
+      "price": 7.95,
+      "default_sauce": "plain"
+    },
+    {
+      "item": "Jarv's Tangy Buffalo Wrap",
+      "price": 7.95,
+      "default_sauce": "jarvs_tangy_buffalo"
+    },
+    {
+      "item": "Smokey BBQ Wrap",
+      "price": 7.95,
+      "default_sauce": "smokey_bbq"
+    }
+  ],
+  "Wings": {
+    "6 Wings": {
+      "price": 7.75,
+      "has_sauce_options": true,
+      "available_sauces": ["island_bbq", "smokey_bbq", "changs_honey_sesame", "korean_heat", "flamin_hoisin", "jarvs_tangy_buffalo", "honey_mustard", "mango_mazzaline", "plain"]
+    },
+    "8 Wings": {
+      "price": 9.50,
+      "has_sauce_options": true,
+      "available_sauces": "all"
+    },
+    "12 Wings": {
+      "price": 12.75,
+      "has_sauce_options": true,
+      "available_sauces": "all"
+    }
+  },
+  "Boneless Bites": {
+    "8 Bites": {
+      "price": 9.75,
+      "has_sauce_options": true,
+      "available_sauces": "all"
+    },
+    "10 Bites": {
+      "price": 11.75,
+      "has_sauce_options": true,
+      "available_sauces": "all"
+    },
+    "12 Bites": {
+      "price": 13.75,
+      "has_sauce_options": true,
+      "available_sauces": "all"
+    }
+  },
+  "Tenders": {
+    "3 Tenders": {
+      "price": 6.25,
+      "has_sauce_options": true,
+      "available_sauces": ["jarvs_tangy_buffalo", "changs_honey_sesame", "smokey_bbq", "island_bbq", "honey_mustard", "mango_mazzaline", "flamin_hoisin", "korean_heat", "plain"]
+    },
+    "5 Tenders": {
+      "price": 8.50,
+      "has_sauce_options": true,
+      "available_sauces": ["jarvs_tangy_buffalo", "changs_honey_sesame", "smokey_bbq", "island_bbq", "honey_mustard", "mango_mazzaline", "flamin_hoisin", "korean_heat", "plain"]
+    }
+  },
+  "Loaded Fries": [
+    {
+      "item": "Banging Buffalo Loaded Fries",
+      "price": 7.50,
+      "default_sauce": "jarvs_tangy_buffalo"
+    },
+    {
+      "item": "Cali Loaded Fries",
+      "price": 7.50,
+      "default_sauce": null
+    }
+  ],
+  "Sides": [
+    {
+      "item": "Fries",
+      "price": 3.50
+    },
+    {
+      "item": "Cajun Fries",
+      "price": 4.00,
+      "note": "Cajun is a seasoning blend, approximate spice_level: 4"
+    },
+    {
+      "item": "Sweet Potato Fries",
+      "price": 4.25
+    },
+    {
+      "item": "Mac n Cheese Bites",
+      "price": 5.75
+    },
+    {
+      "item": "Plantain",
+      "price": 3.20
+    },
+    {
+      "item": "Slaw",
+      "price": 3.20
+    },
+    {
+      "item": "Jalapeno Hush Puppies",
+      "price": 5.75
+    }
+  ],
+  "Kids Meals": [
+    {
+      "item": "Kids Wing Meal",
+      "price": 6.50,
+      "has_sauce_options": true
+    },
+    {
+      "item": "Kids Boneless Meal",
+      "price": 6.50,
+      "has_sauce_options": true
+    }
+  ],
+  "Drinks": [
+    {"item": "Sprite", "price": 2.50},
+    {"item": "Coke", "price": 2.50},
+    {"item": "Diet Coke", "price": 2.50},
+    {"item": "Fanta Orange", "price": 2.50},
+    {"item": "Fanta Fruit Twist", "price": 2.50},
+    {"item": "Ting", "price": 2.50},
+    {"item": "Sparkling Water", "price": 2.50},
+    {"item": "Still Water", "price": 2.50}
+  ]
+}
