@@ -1,0 +1,7 @@
+🔍 Debugging Supabase Connection...
+❌ Brand error: Could not find the table 'public.core.brands' in the schema cache
+✅ CSV file found: data/sample_whatsapp_messages.csv
+✅ CSV lines: 11
+✅ First line: timestamp,sender,message,phone_number,brand,direction,conversation_id
+✅ SUPABASE_URL: Set
+✅ SUPABASE_KEY: Set

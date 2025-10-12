@@ -2,6 +2,10 @@
 
 import { createClient } from '@supabase/supabase-js';
 import chalk from 'chalk';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
 
 // Configuration
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://phjawqphehkzfaezhzzf.supabase.co';

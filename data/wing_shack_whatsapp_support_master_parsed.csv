@@ -1,0 +1,543 @@
+﻿timestamp,sender,message,phone_number,brand,direction,conversation_id
+2025-09-29 01:17:47,~George,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:17:18,~George,Hi ordered through your Rayleigh shop and ordered over an hour ago with no signs of the food being ready or being delivered. Any updates on this,+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:19:14,Wingverse,Hi there I’ll have a look on my end and help see if I can see the status of your order,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:19:34,Wingverse,Have you contacted just eat support as they handle the deliveries on their platform,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:19:39,Wingverse,One moment please,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:19:59,~George,Yeah we contacted them with no answer,+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:23:02,Wingverse,Ok no problem I’ll get in contact with them for you on my end one moment,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:28:44,~George,Thank you,+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:30:49,Wingverse,Just spoke to the kitchen. The food is there waiting they’re waiting for just eat driver to arrive,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:31:10,Wingverse,They’ve called just eat about the delay twice I’m now going to do the same,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:32:04,~George,Is there an eta ? As the food would have been done for over an hour now ?,+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:32:37,~George,We can come collect it but would like money back for delivery ect,+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:33:03,Wingverse,Yes 100% agreed,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:34:21,~George,Okay we can leave now to be there in 20 minutes,+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:34:32,Wingverse,I can give you the address of the kitchen if you’d prefer to come collect,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:34:40,~George,Yeah please,+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:34:41,Wingverse,Ok one moment I’ll get the address for you now,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:34:45,~George,Thank you,+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:35:35,Wingverse,153 Rayleigh Road Eastwood Essex SS9 5XE and then the delivery kitchen will give you your order,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:35:44,Wingverse,I’m letting chef know you’re on your way now,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:35:59,~George,Perfect thank you,+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:36:34,Wingverse,"Also in regards to your refund, we don’t have access to just eat orders. If you contact them and let them know the situation they will give you a refund for the delivery fees",+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:37:38,Wingverse,"We actually offer delivery through our own website too. For the inconvenience, I’ve given you a code to use for 25% off your first order if you use CRISPY25 at checkout",+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:38:07,~George,"We will do thank you, and perfect thank you ! We will definitely do that next time",+447473880264,wing_shack,inbound,conv_001
+2025-09-29 01:39:00,Wingverse,🙌,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:39:18,Wingverse,I’ve just spoken again with chef they’re going to remake the order for you as it’s been a while since you ordered,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:45:02,Wingverse,01702808744 if you have any issues finding the kitchen. We share with elite peri peri,+447473880264,wing_shack,outbound,conv_001
+2025-09-29 01:47:45,~George,Amazing thank you very much !,+447473880264,wing_shack,inbound,conv_001
+2025-09-10 19:06:53,~Cole,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_002
+2025-09-10 19:06:36,~Cole,Hi. I just had my order EBWSGS and it was so disappointing,,wing_shack,inbound,conv_002
+2025-09-10 19:07:12,~Cole,It took ages to make even though I ordered when it just opened. No one could collect it so I had to go myself and then it was obviously very cold. The box of chips was half empty. The wings had hardly any coating or sauce on them at all and the bites were all broken up!,,wing_shack,inbound,conv_002
+2025-09-10 19:07:43,Wingverse,Hey there. What location was this from?,,wing_shack,outbound,conv_002
+2025-09-10 19:08:11,~Cole,Loughton. Order number EBWSGS,,wing_shack,inbound,conv_002
+2025-09-10 19:10:02,Wingverse,"Ok thanks. Let me just recap please so I have all the information. You placed an order for delivery and there was no driver so you went to store and collected yourself. Order was cold, not enough sauce and when you say broken up bites, what do you mean?",,wing_shack,outbound,conv_002
+2025-09-10 19:10:05,Wingverse,Cut in half?,,wing_shack,outbound,conv_002
+2025-09-10 19:10:37,~Cole,Just look like they’d been chopped badly so yes maybe in half or in a few different ways,,wing_shack,inbound,conv_002
+2025-09-10 19:10:48,~Cole,So the chicken was exposed (not just the skin/sauce outside),,wing_shack,inbound,conv_002
+2025-09-10 19:11:12,Wingverse,So like say a chicken breast had been cut into pieces for example?,,wing_shack,outbound,conv_002
+2025-09-10 19:11:32,~Cole,No I know they are meant to be small bites,,wing_shack,inbound,conv_002
+2025-09-10 19:11:51,~Cole,But they were all split so the chicken was on show,,wing_shack,inbound,conv_002
+2025-09-10 19:12:02,Wingverse,Yh so I mean did it look like for example a piece of chicken had been cut so the cut part would’ve been exposed,,wing_shack,outbound,conv_002
+2025-09-10 19:12:08,~Cole,So normally they are dark brown for example when in the bbq sauce. There was lots of white chicken and no skin as they were mushed/cut poorly,,wing_shack,inbound,conv_002
+2025-09-10 19:12:14,~Cole,Yes I suppose,,wing_shack,inbound,conv_002
+2025-09-10 19:12:15,Wingverse,Just so I can get an idea,,wing_shack,outbound,conv_002
+2025-09-10 19:12:22,Wingverse,Ok cool thanks. Do you have any images?,,wing_shack,outbound,conv_002
+2025-09-10 19:12:26,~Cole,No,,wing_shack,inbound,conv_002
+2025-09-10 19:12:35,Wingverse,Sorry for all the qs I just want to investigate the quality prospect,,wing_shack,outbound,conv_002
+2025-09-10 19:12:38,Wingverse,Properly *,,wing_shack,outbound,conv_002
+2025-09-10 19:13:01,~Cole,"It’s ok. Very disappointing and not sure I’ll bother ordering again it was so poor. Every aspect. The delivery/collection, temperature, flavour and quality",,wing_shack,inbound,conv_002
+2025-09-10 19:13:12,~Cole,And I have ordered a lot from there on your app and previously via uber eats,,wing_shack,inbound,conv_002
+2025-09-10 19:13:30,Wingverse,How was the previous orders?,,wing_shack,outbound,conv_002
+2025-09-10 19:13:49,~Cole,Hit and miss to be honest!,,wing_shack,inbound,conv_002
+2025-09-10 19:14:01,~Cole,Seems you have to get lucky rather than any consistency,,wing_shack,inbound,conv_002
+2025-09-10 19:14:39,Wingverse,Yeah so this is unacceptable on our part it should be quality every time. Hence why I’m gathering as much info as possible to go back to the store about it,,wing_shack,outbound,conv_002
+2025-09-10 19:15:28,~Cole,Agreed,,wing_shack,inbound,conv_002
+2025-09-10 19:16:08,Wingverse,What I’ve done in the meantime is create an exclusive code for you if you were to use us again with 35% off using the code SHACKSHACK35 at checkout,,wing_shack,outbound,conv_002
+2025-09-10 19:16:30,~Cole,I’d rather have a refund on this order as as I’ve said I’m not sure I’ll order again anytime soon,,wing_shack,inbound,conv_002
+2025-09-10 19:16:49,Wingverse,I’ll also issue you a refund for your meal for the inconvenience,,wing_shack,outbound,conv_002
+2025-09-10 19:16:59,Wingverse,Yes on the same page haha,,wing_shack,outbound,conv_002
+2025-09-10 19:18:06,~Cole,Ok that is kind of you. Thanks,,wing_shack,inbound,conv_002
+2025-09-10 19:18:46,Wingverse,Please allow 5-10 days for the refund to return to your account 🙏,,wing_shack,outbound,conv_002
+2025-09-10 19:18:53,~Cole,Ok,,wing_shack,inbound,conv_002
+2025-09-10 19:18:55,~Cole,Thanks,,wing_shack,inbound,conv_002
+2025-07-21 14:17:29,~J,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+447838458877,wing_shack,inbound,conv_003
+2025-07-21 14:05:27,~J,Hi what's restaurant do u still have open,+447838458877,wing_shack,inbound,conv_003
+2025-08-04 23:45:16,~J,"‎Missed voice call, ‎Tap to call back",+447838458877,wing_shack,inbound,conv_003
+2025-08-04 23:45:58,~J,What restaurant can I eat in at?,+447838458877,wing_shack,inbound,conv_003
+2025-08-05 00:54:19,Wingverse,Hey there,+447838458877,wing_shack,outbound,conv_003
+2025-08-05 00:54:34,Wingverse,We are completely online now,+447838458877,wing_shack,outbound,conv_003
+2025-08-05 00:54:45,Wingverse,All of our locations are delivery or pickup in some,+447838458877,wing_shack,outbound,conv_003
+2025-08-05 00:55:17,Wingverse,You can find a list of our stores here,+447838458877,wing_shack,outbound,conv_003
+2025-08-05 02:50:18,~J,Ok thabjsn,+447838458877,wing_shack,inbound,conv_003
+2025-08-05 02:50:25,~J,Thanks,+447838458877,wing_shack,inbound,conv_003
+2025-09-03 15:56:53,~J,"Hi I'm based in Eltham, Greenwich area and wanted to talk about opening up a shop local to me. I'm willing to open one up myself and wanted to ask about how it works out with urself",+447838458877,wing_shack,inbound,conv_003
+2025-09-03 17:04:33,Wingverse,Hi there sounds good. Have you got a shop already?,+447838458877,wing_shack,outbound,conv_003
+2025-09-16 17:16:40,~J,I'm opening a ghost kitchen so just doing some research on how it works,+447838458877,wing_shack,inbound,conv_003
+2025-09-16 17:18:17,Wingverse,Ok got you. What kind of things would you want to know about it I can see if I can be of any help?,+447838458877,wing_shack,outbound,conv_003
+2025-09-16 17:19:52,~J,"How everything works out with ur side of food, what u supply, what u want %wise an anything else I need to know",+447838458877,wing_shack,inbound,conv_003
+2025-09-21 15:28:57,~J,?,+447838458877,wing_shack,inbound,conv_003
+2025-09-25 12:40:21,Wingverse,"Hey there yes we provide the full supply chain to our partners where they buy all of the stock and packaging, provide training and partners get access to support and announcements through our community partner hub",+447838458877,wing_shack,outbound,conv_003
+2025-09-25 12:41:04,Wingverse,"In regards to commercials we offer either a monthly franchise fee or a small % of the weekly gross revenue, depending on what the partner prefers",+447838458877,wing_shack,outbound,conv_003
+2025-09-17 18:18:36,~ND,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_004
+2025-09-17 18:18:29,~ND,Hello,,wing_shack,inbound,conv_004
+2025-09-17 18:18:41,~ND,I have made an order 18 Penrith gardens,,wing_shack,inbound,conv_004
+2025-09-17 18:18:49,Wingverse,Hi,,wing_shack,outbound,conv_004
+2025-09-17 18:18:48,~ND,I need to change the sauce in my wraps to mayo,,wing_shack,inbound,conv_004
+2025-09-17 18:19:01,Wingverse,What’s the order number please and what location,,wing_shack,outbound,conv_004
+2025-09-17 18:19:24,~ND,It’s Gateshead & I ordered from uber eats . My address is 18 Penrith gardens ne9 6yn,,wing_shack,inbound,conv_004
+2025-09-17 18:19:31,~ND,For Natasha,,wing_shack,inbound,conv_004
+2025-09-17 18:20:23,~ND,It does not give me the order number on here,,wing_shack,inbound,conv_004
+2025-09-17 18:21:28,Wingverse,No problem let me get hold of the site and get this changed for you,,wing_shack,outbound,conv_004
+2025-09-17 18:21:49,~ND,"Thank you so much ! I would have changed it myself, but it didn’t give me an option to add special instructions and I am pregnant and I can’t have the spice in the mayo",,wing_shack,inbound,conv_004
+2025-09-17 18:24:44,Wingverse,No problem! When are you due?,,wing_shack,outbound,conv_004
+2025-09-17 18:24:56,Wingverse,I’ve just spoken with the site they will change to mayo for you 🙏,,wing_shack,outbound,conv_004
+2025-09-17 18:25:22,~ND,In may it’s very early but I have a serious condition called HG non stop sickness . I just got out of hospital yesterday. . Thank you so much your a star,,wing_shack,inbound,conv_004
+2025-09-17 18:28:54,Wingverse,No problem. Good luck with the pregnancy! Hopefully the wing shack will cheer you up from the hospital ☺️,,wing_shack,outbound,conv_004
+2025-09-17 18:29:10,~ND,It will !! Thank you 😘,,wing_shack,inbound,conv_004
+2025-09-18 04:26:21,~__,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_005
+2025-09-18 04:23:15,~__,Hello,,wing_shack,inbound,conv_005
+2025-09-18 04:23:20,~__,I had a question,,wing_shack,inbound,conv_005
+2025-09-18 04:23:37,~__,Where do you source your Halal chicken from,,wing_shack,inbound,conv_005
+2025-09-25 12:42:28,Wingverse,Hey there our chicken comes from a nationwide wholesaler who sources their chicken from halal certified farms,,wing_shack,outbound,conv_005
+2025-09-21 00:34:42,~Sam,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_006
+2025-09-21 00:34:18,~Sam,"Hi, I placed an order on Deliveroo but made a mistake can you help please?",,wing_shack,inbound,conv_006
+2025-09-21 00:34:40,~Sam,"‎Missed voice call, ‎Tap to call back",,wing_shack,inbound,conv_006
+2025-09-21 00:36:59,~Sam,"This is my order, the second honey sesame should be the buffalo boneless bites, can you please change?",,wing_shack,inbound,conv_006
+2025-09-21 00:40:14,Wingverse,No problem let meet the chef know,,wing_shack,outbound,conv_006
+2025-09-21 00:40:39,~Sam,Thank you! Really appreciate it and sorry for any issues!,,wing_shack,inbound,conv_006
+2025-09-21 00:42:40,Wingverse,No problem I’ve just informed the kitchen. I’ll let you know when I have confirmation of the change,,wing_shack,outbound,conv_006
+2025-09-21 00:42:51,~Sam,Thanks,,wing_shack,inbound,conv_006
+2025-09-21 00:49:37,Wingverse,All confirmed for you 🙏,,wing_shack,outbound,conv_006
+2025-09-21 00:57:32,~Sam,Amazing thanks,,wing_shack,inbound,conv_006
+2025-10-04 00:38:48,~joseph squire,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:33:57,~joseph squire,Hi can you help me with an order on justeat please? ‎<This message was edited>,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:39:00,Wingverse,Sure what’s the order number I can look it up for you,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:39:30,Wingverse,And what’s the issue,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:39:32,~joseph squire,659259839,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:40:37,~joseph squire,I ordered at about 545 and delivery time was advised as 6:40 then it's gone to 7:45,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:40:54,~joseph squire,This is a long delay 😬,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:40:55,Wingverse,Have you been able to get in touch with just eat?,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:41:15,~joseph squire,No. I live close I can go and collect myself,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:41:24,~joseph squire,Can I do that?,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:41:34,Wingverse,What location is it for?,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:41:44,~joseph squire,"Goldstone road, kenley",+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:41:55,~joseph squire,Godstone*,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:43:07,Wingverse,I can give you the address of the kitchen to pick it up then if you like?,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:43:15,~joseph squire,Yes please,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:43:21,Wingverse,And then you can liaise with just eat about refunding your delivery fee,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:43:23,Wingverse,Ok one moment,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:44:33,Wingverse,The adddress is 68 godstone road cr8 5aa,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:45:30,Wingverse,Have you got screenshot of order so I can track. I’m trying to locate on my end,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:46:49,Wingverse,I’ve got it now,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:46:51,Wingverse,Thanks,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:47:31,Wingverse,Is that ok for you the address ?,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:48:34,~joseph squire,Thank you I've found the restaurant. But the chefs won't let me take the food until they've spoken with just eat 🤦‍♂️,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:49:14,Wingverse,That was quick! Are you local?,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:49:23,Wingverse,What do they need from just eat?,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:49:33,~joseph squire,I knew the approx location so arrived close enough.,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:49:47,~joseph squire,Something about the delivery driver,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:49:58,Wingverse,Ok one moment please,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:55:28,Wingverse,Thanks for waiting I’m just trying to get hold of the kitchen so you can receive the food,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 00:58:53,~joseph squire,Thank t,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 00:59:05,~joseph squire,The kitchen has passed me the food,+447838458877,wing_shack,inbound,conv_007
+2025-10-04 01:00:01,Wingverse,"Ok great 🙌. We’re sorry for the inconvenience, we don’t have much control on delivery etc on the delivery platforms. We have our own delivery network on our website too with cheaper pricing",+447838458877,wing_shack,outbound,conv_007
+2025-10-04 01:00:24,Wingverse,For the inconvenience please use the code CRISPY25 at checkout on our website for 25% offf,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 01:00:35,Wingverse,A code for you,+447838458877,wing_shack,outbound,conv_007
+2025-10-04 01:25:59,~joseph squire,I understand. Thank you for the code and your assistance. Food was lovely,+447838458877,wing_shack,inbound,conv_007
+2025-08-24 19:37:22,~Aaron,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+447473880264,wing_shack,inbound,conv_008
+2025-08-24 19:16:46,~Aaron,My discount code didn’t work,+447473880264,wing_shack,inbound,conv_008
+2025-08-24 20:29:43,Wingverse,Hey there what was the discount code,+447473880264,wing_shack,outbound,conv_008
+2025-08-31 20:10:35,~Aaron,No the loyalty scheme doesn’t work,+447473880264,wing_shack,inbound,conv_008
+2025-08-31 20:11:11,Wingverse,Can I take your email so I can have a look please,+447473880264,wing_shack,outbound,conv_008
+2025-08-31 20:11:34,~Aaron,Aaronbristow2004@gmail.com,+447473880264,wing_shack,inbound,conv_008
+2025-08-31 20:12:37,Wingverse,Thanks Aaron give me a moment pls,+447473880264,wing_shack,outbound,conv_008
+2025-08-31 20:15:01,~Aaron,It says server response invalid,+447473880264,wing_shack,inbound,conv_008
+2025-08-31 20:15:36,Wingverse,Can you send a screenshot pls,+447473880264,wing_shack,outbound,conv_008
+2025-08-31 20:18:08,Wingverse,Thanks,+447473880264,wing_shack,outbound,conv_008
+2025-08-31 20:18:48,Wingverse,I’ve had to escalate this to tech for support but in the meantime use this code ABLOYALTY it will give you the £5 off that you would’ve got,+447473880264,wing_shack,outbound,conv_008
+2025-08-31 20:19:02,~Aaron,Thank u,+447473880264,wing_shack,inbound,conv_008
+2025-08-31 20:19:05,Wingverse,"Once the loyalty issue is fixed, you’ll have that to use too 😉",+447473880264,wing_shack,outbound,conv_008
+2025-08-31 20:19:14,Wingverse,No problem. Let me know if you have any other issues,+447473880264,wing_shack,outbound,conv_008
+2025-08-31 20:20:04,~Aaron,Ta have a nice evening,+447473880264,wing_shack,inbound,conv_008
+2025-10-04 20:12:21,~Aaron,My code still doesn’t work unfortunately,+447473880264,wing_shack,inbound,conv_008
+2025-10-04 20:13:47,Wingverse,What email address is it for?,+447473880264,wing_shack,outbound,conv_008
+2025-10-04 20:14:03,Wingverse,Hi there,+447473880264,wing_shack,outbound,conv_008
+2025-10-04 20:14:23,~Aaron,aaronbristow2004@gmail.com,+447473880264,wing_shack,inbound,conv_008
+2025-10-04 20:15:14,Wingverse,What error does it show when trying to activate your loyalty?,+447473880264,wing_shack,outbound,conv_008
+2025-10-04 20:15:22,Wingverse,Thanks,+447473880264,wing_shack,outbound,conv_008
+2025-08-14 02:25:00,~Els,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_009
+2025-08-14 02:24:53,~Els,Hi,,wing_shack,inbound,conv_009
+2025-08-14 02:25:11,~Els,I’ve placed an order through the website to pick up at Canary Wharf location,,wing_shack,inbound,conv_009
+2025-08-14 02:25:33,Wingverse,Hi there,,wing_shack,outbound,conv_009
+2025-08-14 02:25:32,~Els,Can you please tell me where this is,,wing_shack,inbound,conv_009
+2025-08-14 02:25:52,Wingverse,Yes give me one moment I’ll give you the kitchen address,,wing_shack,outbound,conv_009
+2025-08-14 02:25:56,~Els,Order number is D6JXQX,,wing_shack,inbound,conv_009
+2025-08-14 02:26:36,Wingverse,Thanks. What platform did you order from?,,wing_shack,outbound,conv_009
+2025-08-14 02:26:51,~Els,The wing shack website,,wing_shack,inbound,conv_009
+2025-08-14 02:29:11,~Els,??,,wing_shack,inbound,conv_009
+2025-08-14 02:29:31,~Els,I’m outside the location on the website,,wing_shack,inbound,conv_009
+2025-08-14 02:29:38,~Els,It’s took me 30 mins to get here,,wing_shack,inbound,conv_009
+2025-08-14 02:31:37,Wingverse,Hi there yes I’m just trying to locate the order on the system and the exact address for you to collect your order one moment please,,wing_shack,outbound,conv_009
+2025-08-14 02:31:59,~Els,Ok,,wing_shack,inbound,conv_009
+2025-08-14 02:32:42,~Els,How long will this take I have already been waiting over 25 minutes,,wing_shack,inbound,conv_009
+2025-08-14 02:34:12,Wingverse,"The address is 11b the quarterdeck, e14 8sh. Is that where you are at now?",,wing_shack,outbound,conv_009
+2025-08-14 02:34:19,~Els,Yes that’s where I am,,wing_shack,inbound,conv_009
+2025-08-14 02:35:00,Wingverse,And is there no kitchen building in sight?,,wing_shack,outbound,conv_009
+2025-08-14 02:36:49,~Els,The post code you have given me is a different post code to the one on the website,,wing_shack,inbound,conv_009
+2025-08-14 02:38:37,~Els,I’m here now and this is only the back of some shops,,wing_shack,inbound,conv_009
+2025-08-14 02:39:10,~Els,Is there a number to call to say I am waiting?,,wing_shack,inbound,conv_009
+2025-08-14 02:40:31,Wingverse,Yes if you call this number to collect your wing shack the team can help you locate the kitchen.,,wing_shack,outbound,conv_009
+2025-08-14 02:41:53,~Els,I’ve called the number it’s saying it’s closed,,wing_shack,inbound,conv_009
+2025-08-14 02:41:56,~Els,I want a refund,,wing_shack,inbound,conv_009
+2025-08-14 02:42:46,Wingverse,The shop said they were closed?,,wing_shack,outbound,conv_009
+2025-08-14 02:42:52,~Els,Yes,,wing_shack,inbound,conv_009
+2025-08-14 02:42:55,Wingverse,Yes sure I can process this for you now,,wing_shack,outbound,conv_009
+2025-08-14 02:43:29,Wingverse,Ok what I can do is process the refund now and investigate why the site is closed unexpectedly,,wing_shack,outbound,conv_009
+2025-08-14 02:43:39,Wingverse,I can only apologise for the inconvenience today 🙏,,wing_shack,outbound,conv_009
+2025-08-14 02:45:40,~Els,I’ve spent over an hour waiting for the food and  traveled over 30 minutes to get here . I think I should get a food voucher on top,,wing_shack,inbound,conv_009
+2025-08-14 02:46:54,Wingverse,Yes that’s literally what I was just creating now and was going to say,,wing_shack,outbound,conv_009
+2025-08-14 02:47:45,Wingverse,For the inconvenience please use code ellie30 for 30% off your next meal,,wing_shack,outbound,conv_009
+2025-08-14 02:48:58,~Els,Thanks,,wing_shack,inbound,conv_009
+2025-08-14 02:49:18,~Els,How long will my refund be,,wing_shack,inbound,conv_009
+2025-08-14 02:50:26,Wingverse,Refunds should show back in your account in the next 5-10 days,,wing_shack,outbound,conv_009
+2025-08-14 00:42:52,~Mr G,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_010
+2025-08-14 00:38:26,~Mr G,When I try to order online it doesn't give me the option for collection only delivery,,wing_shack,inbound,conv_010
+2025-08-14 00:43:04,Wingverse,Hey there what location is this for I’ll double check this for you,,wing_shack,outbound,conv_010
+2025-08-14 00:43:15,Wingverse,Some locations are delivery only at the moment,,wing_shack,outbound,conv_010
+2025-08-14 00:43:21,~Mr G,Okay,,wing_shack,inbound,conv_010
+2025-08-14 00:43:49,~Mr G,Is woodford delivery only,,wing_shack,inbound,conv_010
+2025-08-14 00:44:40,Wingverse,Yes Woodford is delivery only. The closest pickup to Woodford would be the Loughton store,,wing_shack,outbound,conv_010
+2025-08-14 00:45:43,~Mr G,I just ordered from Woodford for pickup and says it is preparing the order,,wing_shack,inbound,conv_010
+2025-08-14 00:46:29,Wingverse,One moment please,,wing_shack,outbound,conv_010
+2025-08-14 00:47:01,Wingverse,"Just to confirm then, the option to collect on your end was all good ?",,wing_shack,outbound,conv_010
+2025-08-14 00:49:41,Wingverse,What time works for you I can edit this now,,wing_shack,outbound,conv_010
+2025-08-14 00:50:18,Wingverse,I can also set it for pickup from the Woodford kitchen as it has already been set for collection and give you the full address,,wing_shack,outbound,conv_010
+2025-08-14 00:50:58,~Mr G,Yes thats fine ready asap just let me know the address,,wing_shack,inbound,conv_010
+2025-08-14 00:53:50,Wingverse,"Ok great I’ve edited it to a 7pm pickup time. If you go to Woodford kitchens, 47 George lane, London e18 1LN they will have your order ready for you for collection",,wing_shack,outbound,conv_010
+2025-08-14 00:53:59,Wingverse,Let me know if you have any issues,,wing_shack,outbound,conv_010
+2025-08-14 01:11:18,~Mr G,They don't not what I am talking about 😟,,wing_shack,inbound,conv_010
+2025-08-14 01:12:16,~Mr G,Guy saying I have to cancel the order this is a joke,,wing_shack,inbound,conv_010
+2025-08-14 01:12:43,~Mr G,He says they are not doing Wingshak,,wing_shack,inbound,conv_010
+2025-08-14 01:23:16,~Mr G,I have reordered from Loughton hopefully I'll have a better experience,,wing_shack,inbound,conv_010
+2025-08-14 01:30:24,Wingverse,Yes I’ll let Loughton store know to confirm,,wing_shack,outbound,conv_010
+2025-08-14 01:34:59,Wingverse,I’ve refunded the Woodford order,,wing_shack,outbound,conv_010
+2025-08-14 01:45:36,Wingverse,"Loughton delivery kitchen is up the road from our old site. If you go to Tz peri peri, 274 high road, Loughton ig10 1rd you can collect your order from there",,wing_shack,outbound,conv_010
+2025-08-14 01:46:10,Wingverse,I’ve also given you a 30% discount off your next order using the code Glasgow30 for the inconvenience today experienced,,wing_shack,outbound,conv_010
+2025-08-14 02:28:59,~Mr G,Honestly the food wasn't upto the standard of your shop and i won't be ordering again. The burger was substandard and the wings overcooked you should spot check yourself i think you will lose a lot of customers.,,wing_shack,inbound,conv_010
+2025-08-14 02:36:38,Wingverse,Thanks for the feedback. What was missing from the burger?,,wing_shack,outbound,conv_010
+2025-08-14 02:42:06,~Mr G,Previous when ordered from you it was a thigh burger so presumed thats what I was ordering but just checked your site and now a breast burger but not very appetising just a cheap burger,,wing_shack,inbound,conv_010
+2025-08-14 02:44:21,Wingverse,Yes we changed from thigh to breast burger a while ago,,wing_shack,outbound,conv_010
+2025-08-14 02:44:32,Wingverse,The chicken we use is freshly made,,wing_shack,outbound,conv_010
+2025-08-15 01:07:21,~Max Wintle,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_011
+2025-08-15 01:07:19,~Max Wintle,Can I order to be collected ?,,wing_shack,inbound,conv_011
+2025-08-15 01:07:24,~Max Wintle,"‎Missed voice call, ‎Tap to call back",,wing_shack,inbound,conv_011
+2025-08-15 01:07:38,Wingverse,What location are you looking to collect from ?,,wing_shack,outbound,conv_011
+2025-08-15 01:07:48,~Max Wintle,Loughton,,wing_shack,inbound,conv_011
+2025-08-15 01:08:40,Wingverse,Yes sure you can order through our website site and collect from our delivery kitchen or get it delivered via www.wingshackco.com,,wing_shack,outbound,conv_011
+2025-08-15 01:02:18,~pw,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_012
+2025-08-15 00:58:57,~pw,"just had food from the blackburn store ordered via uber it’s and it was terrible, felt like iv been ripped off spent £35 the portions where tiny, no flavour on anything fries where cold and hard. worst food iv had in a long time. i don’t usually complain but this was that bad",,wing_shack,inbound,conv_012
+2025-08-15 01:03:23,~pw,i’d like a refund for mine and my kids food the food was that bad,,wing_shack,inbound,conv_012
+2025-08-15 01:03:37,Wingverse,Hey there. Apologise for the experience that you had. Is it possible to share some images of the food you recieved so we can investigate directly with the site,,wing_shack,outbound,conv_012
+2025-08-15 01:04:20,Wingverse,"Yes sure, if you contact ubereats they should give you a full refund. We have no access to the payments on third party platforms, only through our own website",,wing_shack,outbound,conv_012
+2025-08-15 01:04:30,~pw,i haven’t taken pictures iv thrown it,,wing_shack,inbound,conv_012
+2025-08-15 01:04:53,Wingverse,It’s not our standards for food to be inedible I’m contacting the site now in regards to the quality,,wing_shack,outbound,conv_012
+2025-08-15 01:05:42,~pw,the chicken was tiny like popcorn chicken and the wrap was pretty much just two strips of chicken with some mayo,,wing_shack,inbound,conv_012
+2025-08-15 01:05:57,Wingverse,Thanks for this. Leave with me I can tell already from the fries that the quality is not the same that we adhere to,,wing_shack,outbound,conv_012
+2025-08-15 01:06:25,Wingverse,Thanks for your honest feedback,,wing_shack,outbound,conv_012
+2025-08-15 01:06:45,~pw,like i said im not one to complain and appreciate places being busy but when i feel,,wing_shack,inbound,conv_012
+2025-08-15 01:07:11,Wingverse,100% agreed it’s something I’m going to look into straight away,,wing_shack,outbound,conv_012
+2025-08-15 01:07:38,~pw,how do i request a refund on uber eats?,,wing_shack,inbound,conv_012
+2025-08-15 01:09:22,Wingverse,"If you go on past orders and on your wing shack order, you can message them and ask for a refund",,wing_shack,outbound,conv_012
+2025-08-15 01:09:50,~pw,ok thanks,,wing_shack,inbound,conv_012
+2025-08-15 01:11:01,Wingverse,I’m arranging retraining for that site. They are a new franchise but is unacceptable the quality they’ve put out. Thanks for making us aware of this.,,wing_shack,outbound,conv_012
+2025-08-15 01:12:41,Wingverse,"I literally have no access to uber eats so can’t issue a refund, the best I can do on my end as an apology is to give a £35 voucher on top of the refund you should get from uber eats on our website using the code pw35 as a token of our apology once we have the site operating at an acceptable standard 🙏",,wing_shack,outbound,conv_012
+2025-08-15 01:13:07,Wingverse,I myself cannot stand poor food quality when I order so I know how frustrating it is,,wing_shack,outbound,conv_012
+2025-08-15 01:13:59,~pw,ok appreciate that and happy to use that at another site i would use the blackburn one again,,wing_shack,inbound,conv_012
+2025-08-15 01:14:04,~pw,appreciate your help,,wing_shack,inbound,conv_012
+2025-08-15 01:14:25,Wingverse,Ok no problem I will set it to nationwide,,wing_shack,outbound,conv_012
+2025-08-15 01:14:36,Wingverse,No problem and apologise again for the inconvenience,,wing_shack,outbound,conv_012
+2025-08-15 01:15:31,~pw,thankyou,,wing_shack,inbound,conv_012
+2025-08-18 06:33:09,~Manav Malhotra...,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_013
+2025-08-18 06:11:37,~Manav Malhotra...,"Hello, good evening",,wing_shack,inbound,conv_013
+2025-08-18 06:12:03,~Manav Malhotra...,Hope you are doing well...,,wing_shack,inbound,conv_013
+2025-08-18 22:23:26,Wingverse,Hi there yes this is chicken and not beef,,wing_shack,outbound,conv_013
+2025-08-18 22:45:49,~Manav Malhotra...,Boss it was very small the one piece as shown in the photo,,wing_shack,inbound,conv_013
+2025-08-18 22:46:07,~Manav Malhotra...,So it's kinda mis guidance😅,,wing_shack,inbound,conv_013
+2025-08-19 19:04:15,Wingverse,Ahh do you have any pictures of it to show me?,,wing_shack,outbound,conv_013
+2025-08-19 19:07:37,~Manav Malhotra...,It was similar as chicken popcorn but small,,wing_shack,inbound,conv_013
+2025-08-19 19:07:54,~Manav Malhotra...,I didn't click any and i know u need a proof but trust me they provided like that,,wing_shack,inbound,conv_013
+2025-08-19 19:08:07,Wingverse,Thanks for letting me know. What location did you order from ?,,wing_shack,outbound,conv_013
+2025-08-19 19:08:14,~Manav Malhotra...,Surbiton one,,wing_shack,inbound,conv_013
+2025-08-19 19:08:32,~Manav Malhotra...,From warren house i ordered nearest it took was Surbiton one,,wing_shack,inbound,conv_013
+2025-08-19 19:10:19,Wingverse,Thanks I’ll touch base with them,,wing_shack,outbound,conv_013
+2025-08-19 19:10:48,Wingverse,Size is subjective but yes if you’re saying they’re smaller than popcorn chicken it would definitely be the wrong size bites being used,,wing_shack,outbound,conv_013
+2025-08-19 19:11:00,Wingverse,It would’ve been great to see,,wing_shack,outbound,conv_013
+2025-08-19 19:11:01,~Manav Malhotra...,Ohkk thank you is there something complimentary you can do i know refund is not possible,,wing_shack,inbound,conv_013
+2025-08-19 19:11:24,~Manav Malhotra...,Trust me I was just hungry but realised it was small like mom swear i know that sounds kiddish,,wing_shack,inbound,conv_013
+2025-08-19 19:11:48,~Manav Malhotra...,Because as per photo expected little big but just wanted to let you know whole thing,,wing_shack,inbound,conv_013
+2025-08-19 19:11:53,Wingverse,Haha I believe you,,wing_shack,outbound,conv_013
+2025-08-19 19:11:58,~Manav Malhotra...,I respect your response,,wing_shack,inbound,conv_013
+2025-08-19 19:12:01,~Manav Malhotra...,Yes sir,,wing_shack,inbound,conv_013
+2025-08-19 19:12:19,Wingverse,Yes as an apology use code CRISPY5 at checkout on our website and it’ll give you £5 off,,wing_shack,outbound,conv_013
+2025-08-19 19:12:31,Wingverse,Www.wingshackco.com,,wing_shack,outbound,conv_013
+2025-08-19 19:12:35,~Manav Malhotra...,Lemme see,,wing_shack,inbound,conv_013
+2025-08-19 19:13:06,~Manav Malhotra...,Boss is there any certain date?,,wing_shack,inbound,conv_013
+2025-08-19 19:13:14,~Manav Malhotra...,I will order it by 6 or 7 in evening,,wing_shack,inbound,conv_013
+2025-08-19 19:13:19,~Manav Malhotra...,And thanks for understanding,,wing_shack,inbound,conv_013
+2025-08-19 19:13:44,Wingverse,I’ve done it for 30 days,,wing_shack,outbound,conv_013
+2025-08-19 19:14:08,~Manav Malhotra...,Will let you know feedback if something i order with photo this time,,wing_shack,inbound,conv_013
+2025-08-19 19:14:21,Wingverse,"Between you and me you could use the code, then sign up after and receive 25% off your next order after that",,wing_shack,outbound,conv_013
+2025-08-19 19:14:29,Wingverse,As it’s 25% off for new customers,,wing_shack,outbound,conv_013
+2025-08-19 19:14:59,~Manav Malhotra...,Oh it's alright done will do it...and will text you after doing thanks a bunch sir...🙏,,wing_shack,inbound,conv_013
+2025-08-01 18:40:51,~Anam Zaid,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_014
+2025-08-01 17:10:17,~Anam Zaid,"‎Missed voice call, ‎Tap to call back",,wing_shack,inbound,conv_014
+2025-08-01 18:44:48,~Anam Zaid,Helloo,,wing_shack,inbound,conv_014
+2025-08-01 18:45:08,Wingverse,Hey there how can I help,,wing_shack,outbound,conv_014
+2025-08-01 18:45:45,~Anam Zaid,Wanted to know if the the wingshack st john wood branch is halal or not?,,wing_shack,inbound,conv_014
+2025-08-01 18:46:42,Wingverse,Yes we are 100% halal in all locations 🙏.,,wing_shack,outbound,conv_014
+2025-08-01 18:47:16,~Anam Zaid,Okay perfect,,wing_shack,inbound,conv_014
+2025-08-01 18:47:19,~Anam Zaid,Thank you,,wing_shack,inbound,conv_014
+2025-08-01 18:47:58,Wingverse,No problem. Check us out online if we deliver to you it’s 25% off first order whe you sign up.,,wing_shack,outbound,conv_014
+2025-08-01 18:48:48,~Anam Zaid,Okay thank you,,wing_shack,inbound,conv_014
+2025-08-01 01:51:18,~Rach :),"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_015
+2025-08-01 01:50:57,~Rach :),"Hi there, I was just wondering if any of your chicken was gluten free?",,wing_shack,inbound,conv_015
+2025-08-01 01:51:54,Wingverse,"Hi there the chicken wings are gluten free. The boneless bites, wraps, burgers and tenders aren’t",,wing_shack,outbound,conv_015
+2025-08-01 01:52:21,Wingverse,The crispy onions on the Smokey bbq wings also contain gluten,,wing_shack,outbound,conv_015
+2025-08-26 09:34:30,~Khushi,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_016
+2025-08-26 09:34:27,~Khushi,"Hey, is there a proper sit in branch in glasgow ?",,wing_shack,inbound,conv_016
+2025-08-26 09:34:40,~Khushi,Or we could only order ?,,wing_shack,inbound,conv_016
+2025-08-26 09:35:39,Wingverse,Hey there it’s just deliveries for now! ☺️,,wing_shack,outbound,conv_016
+2025-08-26 09:35:54,~Khushi,Who’s making them?,,wing_shack,inbound,conv_016
+2025-08-26 09:36:07,~Khushi,I’m so confused if there’s no kitchen?,,wing_shack,inbound,conv_016
+2025-08-26 09:38:15,Wingverse,We rent a delivery kitchen and our chefs make the food.,,wing_shack,outbound,conv_016
+2025-08-26 09:39:01,~Khushi,Okii thanks,,wing_shack,inbound,conv_016
+2025-07-23 10:04:07,~Tash,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_017
+2025-07-23 06:03:03,~Tash,"Hiya I didn’t know how to get in contact other than this. I am currently looking for a part time job preferably close to Buckhurst Hill, such as the Wingshack in Loughton, as I live 5 minutes away. I previously worked as a hairdressing assistant for a year but the business got shut down, so I am on the look out for another job. Please get back to me. Thank you.",,wing_shack,inbound,conv_017
+2025-07-24 13:55:33,Wingverse,Hi Natasha thanks for thinking of us. We don’t currently have a eat in site at the moment all of our stores are delivery 🙏,,wing_shack,outbound,conv_017
+2025-07-24 16:51:21,~Tash,"Okay no worries, thank you",,wing_shack,inbound,conv_017
+2025-07-23 19:20:48,~Jerrell,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+447946322856,wing_shack,inbound,conv_018
+2025-07-23 18:05:34,~Jerrell,I got honey sesame’s wings from wansted last week and the sauce was nothing like what they used to taste like have you change sauce as was really disappointed with and Cajun fries wasn’t Cajun,+447946322856,wing_shack,inbound,conv_018
+2025-07-24 13:54:53,Wingverse,Hey there thanks for your honest feedback 🙏. It’s needed to improve the sites. What was your main concerns with the honey sesame and the Cajun?,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 14:23:37,~Jerrell,Honey sesame as it’s nothing like what the orginal that I have been buying over the years,+447946322856,wing_shack,inbound,conv_018
+2025-07-24 15:51:40,Wingverse,Got you. What was different about it?,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 15:53:20,~Jerrell,Not as sticky texture it felt watered down just completely different to the orginal,+447946322856,wing_shack,inbound,conv_018
+2025-07-24 16:25:44,Wingverse,Thanks for letting me know. We’ll look into this today. What was wrong with the Cajun fries?,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:25:53,Wingverse,The fries itself or the seasoning ?,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:28:23,~Jerrell,They wasn’t Cajun fries and what actually happen they never revecied the order as they said your system was down so when I got there they took a picture of my order and made it.. as I ordered via your own app.. just was bad experience tbh as I used to travel from hackney to Loughton so when I saw wansted I thought wicked but wasn’t good.. it was like I wasted money on food experience,+447946322856,wing_shack,inbound,conv_018
+2025-07-24 16:30:56,Wingverse,What was your order number please so I can look into this further,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:31:06,Wingverse,I’ll give you a refund for your experience,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:32:03,Wingverse,Travelling from Hackney and an app member I’ll give you a code for next time as well,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:32:08,~Jerrell,Order ID: 4GCRD3,+447946322856,wing_shack,inbound,conv_018
+2025-07-24 16:32:45,Wingverse,Yeah tbf to them their tablet had issues receiving orders which should be fixed now but the quality of the food there’s no excuse,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:33:02,Wingverse,When you say they wasn’t Cajun they gave you the wrong fries or just the quality wasn’t good?,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:33:33,~Jerrell,I think it was wrong fries beacuse it didn’t taste anything like Cajun..,+447946322856,wing_shack,inbound,conv_018
+2025-07-24 16:34:58,~Jerrell,"I’ve followed wingshack Loughton,Holloway Road, some random pub in Bethnal Green 😂 honey sesame is my favourite",+447946322856,wing_shack,inbound,conv_018
+2025-07-24 16:36:48,Wingverse,"😂 ah yeah we’re trying to be everywhere, but the quality has to match",+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:36:53,Wingverse,We have one in Dalston coming soon,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:37:08,~Jerrell,🙏🏾😅,+447946322856,wing_shack,inbound,conv_018
+2025-07-24 16:37:10,Wingverse,And we’re going to start selling the sauces as well,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:37:18,Wingverse,With diy kits maybe,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:37:51,~Jerrell,Yeah I think years ago sauce was on sell If im right but yeah I would buy that,+447946322856,wing_shack,inbound,conv_018
+2025-07-24 16:38:54,Wingverse,Yh years ago but bringing it back. Will give reusable bottles then can just buy the sauces and refill,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 16:39:22,~Jerrell,Yeah sustainable and all that😂,+447946322856,wing_shack,inbound,conv_018
+2025-07-24 16:41:28,Wingverse,Yeah exactly 😂,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 17:31:04,Wingverse,I’ve just rejected the order you placed the money should either be reversed to you or back in your account in 5-10 days,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 17:31:21,Wingverse,Also if you use the code jerrelshack1 when ordering online you can get a 25% discount,+447946322856,wing_shack,outbound,conv_018
+2025-07-24 17:31:37,~Jerrell,Thank you 👊🏾,+447946322856,wing_shack,inbound,conv_018
+2025-07-23 19:20:48,~Jerrell,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+447946322856,wing_shack,inbound,conv_019
+2025-07-23 18:05:34,~Jerrell,I got honey sesame’s wings from wansted last week and the sauce was nothing like what they used to taste like have you change sauce as was really disappointed with and Cajun fries wasn’t Cajun,+447946322856,wing_shack,inbound,conv_019
+2025-07-24 13:54:53,Wingverse,Hey there thanks for your honest feedback 🙏. It’s needed to improve the sites. What was your main concerns with the honey sesame and the Cajun?,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 14:23:37,~Jerrell,Honey sesame as it’s nothing like what the orginal that I have been buying over the years,+447946322856,wing_shack,inbound,conv_019
+2025-07-24 15:51:40,Wingverse,Got you. What was different about it?,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 15:53:20,~Jerrell,Not as sticky texture it felt watered down just completely different to the orginal,+447946322856,wing_shack,inbound,conv_019
+2025-07-24 16:25:44,Wingverse,Thanks for letting me know. We’ll look into this today. What was wrong with the Cajun fries?,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:25:53,Wingverse,The fries itself or the seasoning ?,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:28:23,~Jerrell,They wasn’t Cajun fries and what actually happen they never revecied the order as they said your system was down so when I got there they took a picture of my order and made it.. as I ordered via your own app.. just was bad experience tbh as I used to travel from hackney to Loughton so when I saw wansted I thought wicked but wasn’t good.. it was like I wasted money on food experience,+447946322856,wing_shack,inbound,conv_019
+2025-07-24 16:30:56,Wingverse,What was your order number please so I can look into this further,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:31:06,Wingverse,I’ll give you a refund for your experience,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:32:03,Wingverse,Travelling from Hackney and an app member I’ll give you a code for next time as well,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:32:08,~Jerrell,Order ID: 4GCRD3,+447946322856,wing_shack,inbound,conv_019
+2025-07-24 16:32:45,Wingverse,Yeah tbf to them their tablet had issues receiving orders which should be fixed now but the quality of the food there’s no excuse,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:33:02,Wingverse,When you say they wasn’t Cajun they gave you the wrong fries or just the quality wasn’t good?,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:33:33,~Jerrell,I think it was wrong fries beacuse it didn’t taste anything like Cajun..,+447946322856,wing_shack,inbound,conv_019
+2025-07-24 16:34:58,~Jerrell,"I’ve followed wingshack Loughton,Holloway Road, some random pub in Bethnal Green 😂 honey sesame is my favourite",+447946322856,wing_shack,inbound,conv_019
+2025-07-24 16:36:48,Wingverse,"😂 ah yeah we’re trying to be everywhere, but the quality has to match",+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:36:53,Wingverse,We have one in Dalston coming soon,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:37:08,~Jerrell,🙏🏾😅,+447946322856,wing_shack,inbound,conv_019
+2025-07-24 16:37:10,Wingverse,And we’re going to start selling the sauces as well,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:37:18,Wingverse,With diy kits maybe,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:37:51,~Jerrell,Yeah I think years ago sauce was on sell If im right but yeah I would buy that,+447946322856,wing_shack,inbound,conv_019
+2025-07-24 16:38:54,Wingverse,Yh years ago but bringing it back. Will give reusable bottles then can just buy the sauces and refill,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 16:39:22,~Jerrell,Yeah sustainable and all that😂,+447946322856,wing_shack,inbound,conv_019
+2025-07-24 16:41:28,Wingverse,Yeah exactly 😂,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 17:31:04,Wingverse,I’ve just rejected the order you placed the money should either be reversed to you or back in your account in 5-10 days,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 17:31:21,Wingverse,Also if you use the code jerrelshack1 when ordering online you can get a 25% discount,+447946322856,wing_shack,outbound,conv_019
+2025-07-24 17:31:37,~Jerrell,Thank you 👊🏾,+447946322856,wing_shack,inbound,conv_019
+2025-07-06 18:41:33,~Doviltas,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+447878349949,wing_shack,inbound,conv_020
+2025-07-06 18:42:17,Wingverse,Hey there give me a moment let me look into this for you,+447878349949,wing_shack,outbound,conv_020
+2025-07-06 18:42:39,Wingverse,Can you give me the two email addresses,+447878349949,wing_shack,outbound,conv_020
+2025-07-06 18:43:22,~Doviltas,dbrucas0@gmail.com,+447878349949,wing_shack,inbound,conv_020
+2025-07-06 19:00:49,Wingverse,Both emails were registered in 2024,+447878349949,wing_shack,outbound,conv_020
+2025-07-06 19:01:29,~Doviltas,Oh is it for new customers?,+447878349949,wing_shack,inbound,conv_020
+2025-07-06 19:02:16,~Doviltas,I thought it was offer,+447878349949,wing_shack,inbound,conv_020
+2025-07-06 19:02:17,Wingverse,Yes for new wing shack customers,+447878349949,wing_shack,outbound,conv_020
+2025-07-06 19:02:31,Wingverse,We would run out of wings 😂,+447878349949,wing_shack,outbound,conv_020
+2025-07-06 19:02:30,~Doviltas,"Ah right, no worries",+447878349949,wing_shack,inbound,conv_020
+2025-07-06 19:03:08,~Doviltas,"Alrighty, thanks!",+447878349949,wing_shack,inbound,conv_020
+2025-08-28 04:16:10,~Doviltas,"Hi, I see there is an option to buy sauces now, I believe they come in a bag it says? How will that work, is it resealable? Is there a use by date?",+447878349949,wing_shack,inbound,conv_020
+2025-08-28 13:10:26,Wingverse,Hi there yes they come in vacuum packed sealed bags. The bags aren’t resealable but you can buy a starter pack which comes with a restaurant grade squeeze bottle you can fill your sauce up with.,+447878349949,wing_shack,outbound,conv_020
+2025-08-28 13:10:55,Wingverse,They can last up to 60 days in the vacuum packed bags and has a 30 day shelf life once you open them,+447878349949,wing_shack,outbound,conv_020
+2025-08-30 01:09:29,~Shez,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_021
+2025-08-30 01:09:29,Wingverse,Hey there what was your error,,wing_shack,outbound,conv_021
+2025-08-30 01:10:15,~Shez,Hi. Had an issue with an order. I was trialling an order with a discount code you gave but the order has gone through by accident. I've spoken to the kitchen and cancelled it. Can you cancel the order and refund it please?,,wing_shack,inbound,conv_021
+2025-08-30 01:10:45,Wingverse,Yeah no problem what was the order number I can process this now,,wing_shack,outbound,conv_021
+2025-08-30 01:10:59,~Shez,Thank you,,wing_shack,inbound,conv_021
+2025-08-30 01:11:22,Wingverse,Was there an issue with the order?,,wing_shack,outbound,conv_021
+2025-08-30 01:39:39,~Shez,I was trialling the discount code for tomorrow to see if it worked but it didn't and the order processed through regardless,,wing_shack,inbound,conv_021
+2025-08-30 01:40:10,Wingverse,What was the code?,,wing_shack,outbound,conv_021
+2025-08-30 01:40:31,~Shez,shehzaadshackrewards,,wing_shack,inbound,conv_021
+2025-08-30 01:40:41,~Shez,shehzaadshackrewards2,,wing_shack,inbound,conv_021
+2025-08-30 01:41:02,~Shez,From my cash stamps on the previous app,,wing_shack,inbound,conv_021
+2025-08-30 01:41:56,Wingverse,"I’m checking now, was it to do with the boneless bites?",,wing_shack,outbound,conv_021
+2025-08-30 01:42:28,~Shez,"Yes, two free boneless bites",,wing_shack,inbound,conv_021
+2025-08-30 01:44:10,Wingverse,Got you. So to activate those codes you need to select the 8 boneless bites from the category and then the discount codes should work,,wing_shack,outbound,conv_021
+2025-08-30 01:44:25,~Shez,Ok thanks,,wing_shack,inbound,conv_021
+2025-08-30 01:44:34,Wingverse,I’ve also cancelled today’s order so the refund should be processed in the next t 5-10 day,,wing_shack,outbound,conv_021
+2025-08-30 01:44:43,~Shez,Thanks very much,,wing_shack,inbound,conv_021
+2025-08-30 01:44:50,~Shez,We'll place our next order tomorrow!,,wing_shack,inbound,conv_021
+2025-08-30 01:45:09,Wingverse,"No problem, see you tomorrow!",,wing_shack,outbound,conv_021
+2025-08-02 00:40:30,~Annabelle Diable,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_022
+2025-08-02 00:40:18,~Annabelle Diable,"Hello, we just ordered from wing shack in Loughton on uber eats. The food has arrived and it’s nothing like the usual wing shack. When we called your number it’s gone through to TZ peri peri who are saying that you are borrowing their kitchen but the food I’ve just had tastes exactly like there’s. Is this the case ?",,wing_shack,inbound,conv_022
+2025-08-02 00:43:49,Wingverse,Hey there yes we are in the kitchen connected to their store.,,wing_shack,outbound,conv_022
+2025-08-02 00:47:00,~Annabelle Diable,It tastes nothing like what it used to be. Especially the chicken sandwich - the bun and chicken was completely different. I had TZ peri peri not long ago (didn’t like it) and what has arrived tonight tastes like their food not wingshack. I think you should make it more obvious to your customers what the situation is as we have ordered from your store when it’s not even come from there and wouldn’t have ordered if we knew this,,wing_shack,inbound,conv_022
+2025-08-02 01:03:37,Wingverse,Thanks for your honest feedback. We’re going to look into the chicken sandwich. It’s still Wing Shack. We’ve just moved from eat in to deliveries and pick up but have the same team and recipes. If you could let me know what the difference in taste was we can use this to work off of,,wing_shack,outbound,conv_022
+2025-08-30 01:09:28,~Shez,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_023
+2025-08-30 01:09:28,Wingverse,Hey there what was your error,,wing_shack,outbound,conv_023
+2025-08-30 01:10:15,~Shez,Hi. Had an issue with an order. I was trialling an order with a discount code you gave but the order has gone through by accident. I've spoken to the kitchen and cancelled it. Can you cancel the order and refund it please?,,wing_shack,inbound,conv_023
+2025-08-30 01:10:45,Wingverse,Yeah no problem what was the order number I can process this now,,wing_shack,outbound,conv_023
+2025-08-30 01:10:59,~Shez,Thank you,,wing_shack,inbound,conv_023
+2025-08-30 01:11:22,Wingverse,Was there an issue with the order?,,wing_shack,outbound,conv_023
+2025-08-30 01:39:39,~Shez,I was trialling the discount code for tomorrow to see if it worked but it didn't and the order processed through regardless,,wing_shack,inbound,conv_023
+2025-08-30 01:40:09,Wingverse,What was the code?,,wing_shack,outbound,conv_023
+2025-08-30 01:40:31,~Shez,shehzaadshackrewards,,wing_shack,inbound,conv_023
+2025-08-30 01:40:41,~Shez,shehzaadshackrewards2,,wing_shack,inbound,conv_023
+2025-08-30 01:41:02,~Shez,From my cash stamps on the previous app,,wing_shack,inbound,conv_023
+2025-08-30 01:41:56,Wingverse,"I’m checking now, was it to do with the boneless bites?",,wing_shack,outbound,conv_023
+2025-08-30 01:42:28,~Shez,"Yes, two free boneless bites",,wing_shack,inbound,conv_023
+2025-08-30 01:44:10,Wingverse,Got you. So to activate those codes you need to select the 8 boneless bites from the category and then the discount codes should work,,wing_shack,outbound,conv_023
+2025-08-30 01:44:25,~Shez,Ok thanks,,wing_shack,inbound,conv_023
+2025-08-30 01:44:34,Wingverse,I’ve also cancelled today’s order so the refund should be processed in the next t 5-10 day,,wing_shack,outbound,conv_023
+2025-08-30 01:44:43,~Shez,Thanks very much,,wing_shack,inbound,conv_023
+2025-08-30 01:44:50,~Shez,We'll place our next order tomorrow!,,wing_shack,inbound,conv_023
+2025-08-30 01:45:09,Wingverse,"No problem, see you tomorrow!",,wing_shack,outbound,conv_023
+2025-08-24 19:37:22,~Aaron,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+447473880264,wing_shack,inbound,conv_024
+2025-08-24 19:16:47,~Aaron,My discount code didn’t work,+447473880264,wing_shack,inbound,conv_024
+2025-08-24 20:29:43,Wingverse,Hey there what was the discount code,+447473880264,wing_shack,outbound,conv_024
+2025-08-31 20:10:36,~Aaron,No the loyalty scheme doesn’t work,+447473880264,wing_shack,inbound,conv_024
+2025-08-31 20:11:11,Wingverse,Can I take your email so I can have a look please,+447473880264,wing_shack,outbound,conv_024
+2025-08-31 20:11:35,~Aaron,Aaronbristow2004@gmail.com,+447473880264,wing_shack,inbound,conv_024
+2025-08-31 20:12:37,Wingverse,Thanks Aaron give me a moment pls,+447473880264,wing_shack,outbound,conv_024
+2025-08-31 20:15:02,~Aaron,It says server response invalid,+447473880264,wing_shack,inbound,conv_024
+2025-08-31 20:15:36,Wingverse,Can you send a screenshot pls,+447473880264,wing_shack,outbound,conv_024
+2025-08-31 20:18:08,Wingverse,Thanks,+447473880264,wing_shack,outbound,conv_024
+2025-08-31 20:18:48,Wingverse,I’ve had to escalate this to tech for support but in the meantime use this code ABLOYALTY it will give you the £5 off that you would’ve got,+447473880264,wing_shack,outbound,conv_024
+2025-08-31 20:19:03,~Aaron,Thank u,+447473880264,wing_shack,inbound,conv_024
+2025-08-31 20:19:05,Wingverse,"Once the loyalty issue is fixed, you’ll have that to use too 😉",+447473880264,wing_shack,outbound,conv_024
+2025-08-31 20:19:14,Wingverse,No problem. Let me know if you have any other issues,+447473880264,wing_shack,outbound,conv_024
+2025-08-31 20:20:05,~Aaron,Ta have a nice evening,+447473880264,wing_shack,inbound,conv_024
+2025-08-03 00:58:34,~Ry,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_025
+2025-08-03 00:56:45,~Ry,Where is my order,,wing_shack,inbound,conv_025
+2025-08-03 01:38:30,Wingverse,Can I take your order number and platform you ordered from and I can take a look for you please?,,wing_shack,outbound,conv_025
+2025-07-21 14:17:29,~J,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+447838458877,wing_shack,inbound,conv_026
+2025-07-21 14:05:27,~J,Hi what's restaurant do u still have open,+447838458877,wing_shack,inbound,conv_026
+2025-08-04 23:45:16,~J,"‎Missed voice call, ‎Tap to call back",+447838458877,wing_shack,inbound,conv_026
+2025-08-04 23:45:58,~J,What restaurant can I eat in at?,+447838458877,wing_shack,inbound,conv_026
+2025-08-05 00:54:19,Wingverse,Hey there,+447838458877,wing_shack,outbound,conv_026
+2025-08-05 00:54:34,Wingverse,We are completely online now,+447838458877,wing_shack,outbound,conv_026
+2025-08-05 00:54:44,Wingverse,All of our locations are delivery or pickup in some,+447838458877,wing_shack,outbound,conv_026
+2025-08-05 00:55:17,Wingverse,You can find a list of our stores here,+447838458877,wing_shack,outbound,conv_026
+2025-08-05 02:50:18,~J,Ok thabjsn,+447838458877,wing_shack,inbound,conv_026
+2025-08-05 02:50:25,~J,Thanks,+447838458877,wing_shack,inbound,conv_026
+2025-09-06 03:59:28,~Kehkshan,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_027
+2025-09-06 03:58:33,~Kehkshan,I’ve just visited the Loughton branch of Wing Shack Co as I placed an order for collection and the store is closed… with no one inside,,wing_shack,inbound,conv_027
+2025-09-06 03:59:19,~Kehkshan,I have also received a collection confirmation email despite not collecting food as the store is locked closed with all lights off.,,wing_shack,inbound,conv_027
+2025-09-06 03:59:27,~Kehkshan,"‎Missed voice call, ‎Tap to call back",,wing_shack,inbound,conv_027
+2025-09-06 17:28:03,Wingverse,Hi there,,wing_shack,outbound,conv_027
+2025-09-06 17:28:27,Wingverse,Did you go to the delivery kitchen and was closed?,,wing_shack,outbound,conv_027
+2025-08-08 21:45:58,~Izzy Fishman,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+972585308712,wing_shack,inbound,conv_028
+2025-08-08 21:45:56,~Izzy Fishman,"‎Voice call, ‎22 sec",+972585308712,wing_shack,inbound,conv_028
+2025-08-08 21:46:49,~Izzy Fishman,Order number - 0928,+972585308712,wing_shack,inbound,conv_028
+2025-08-08 21:47:03,Wingverse,Thanks. Is this on Deliveroo?,+972585308712,wing_shack,outbound,conv_028
+2025-08-08 21:47:06,~Izzy Fishman,Yes,+972585308712,wing_shack,inbound,conv_028
+2025-08-08 21:47:20,Wingverse,Thanks. What location did you order from I can check this for you now,+972585308712,wing_shack,outbound,conv_028
+2025-08-08 21:47:40,~Izzy Fishman,Loughton,+972585308712,wing_shack,inbound,conv_028
+2025-08-08 21:48:22,Wingverse,Thanks. One moment please I’m checking the status now,+972585308712,wing_shack,outbound,conv_028
+2025-08-08 21:48:25,~Izzy Fishman,Ok,+972585308712,wing_shack,inbound,conv_028
+2025-08-08 21:48:42,~Izzy Fishman,Just arrived now,+972585308712,wing_shack,inbound,conv_028
+2025-08-08 21:49:44,Wingverse,"Ahh ok good stuff. Although they’re busy today, we apologise for the wait. I’ll give you a code to use for next time as an apology 🙏",+972585308712,wing_shack,outbound,conv_028
+2025-08-08 21:50:05,Wingverse,Please use CRISPY5 at checkout next time you order from our website for £5 off your order,+972585308712,wing_shack,outbound,conv_028
+2025-09-23 20:00:44,~Faaria,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",,wing_shack,inbound,conv_029
+2025-09-23 20:00:42,~Faaria,Hi is Loughton wing shack still open,,wing_shack,inbound,conv_029
+2025-09-23 20:01:15,Wingverse,Hi there our eat in store is closed but we still offer deliveries and/or pickup from our delivery kitchen,,wing_shack,outbound,conv_029
+2025-09-23 20:01:20,Wingverse,It’s a few doors up the road,,wing_shack,outbound,conv_029
+2025-09-23 20:01:29,Wingverse,You can order online here www.wingshackco.com,,wing_shack,outbound,conv_029
+2025-09-23 20:20:54,~Faaria,Ok thank u,,wing_shack,inbound,conv_029
+2025-09-17 01:18:52,Mems,"‎Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them.",+447879772515,wing_shack,inbound,conv_030
+2025-09-17 01:18:52,Mems,‎Mems is a contact.,+447879772515,wing_shack,inbound,conv_030
+2025-09-17 01:18:46,Mems,Hi I have not yet received my order could you please give me a update,+447879772515,wing_shack,inbound,conv_030
+2025-09-17 01:20:55,Wingverse,Hey there yes no problem can I have your address and I’ll get an update for you,+447879772515,wing_shack,outbound,conv_030
+2025-09-17 01:21:27,Mems,It was a online order for sauces order number is #1001,+447879772515,wing_shack,inbound,conv_030
+2025-09-17 01:22:07,Wingverse,Perfect thanks. One moment please,+447879772515,wing_shack,outbound,conv_030
+2025-09-17 01:24:28,Wingverse,Just to confirm it’s to be shipped to 40a pond field lane cm13 2bx?,+447879772515,wing_shack,outbound,conv_030
+2025-09-17 01:25:11,Mems,Yes that’s the one,+447879772515,wing_shack,inbound,conv_030
+2025-09-17 01:30:36,Wingverse,Perfect thanks. One moment please I’ll check status of order and give you update on delivery time,+447879772515,wing_shack,outbound,conv_030
+2025-09-17 01:50:10,Mems,Any luck ?,+447879772515,wing_shack,inbound,conv_030
+2025-09-17 01:54:06,Wingverse,I’m arranging a same day delivery date that coincides with a fresh batch. What time is better for you for delivery morning or afternoon?,+447879772515,wing_shack,outbound,conv_030
+2025-09-17 02:01:29,Mems,Anytime should be ok as the delivery person would have to put in a safe place but I can tell them on my ring doorbell,+447879772515,wing_shack,inbound,conv_030
+2025-09-17 02:47:08,Wingverse,Great. All confirmed for 19th. So the delivery driver can just knock on the door and youll instruct them on safe place?,+447879772515,wing_shack,outbound,conv_030
+2025-09-17 02:47:13,Wingverse,I’ll make note of this,+447879772515,wing_shack,outbound,conv_030
+2025-09-19 00:29:10,Mems,Hi have you got a update on my order as the delivery status says they were unable to pick up package,+447879772515,wing_shack,inbound,conv_030
+2025-09-19 00:30:27,Wingverse,Hi yes the courier is collecting today for delivery tomorrow,+447879772515,wing_shack,outbound,conv_030
+2025-09-19 00:30:41,Wingverse,Will keep you updated tomorrow as well,+447879772515,wing_shack,outbound,conv_030
+2025-09-19 02:39:25,Mems,Ok thanks,+447879772515,wing_shack,inbound,conv_030
+2025-09-19 17:20:14,Wingverse,"Hey Mehmet, I just got an update  on my end on your order that the order is being picked up today for delivery.",+447879772515,wing_shack,outbound,conv_030
+2025-09-19 17:36:09,Mems,I placed the order on the 10th and it is now the 19th you said I would have it latest today and they was picking it up yesterday this is actually unacceptable,+447879772515,wing_shack,inbound,conv_030
+2025-09-19 17:38:36,Wingverse,Yes I apologise for the added delay. We’ve had an issue with getting the products collected from our delivery kitchen with evri and are commited to getting this out to you as soon as possible,+447879772515,wing_shack,outbound,conv_030
+2025-09-22 20:01:41,Mems,Any update?,+447879772515,wing_shack,inbound,conv_030
+2025-09-23 00:18:42,Mems,Once again the collection date has moved you said it was gonna get collected on Friday and once again it has not happened!! If you can’t get my order to me then I would like a refund.,+447879772515,wing_shack,inbound,conv_030
+2025-09-23 10:11:14,Wingverse,"Hey mehmet, totally understand your frustration we’re in the same boat I can’t for the life of me understand why they haven’t just come and collected it. We haven’t even been given a reason why the couriers aren’t turning up we have the sauces there ready.",+447879772515,wing_shack,outbound,conv_030
+2025-09-23 10:13:20,Wingverse,Agreed. Would delivering the sauces in an uber today be viable for you when someone is indoors to collect? We can arrange it at a time convenient for you.,+447879772515,wing_shack,outbound,conv_030
+2025-09-23 16:02:26,Mems,Yeh that should be fine but it would have to be after 6,+447879772515,wing_shack,inbound,conv_030
+2025-09-23 16:06:52,Wingverse,Ok perfect. If you message me when you’re ready today and we can arrange.,+447879772515,wing_shack,outbound,conv_030
+2025-09-23 16:21:04,Mems,It’s ok I understand things happen been going to wing shack since  you first opened your first shop just wanted to try the sauce at home hopefully all will be good now,+447879772515,wing_shack,inbound,conv_030
+2025-09-23 16:46:21,Wingverse,"Yeah people have been making all sorts with it since it launched. What you thinking to cook it with, your own wings or other foods?",+447879772515,wing_shack,outbound,conv_030
+2025-09-23 17:03:24,Mems,Mostly loaded fries and tacos will leave the wings for you guys,+447879772515,wing_shack,inbound,conv_030
+2025-09-23 23:27:37,Mems,I’m home if you want to send it,+447879772515,wing_shack,inbound,conv_030
+2025-09-23 23:33:30,Wingverse,Ok great let me let the site know so I can arrange the transport,+447879772515,wing_shack,outbound,conv_030
+2025-09-23 23:50:54,Mems,Ok thanks,+447879772515,wing_shack,inbound,conv_030
+2025-09-24 18:46:29,Wingverse,Hey there just picking up from my colleague from yesterday. We’re to arrange a delivery to you today for sauces,+447879772515,wing_shack,outbound,conv_030
+2025-09-24 18:47:36,Wingverse,You should receive a text today as well regarding your bottles,+447879772515,wing_shack,outbound,conv_030
+2025-09-24 18:48:07,Wingverse,These are in transit now you’ll receive the tracking information for this,+447879772515,wing_shack,outbound,conv_030
+2025-09-24 20:00:04,Mems,Ok hopefully I will be receiving it later,+447879772515,wing_shack,inbound,conv_030
+2025-09-24 23:43:08,Mems,I have received the bottles but no sauce yet,+447879772515,wing_shack,inbound,conv_030
+2025-09-24 23:43:28,Wingverse,If you’re home I can arrange transport for you now,+447879772515,wing_shack,outbound,conv_030
+2025-09-24 23:46:14,Mems,Yeh I am home,+447879772515,wing_shack,inbound,conv_030
+2025-09-24 23:47:26,Wingverse,"Just to confirm, 40a pondfield lane, Brentwood? ‎<This message was edited>",+447879772515,wing_shack,outbound,conv_030
+2025-09-24 23:49:42,Mems,Yes that’s correct,+447879772515,wing_shack,inbound,conv_030
+2025-09-24 23:51:34,Wingverse,Great. That’s booked in for you once driver is on way from the production kitchen you’ll receive a notification with tracking,+447879772515,wing_shack,outbound,conv_030
+2025-09-25 00:22:47,Wingverse,On its way to you now will be about 40mins,+447879772515,wing_shack,outbound,conv_030
+2025-09-25 00:26:25,Mems,Thank you,+447879772515,wing_shack,inbound,conv_030
+2025-09-25 00:59:10,Wingverse,The cab should be there now he’s arrived outside,+447879772515,wing_shack,outbound,conv_030
+2025-09-25 01:06:58,Mems,Hi thanks it has arrived the only thing is the sell by date of the buffalo sauce is in 3 days,+447879772515,wing_shack,inbound,conv_030
+2025-09-25 01:30:06,Wingverse,Thanks for flagging. These are bags straight from the production kitchen which we use ourselves. They’re long lasting sauces for up to 6 months unopened but they are conservative internally with how long they give themselves to sell the batch,+447879772515,wing_shack,outbound,conv_030
+2025-09-25 01:33:34,Mems,Yeh I did think that just wanted to confirm thanks for getting it out to me in the end hopefully next time it’s a lot smoother 👍,+447879772515,wing_shack,inbound,conv_030
+2025-09-25 01:34:10,Wingverse,No problem. Yes exactly ! 😅 let us know if you need anything!,+447879772515,wing_shack,outbound,conv_030
+2025-09-25 01:36:11,Mems,Sorry just a quick one do you heat the sauce or serve cold,+447879772515,wing_shack,inbound,conv_030
+2025-09-25 01:36:52,Wingverse,Completely up to your taste. For chicken we prefer to serve hot so it costs easier,+447879772515,wing_shack,outbound,conv_030
+2025-09-25 01:38:18,Wingverse,What you thinking to do?,+447879772515,wing_shack,outbound,conv_030
+2025-09-25 01:40:34,Mems,I’m thinking loaded fries but my wife is gonna do some deep fried chicken drumsticks,+447879772515,wing_shack,inbound,conv_030
+2025-09-25 01:40:54,Mems,She asked if it’s best to heat the sauce then put it on the chicken,+447879772515,wing_shack,inbound,conv_030
+2025-09-25 01:43:09,Wingverse,Yes heat the sauce gently in a pan and then coat it while it’s hot,+447879772515,wing_shack,outbound,conv_030
+2025-09-25 01:43:45,Wingverse,That’s how you get the even coat and keep it crispy,+447879772515,wing_shack,outbound,conv_030
