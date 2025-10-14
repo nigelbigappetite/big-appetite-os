@@ -85,3 +85,4 @@ temp/
 *.njsproj
 *.sln
 *.sw?
+pattern_clustering/venv/
