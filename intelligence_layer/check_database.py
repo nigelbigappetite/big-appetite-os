@@ -1,118 +1,87 @@
 #!/usr/bin/env python3
 """
-Database Inspector - Check what tables exist in your Supabase database
+Database Inspector - Check what signals are available
 """
 
 import os
 import sys
-from supabase import create_client
+from dotenv import load_dotenv
+from supabase import create_client, Client
 
-# Add src to path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+# Load environment variables
+load_dotenv()
 
 def check_database():
-    """Check what tables exist in the database"""
+    """Check database connection and available signals"""
     print("🔍 Database Inspector")
     print("=" * 50)
     
+    # Get credentials
+    url = os.getenv('SUPABASE_URL')
+    key = os.getenv('SUPABASE_KEY')
+    
+    if not url or not key:
+        print("❌ Missing SUPABASE_URL or SUPABASE_KEY")
+        return
+    
+    print(f"✅ URL: {url}")
+    print(f"✅ KEY: {key[:20]}...")
+    
     try:
-        # Get credentials
-        url = os.getenv("SUPABASE_URL")
-        key = os.getenv("SUPABASE_KEY")
-        
-        if not url or not key:
-            print("❌ Missing SUPABASE_URL or SUPABASE_KEY")
-            return
-        
-        print(f"✅ Connected to: {url}")
-        
         # Create client
         client = create_client(url, key)
+        print("✅ Supabase client created")
         
-        # Check 1: List all tables
-        print("\n📋 Checking available tables...")
+        # Check drivers table
+        print("\n📊 Checking drivers table...")
+        drivers = client.table('drivers').select('driver_name').execute()
+        print(f"✅ Found {len(drivers.data)} drivers: {[d['driver_name'] for d in drivers.data]}")
+        
+        # Prefer unified view if present
+        print("\n📊 Checking unified signals view...")
         try:
-            # Try to get table list (this might not work with all Supabase versions)
-            response = client.table("information_schema.tables").select("table_name, table_schema").eq("table_schema", "public").execute()
-            if response.data:
-                print("Available tables in 'public' schema:")
-                for table in response.data:
-                    print(f"  - {table['table_name']}")
+            unified = client.table('signals_unified').select('signal_id, signal_text, signal_type, source_platform').limit(5).execute()
+            if unified.data:
+                print(f"✅ signals_unified: {len(unified.data)} sample rows")
+                for row in unified.data:
+                    preview = (row.get('signal_text') or '')[:50]
+                    print(f"   {row.get('signal_id')} [{row.get('signal_type')}/{row.get('source_platform')}]: {preview}...")
             else:
-                print("Could not list tables via information_schema")
+                print("❌ signals_unified: No rows (view empty)")
         except Exception as e:
-            print(f"Could not list tables: {e}")
-        
-        # Check 2: Try different table name variations
-        print("\n🔍 Testing different table name variations...")
-        
-        table_variations = [
-            "drivers",
-            "actors.drivers", 
-            "public.drivers",
-            "public.actors.drivers",
-            "actor_profiles",
-            "actors.actor_profiles",
-            "public.actor_profiles",
-            "public.actors.actor_profiles"
+            print(f"❌ signals_unified: Error - {str(e)}")
+
+        print("\n📊 Checking raw signal tables...")
+        raw_checks = [
+            ('whatsapp_messages', 'message_text'),
+            ('reviews', 'review_text'),
+            ('signals', 'raw_content')
         ]
-        
-        for table_name in table_variations:
+        for table, col in raw_checks:
             try:
-                print(f"Testing: {table_name}")
-                response = client.table(table_name).select("count").limit(1).execute()
-                print(f"  ✅ {table_name} - Found! ({len(response.data)} records)")
-            except Exception as e:
-                error_msg = str(e)
-                if "not found" in error_msg.lower() or "does not exist" in error_msg.lower():
-                    print(f"  ❌ {table_name} - Not found")
+                result = client.table(table).select(f'signal_id, {col}').limit(5).execute()
+                if result.data:
+                    print(f"✅ {table}: {len(result.data)} signals found")
+                    first = result.data[0]
+                    content = first.get(col) or ''
+                    print(f"   Example: {first.get('signal_id')} - {str(content)[:50]}...")
                 else:
-                    print(f"  ⚠️  {table_name} - Error: {error_msg}")
+                    print(f"❌ {table}: No signals found")
+            except Exception as e:
+                print(f"❌ {table}: Error - {str(e)}")
         
-        # Check 3: Try to create a simple test table
-        print("\n🧪 Testing table creation...")
+        # Check actor tables
+        print("\n📊 Checking actor tables...")
         try:
-            # This will fail if we don't have permissions, but we can see the error
-            test_data = {"test": "value"}
-            response = client.table("test_table").insert(test_data).execute()
-            print("✅ Can create tables")
+            actors = client.table('actor_profiles').select('actor_id').limit(5).execute()
+            print(f"✅ actor_profiles: {len(actors.data)} actors found")
         except Exception as e:
-            if "permission" in str(e).lower():
-                print("⚠️  No permission to create tables (this is normal)")
-            else:
-                print(f"❌ Table creation error: {e}")
+            print(f"❌ actor_profiles: Error - {str(e)}")
         
-        # Check 4: Test with a known table (if any exist)
-        print("\n🔍 Looking for any existing tables...")
-        common_tables = [
-            "users", "profiles", "messages", "orders", "products", 
-            "reviews", "whatsapp_messages", "survey_responses"
-        ]
-        
-        found_tables = []
-        for table_name in common_tables:
-            try:
-                response = client.table(table_name).select("count").limit(1).execute()
-                found_tables.append(table_name)
-                print(f"  ✅ Found: {table_name}")
-            except:
-                pass
-        
-        if not found_tables:
-            print("  ❌ No common tables found")
-        else:
-            print(f"\n📊 Found {len(found_tables)} tables: {', '.join(found_tables)}")
-        
-        print("\n" + "=" * 50)
-        print("🎯 Next Steps:")
-        print("1. If no tables found: You need to run your migrations")
-        print("2. If tables found but wrong names: Update the table names in the code")
-        print("3. If permission errors: Check your API key permissions")
+        print("\n🎯 Ready to process signals!")
         
     except Exception as e:
-        print(f"❌ Database check failed: {e}")
-        import traceback
-        traceback.print_exc()
+        print(f"❌ Database error: {str(e)}")
 
 if __name__ == "__main__":
     check_database()

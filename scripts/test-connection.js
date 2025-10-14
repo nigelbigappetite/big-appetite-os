@@ -1,84 +1,96 @@
 #!/usr/bin/env node
 
-import { createClient } from '@supabase/supabase-js';
-import chalk from 'chalk';
-import dotenv from 'dotenv';
+/**
+ * Test Supabase Connection
+ * Simple script to test if your credentials work
+ */
 
-// Load environment variables from .env file
-dotenv.config();
-
-// Configuration
-const SUPABASE_URL = process.env.SUPABASE_URL || 'https://phjawqphehkzfaezhzzf.supabase.co';
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY;
-
-async function testConnection() {
-    console.log(chalk.blue('🔍 Testing Supabase Connection'));
-    console.log(chalk.blue('=============================\n'));
-    
-    if (!SUPABASE_KEY) {
-        console.log(chalk.red('❌ No Supabase key found'));
-        console.log(chalk.yellow('Please set SUPABASE_SERVICE_ROLE_KEY or SUPABASE_ANON_KEY in your environment'));
-        process.exit(1);
-    }
-    
-    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-    
-    try {
-        // Test connection by querying brands table
-        console.log('Testing database connection...');
-        const { data: brands, error } = await supabase
-            .from('core.brands')
-            .select('brand_id, brand_name, brand_slug')
-            .limit(5);
-        
-        if (error) {
-            throw new Error(error.message);
-        }
-        
-        console.log(chalk.green('✅ Database connection successful!'));
-        console.log(chalk.green('✅ Brands table accessible'));
-        
-        if (brands && brands.length > 0) {
-            console.log('\nAvailable brands:');
-            brands.forEach(brand => {
-                console.log(`  - ${brand.brand_slug} (${brand.brand_name})`);
-            });
-        } else {
-            console.log(chalk.yellow('⚠️  No brands found in database'));
-            console.log(chalk.yellow('You may need to run the seed data first'));
-        }
-        
-        // Test signals table
-        console.log('\nTesting signals tables...');
-        const { error: signalsError } = await supabase
-            .from('signals.whatsapp_messages')
-            .select('signal_id')
-            .limit(1);
-        
-        if (signalsError) {
-            throw new Error(`Signals table error: ${signalsError.message}`);
-        }
-        
-        console.log(chalk.green('✅ WhatsApp messages table accessible'));
-        
-        const { error: centralSignalsError } = await supabase
-            .from('signals.signals')
-            .select('signal_id')
-            .limit(1);
-        
-        if (centralSignalsError) {
-            throw new Error(`Central signals table error: ${centralSignalsError.message}`);
-        }
-        
-        console.log(chalk.green('✅ Central signals table accessible'));
-        
-        console.log(chalk.green('\n🎉 All tests passed! Ready to ingest CSV data.'));
-        
-    } catch (error) {
-        console.log(chalk.red('❌ Connection failed:'));
-        console.log(chalk.red(error.message));
-        process.exit(1);
-    }
+// Method 1: Try to load from .env file
+try {
+  require('dotenv').config();
+  console.log('📁 Loaded .env file');
+} catch (error) {
+  console.log('⚠️  No .env file found, using inline variables');
 }
 
-testConnection();
+// Method 2: Set inline (replace with your actual credentials)
+const SUPABASE_URL = process.env.SUPABASE_URL || 'your_supabase_url_here';
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || 'your_service_role_key_here';
+
+console.log('🔧 Testing Supabase connection...\n');
+
+// Check if credentials are set
+if (SUPABASE_URL === 'your_supabase_url_here' || SUPABASE_SERVICE_ROLE_KEY === 'your_service_role_key_here') {
+  console.log('❌ Please set your Supabase credentials first!');
+  console.log('\nOption 1: Edit scripts/run-with-env.js and replace the placeholder values');
+  console.log('Option 2: Create a .env file with your credentials');
+  console.log('Option 3: Run: node scripts/setup-env.js');
+  process.exit(1);
+}
+
+// Test connection
+async function testConnection() {
+  try {
+    const { createClient } = require('@supabase/supabase-js');
+    const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+    
+    console.log('📡 Supabase URL:', SUPABASE_URL);
+    console.log('🔑 Service Key:', SUPABASE_SERVICE_ROLE_KEY.substring(0, 20) + '...');
+    console.log('\n🔌 Testing connection...');
+    
+    // Test basic connection
+    const { data, error } = await supabase
+      .from('signals.whatsapp_messages')
+      .select('signal_id')
+      .limit(1);
+    
+    if (error) {
+      console.log('❌ Connection failed:', error.message);
+      console.log('\n🔍 Troubleshooting:');
+      console.log('1. Check your Supabase URL is correct');
+      console.log('2. Check your Service Role Key is correct');
+      console.log('3. Make sure your Supabase project is active');
+      console.log('4. Check if RLS policies allow service role access');
+      return false;
+    }
+    
+    console.log('✅ Connection successful!');
+    console.log('📊 Sample data:', data);
+    
+    // Test actors schema
+    console.log('\n🏗️  Testing actors schema...');
+    const { data: actorsData, error: actorsError } = await supabase
+      .from('actors.actors')
+      .select('actor_id')
+      .limit(1);
+    
+    if (actorsError) {
+      console.log('⚠️  Actors schema not found. Please run migration 027 first.');
+      console.log('   Error:', actorsError.message);
+    } else {
+      console.log('✅ Actors schema exists');
+    }
+    
+    return true;
+    
+  } catch (error) {
+    console.log('❌ Connection test failed:', error.message);
+    return false;
+  }
+}
+
+// Run test
+if (require.main === module) {
+  testConnection()
+    .then(success => {
+      if (success) {
+        console.log('\n🎉 Ready to run Stage 1!');
+        console.log('Run: node scripts/run-with-env.js');
+      } else {
+        console.log('\n❌ Please fix the connection issues first');
+      }
+      process.exit(success ? 0 : 1);
+    });
+}
+
+module.exports = { testConnection };

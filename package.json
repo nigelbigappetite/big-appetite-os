@@ -1,28 +1,24 @@
 {
-  "name": "big-appetite-os-csv-ingestion",
+  "name": "big-appetite-os",
   "version": "1.0.0",
-  "description": "WhatsApp CSV signal ingestion tool for Big Appetite OS",
-  "main": "src/ingest.js",
+  "description": "Big Appetite OS - Self-aware, learning business operating system",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "ingest": "node src/ingest.js",
-    "test": "node src/test.js"
+    "test": "node scripts/test-connection.js",
+    "stage1": "node scripts/run-stage1.js",
+    "setup": "node scripts/setup-env.js"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.75.0",
-    "chalk": "^5.3.0",
-    "commander": "^11.1.0",
-    "csv-parser": "^3.0.0",
-    "dotenv": "^16.6.1",
-    "ora": "^7.0.1"
+    "@supabase/supabase-js": "^2.39.0",
+    "dotenv": "^16.3.1"
   },
   "keywords": [
-    "whatsapp",
-    "csv",
-    "ingestion",
-    "supabase",
-    "signals"
+    "ai",
+    "business-intelligence",
+    "customer-analytics",
+    "supabase"
   ],
-  "author": "Big Appetite OS",
+  "author": "Nigel Big Appetite",
   "license": "MIT"
 }

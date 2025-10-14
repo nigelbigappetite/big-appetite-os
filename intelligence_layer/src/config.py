@@ -1,148 +1,74 @@
-"""
-Configuration for LLM Intelligence Integration
-Big Appetite OS - Quantum Psychology System
-"""
-
 import os
-from typing import Dict, Any
+from dotenv import load_dotenv
 
-# API Configuration
+# Load environment variables from .env file
+load_dotenv()
+
+# --- OpenAI API Configuration ---
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_ORG_ID = os.getenv("OPENAI_ORG_ID")  # Optional
 
-# Model Selection
-DEFAULT_MODEL = "gpt-4o-mini"  # $0.15/$0.60 per 1M tokens
-FALLBACK_MODEL = "gpt-4o"      # $2.50/$10 per 1M tokens
-USE_SMART_ROUTING = True       # Enable complexity-based routing
-COMPLEXITY_THRESHOLD = 0.7     # When to upgrade to gpt-4o
-
-# API Parameters
-TEMPERATURE = 0.3              # Lower = more consistent
-MAX_TOKENS = 2000              # Max output length
-TIMEOUT = 30                   # Seconds before timeout
-MAX_RETRIES = 3                # Retry attempts
-
-# Cost Tracking
-TRACK_COSTS = True             # Log token usage and costs
-LOG_MODEL_DECISIONS = True     # Log which model was chosen and why
-
-# Supabase Configuration
+# --- Supabase Configuration ---
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
-# Driver Configuration
-DRIVER_NAMES = ["Safety", "Connection", "Status", "Growth", "Freedom", "Purpose"]
+# --- Model Selection and Routing ---
+DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "gpt-4o-mini")
+FALLBACK_MODEL = os.getenv("FALLBACK_MODEL", "gpt-4o")
+USE_SMART_ROUTING = os.getenv("USE_SMART_ROUTING", "True").lower() == "true"
 
-# Model Pricing (per 1M tokens)
-PRICING = {
-    "gpt-4o-mini": {
-        "input": 0.15,
-        "output": 0.60
-    },
-    "gpt-4o": {
-        "input": 2.50,
-        "output": 10.00
-    }
-}
+# --- LLM Parameters ---
+TEMPERATURE = float(os.getenv("TEMPERATURE", "0.7"))
+MAX_TOKENS = int(os.getenv("MAX_TOKENS", "1024"))
+COMPLEXITY_THRESHOLD = float(os.getenv("COMPLEXITY_THRESHOLD", "0.6"))
 
-# Complexity Analysis Weights
-COMPLEXITY_WEIGHTS = {
-    "length_short": 0.1,        # < 20 chars = ambiguous
-    "length_long": 0.3,         # > 200 chars = complex
-    "no_history": 0.2,          # No actor baseline
-    "contradiction": 0.3,       # Contradictory language
-    "emotional": 0.2,           # High emotional content
-    "technical": 0.1            # Technical/sophisticated language
-}
+# --- Retry and Timeout Settings ---
+MAX_RETRIES = int(os.getenv("MAX_RETRIES", "3"))
+TIMEOUT = int(os.getenv("TIMEOUT_SECONDS", "30"))
 
-# Contradiction Keywords
-CONTRADICTION_KEYWORDS = [
-    "but", "however", "although", "even though", "despite", 
-    "yet", "still", "nevertheless", "on the other hand",
-    "actually", "really", "honestly", "to be honest"
+# --- Cost Tracking and Logging ---
+TRACK_COSTS = os.getenv("TRACK_COSTS", "True").lower() == "true"
+LOG_MODEL_DECISIONS = os.getenv("LOG_MODEL_DECISIONS", "True").lower() == "true"
+
+# --- Driver Names ---
+DRIVER_NAMES = [
+    "Safety", "Connection", "Status", "Growth", "Freedom", "Purpose"
 ]
 
-# Identity Archetypes
-IDENTITY_ARCHETYPES = {
-    "protector": {
-        "keywords": ["family", "everyone", "take care", "for them", "responsibility"],
-        "driver_alignment": {"Safety": 0.9, "Connection": 0.8}
+# --- Identity Archetypes ---
+IDENTITY_ARCHETYPES = [
+    "Provider", "Explorer", "Connoisseur", "Rebel", "Connector", 
+    "Protector", "Achiever", "Seeker", "Individualist", "Collectivist"
+]
+
+# --- Pricing (per million tokens) ---
+PRICING = {
+    "gpt-4o-mini": {
+        "input": 0.15,   # $0.15 per 1M input tokens
+        "output": 0.60,  # $0.60 per 1M output tokens
     },
-    "provider": {
-        "keywords": ["order", "get", "bring", "pick up", "delivery"],
-        "driver_alignment": {"Purpose": 0.7, "Connection": 0.6}
+    "gpt-4o": {
+        "input": 5.00,   # $5.00 per 1M input tokens
+        "output": 15.00, # $15.00 per 1M output tokens
     },
-    "explorer": {
-        "keywords": ["try", "new", "different", "adventure", "discover"],
-        "driver_alignment": {"Freedom": 0.9, "Growth": 0.8}
-    },
-    "connoisseur": {
-        "keywords": ["sophisticated", "quality", "expert", "premium", "artisanal"],
-        "driver_alignment": {"Status": 0.8, "Purpose": 0.6}
-    },
-    "rebel": {
-        "keywords": ["against", "different from", "unique", "unconventional", "alternative"],
-        "driver_alignment": {"Freedom": 0.9, "Purpose": 0.7}
-    },
-    "connector": {
-        "keywords": ["together", "share", "community", "group", "everyone"],
-        "driver_alignment": {"Connection": 0.9, "Purpose": 0.6}
-    }
 }
 
-# Error Messages
-ERROR_MESSAGES = {
-    "api_failure": "OpenAI API call failed",
-    "json_parse_error": "Failed to parse LLM response as JSON",
-    "rate_limit": "Rate limit exceeded, retrying with backoff",
-    "timeout": "Request timed out after 30 seconds",
-    "invalid_drivers": "Driver probabilities do not sum to 1.0",
-    "database_error": "Database connection or query failed",
-    "missing_signal": "Signal not found in database",
-    "missing_actor": "Actor not found in database"
+# --- Complete Complexity Weights (All Missing Ones Added) ---
+COMPLEXITY_WEIGHTS = {
+    "length_short": 0.10,      # Missing: length_short
+    "length_long": 0.10,       # Missing: length_long  
+    "no_history": 0.10,        # Missing: no_history
+    "contradiction": 0.10,     # Missing: contradiction
+    "emotional": 0.10,         # Missing: emotional
+    "technical": 0.10,         # Missing: technical
+    "keywords": 0.10,          # Existing
+    "sentiment_variance": 0.10, # Existing
+    "context_dependent": 0.10,  # Existing
+    "abstract": 0.10,          # Bonus: abstract
 }
 
-# Logging Configuration
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
-LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-
-# Validation
-def validate_config() -> Dict[str, Any]:
-    """Validate configuration and return status"""
-    status = {
-        "valid": True,
-        "errors": [],
-        "warnings": []
-    }
-    
-    # Required environment variables
-    if not OPENAI_API_KEY:
-        status["valid"] = False
-        status["errors"].append("OPENAI_API_KEY not set")
-    
-    if not SUPABASE_URL:
-        status["valid"] = False
-        status["errors"].append("SUPABASE_URL not set")
-    
-    if not SUPABASE_KEY:
-        status["valid"] = False
-        status["errors"].append("SUPABASE_KEY not set")
-    
-    # Optional warnings
-    if not OPENAI_ORG_ID:
-        status["warnings"].append("OPENAI_ORG_ID not set (optional)")
-    
-    if not TRACK_COSTS:
-        status["warnings"].append("Cost tracking disabled")
-    
-    return status
-
-# Export configuration
-__all__ = [
-    "OPENAI_API_KEY", "OPENAI_ORG_ID", "DEFAULT_MODEL", "FALLBACK_MODEL",
-    "USE_SMART_ROUTING", "COMPLEXITY_THRESHOLD", "TEMPERATURE", "MAX_TOKENS",
-    "TIMEOUT", "MAX_RETRIES", "TRACK_COSTS", "LOG_MODEL_DECISIONS",
-    "SUPABASE_URL", "SUPABASE_KEY", "DRIVER_NAMES", "PRICING",
-    "COMPLEXITY_WEIGHTS", "CONTRADICTION_KEYWORDS", "IDENTITY_ARCHETYPES",
-    "ERROR_MESSAGES", "LOG_LEVEL", "LOG_FORMAT", "validate_config"
+# --- Contradiction Keywords ---
+CONTRADICTION_KEYWORDS = [
+    "but", "however", "yet", "on the other hand", "despite", "although",
+    "contradictory", "inconsistent", "conflict", "tension"
 ]

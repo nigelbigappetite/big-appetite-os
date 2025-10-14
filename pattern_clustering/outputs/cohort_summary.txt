@@ -1,0 +1,38 @@
+Customer Segmentation Results
+========================================
+
+1. High-Contradiction Connection
+   Size: 96 actors (32.3%)
+   Dominant Driver: Connection
+   Avg Contradiction: 0.84
+   Messaging Tone: warm and community-focused
+   Key Themes: 
+
+2. High-Contradiction Connection
+   Size: 94 actors (31.6%)
+   Dominant Driver: Connection
+   Avg Contradiction: 0.83
+   Messaging Tone: warm and community-focused
+   Key Themes: community, social, relationships
+
+3. High-Contradiction Safety
+   Size: 52 actors (17.5%)
+   Dominant Driver: Safety
+   Avg Contradiction: 0.82
+   Messaging Tone: moderately reassuring and trustworthy
+   Key Themes: protection, reliability, security
+
+4. High-Contradiction Safety
+   Size: 51 actors (17.2%)
+   Dominant Driver: Safety
+   Avg Contradiction: 0.84
+   Messaging Tone: reassuring and trustworthy
+   Key Themes: protection, reliability, security
+
+5. Balanced Status
+   Size: 4 actors (1.3%)
+   Dominant Driver: Status
+   Avg Contradiction: 0.00
+   Messaging Tone: sophisticated and exclusive
+   Key Themes: 
+

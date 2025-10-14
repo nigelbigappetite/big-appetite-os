@@ -1,0 +1,33 @@
+# Pattern Analysis & Clustering Requirements
+# Core dependencies for customer segmentation system
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.11.0
+
+# Machine learning
+scikit-learn>=1.3.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Database
+supabase>=1.0.0
+
+# Environment management
+python-dotenv>=1.0.0
+
+# Utilities
+pathlib2>=2.3.7; python_version < "3.4"
+typing-extensions>=4.0.0; python_version < "3.8"
+
+# Optional: Advanced clustering
+# umap-learn>=0.5.0  # For UMAP dimensionality reduction
+# hdbscan>=0.8.0     # For HDBSCAN clustering
+
+# Development dependencies (optional)
+# pytest>=7.0.0
+# black>=22.0.0
+# flake8>=5.0.0

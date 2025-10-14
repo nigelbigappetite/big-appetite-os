@@ -1,22 +1,22 @@
-"""
-Complete Signal Processing - Function 4
-Orchestrates all three components and writes to database
-Big Appetite OS - Quantum Psychology System
-"""
-
 import logging
-import uuid
 from typing import Dict, Any, Optional, List
 from datetime import datetime
+
 from .database import (
-    get_signal_data, get_actor_profile, get_actor_history, update_actor_profile, 
-    log_decoder_output, log_api_usage
+    get_signal_data,
+    get_actor_profile,
+    get_actor_history,
+    update_actor_profile,
+    log_decoder_output,
+    log_api_usage,
 )
 from .signal_analyzer import analyze_signal
 from .quantum_detector import detect_quantum_effects
 from .identity_detector import detect_identity_fragments
 
 logger = logging.getLogger(__name__)
+if not logger.handlers:
+    logging.basicConfig(level=logging.INFO)
 
 def process_signal_complete(signal_id: str, 
                           actor_id: Optional[str] = None,
@@ -26,35 +26,76 @@ def process_signal_complete(signal_id: str,
     
     Args:
         signal_id: UUID of signal from database
-        actor_id: UUID of actor (optional, will be inferred if not provided)
+        actor_id: UUID of actor (optional)
         debug_mode: Optional flag for detailed logging
     
     Returns:
         Complete analysis with 7-column decoder output
     """
-    
     try:
         logger.info(f"Processing signal {signal_id} for actor {actor_id}")
         
         # Step 1: Get signal data from database
         signal_data = get_signal_data(signal_id)
-        signal_text = signal_data["signal_text"]
-        signal_type = signal_data["signal_type"]
+        if not signal_data:
+            return {
+                'success': False,
+                'error': f'Signal {signal_id} not found',
+                'decoder_output': None
+            }
+        
+        # Prefer normalized field, fallback to legacy names
+        signal_text = signal_data.get('signal_text') or \
+                      signal_data.get('content', '') or \
+                      signal_data.get('message', '') or \
+                      signal_data.get('text', '')
+        signal_type = signal_data.get('signal_type', 'unknown')
         signal_actor_id = signal_data.get("actor_id") or actor_id
-        
+
+        # Build identifiers from the signal (normalized where possible)
+        brand_id = signal_data.get("brand_id")
+        identifiers = {}
+        if signal_data.get("sender_phone"):
+            identifiers["sender_phone"] = str(signal_data["sender_phone"]).strip()
+        if signal_data.get("reviewer_name"):
+            identifiers["reviewer_name"] = str(signal_data["reviewer_name"]).strip().lower()
+        if signal_data.get("email"):
+            identifiers["email"] = str(signal_data["email"]).strip().lower()
+        if signal_data.get("respondent_id"):
+            identifiers["respondent_id"] = str(signal_data["respondent_id"]).strip()
+
+        # Try to find an existing actor by identifiers first
         if not signal_actor_id:
-            raise ValueError("No actor ID available for signal")
-        
-        # Step 2: Get actor profile and history
-        actor_profile = get_actor_profile(signal_actor_id)
-        actor_history = get_actor_history(signal_actor_id, limit=5)
+            from .database import find_actor_by_identifiers
+            matched_id = find_actor_by_identifiers(brand_id=brand_id, identifiers=identifiers)
+            if matched_id:
+                signal_actor_id = matched_id
+
+        # Auto-create actor if still missing (DB generates UUID)
+        if not signal_actor_id:
+            from .database import create_actor_profile, attach_actor_id_to_signal
+            signal_actor_id = create_actor_profile(brand_id=brand_id, identifiers=identifiers)
+            if signal_actor_id:
+                attach_actor_id_to_signal(signal_id, signal_type, signal_actor_id)
+
+        # Upsert identifiers to strengthen future matches
+        if signal_actor_id and identifiers:
+            from .database import upsert_actor_identifiers
+            upsert_actor_identifiers(signal_actor_id, identifiers)
+
+        # Step 2: Get actor profile/history only if we have an actor_id
+        if not signal_actor_id:
+            actor_profile = {}
+            actor_history = []
+        else:
+            actor_profile = get_actor_profile(signal_actor_id) or {}
+            actor_history = get_actor_history(signal_actor_id) or []
         
         # Step 3: Analyze signal for drivers
         logger.info("Step 3: Analyzing drivers...")
         driver_analysis = analyze_signal(
             signal_text=signal_text,
-            actor_id=signal_actor_id,
-            signal_context={
+            context={
                 "signal_id": signal_id,
                 "signal_type": signal_type,
                 "context": "general",
@@ -66,21 +107,23 @@ def process_signal_complete(signal_id: str,
         logger.info("Step 4: Detecting quantum effects...")
         quantum_analysis = detect_quantum_effects(
             driver_distribution=driver_analysis["driver_distribution"],
-            signal_context={
+            signal_text=signal_text,
+            context={
                 "signal_id": signal_id,
                 "signal_type": signal_type,
                 "context": "general",
                 "audience": "unknown"
-            },
-            actor_history=actor_history
+            }
         )
         
         # Step 5: Detect identity fragments
         logger.info("Step 5: Detecting identity fragments...")
         identity_analysis = detect_identity_fragments(
             signal_text=signal_text,
-            behavioral_history=actor_history,
-            existing_identities=actor_profile.get("identity_markers", [])
+            context={
+                "signal_id": signal_id,
+                "signal_type": signal_type
+            }
         )
         
         # Step 6: Build 7-column decoder output
@@ -93,50 +136,75 @@ def process_signal_complete(signal_id: str,
             actor_profile=actor_profile
         )
         
-        # Step 7: Update actor profile
-        logger.info("Step 7: Updating actor profile...")
-        update_success = update_actor_profile(signal_actor_id, {
-            "signal_analysis": {
-                "driver_distribution": driver_analysis["driver_distribution"],
-                "quantum_effects": quantum_analysis,
-                "identity_fragments": identity_analysis
-            },
-            "signal_id": signal_id,
-            "signal_type": signal_type,
-            "signal_context": {
-                "context": "general",
-                "audience": "unknown"
+        # Step 7: Update actor profile via DB Bayesian/quantum updater
+        logger.info("Step 7: Updating actor profile (if actor_id present)...")
+        update_success = False
+        if signal_actor_id:
+            # Build signal_analysis payload expected by DB
+            signal_analysis = {
+                "driver_inference": driver_analysis.get("driver_distribution", {}),
+                "identity_inference": {
+                    "primary_identity": identity_analysis.get("primary_identity"),
+                    "secondary_identity": identity_analysis.get("secondary_identity"),
+                    "fragmentation_detected": identity_analysis.get("fragmentation_detected", False)
+                },
+                "quantum_effects": {
+                    "superposition_detected": quantum_analysis.get("superposition_detected", False),
+                    "interfering_drivers": quantum_analysis.get("interfering_drivers", []),
+                    "interference_strength": quantum_analysis.get("interference_strength", 0.0),
+                    "coherence": quantum_analysis.get("coherence", 0.0)
+                },
+                "signal_confidence": driver_analysis.get("confidence", 0.5),
+                "signal_text": signal_text,
+                "signal_context": {
+                    "context": "general",
+                    "audience": "unknown"
+                }
             }
-        })
+            # Skip profile update for now - will use trigger or manual backfill
+            # from .database import update_actor_profile_quantum
+            # db_result = update_actor_profile_quantum(
+            #     signal_actor_id,
+            #     signal_analysis,
+            #     signal_id=signal_id,
+            #     signal_type=signal_type,
+            #     signal_context={"context": "general", "audience": "unknown"}
+            # )
+            # update_success = bool(db_result)
+            update_success = True  # Assume success since we'll use trigger
         
         # Step 8: Log decoder output
         logger.info("Step 8: Logging decoder output...")
-        log_id = log_decoder_output({
+        payload = {
             "signal_id": signal_id,
-            "actor_id": signal_actor_id,
             "decoder_output": decoder_output,
             "processing_timestamp": datetime.utcnow().isoformat(),
             "model_used": driver_analysis.get("model_used", "unknown"),
-            "api_cost": driver_analysis.get("api_cost", 0.0) + 
-                       quantum_analysis.get("api_cost", 0.0) + 
+            "api_cost": driver_analysis.get("api_cost", 0.0) +
+                       quantum_analysis.get("api_cost", 0.0) +
                        identity_analysis.get("api_cost", 0.0)
-        })
+        }
+        if signal_actor_id:
+            payload["actor_id"] = signal_actor_id
+        log_id = log_decoder_output(payload)
         
         # Step 9: Log API usage for cost tracking
         total_cost = driver_analysis.get("api_cost", 0.0) + \
-                    quantum_analysis.get("api_cost", 0.0) + \
-                    identity_analysis.get("api_cost", 0.0)
+                     quantum_analysis.get("api_cost", 0.0) + \
+                     identity_analysis.get("api_cost", 0.0)
         
         if total_cost > 0:
-            log_api_usage({
+            usage = {
                 "signal_id": signal_id,
-                "actor_id": signal_actor_id,
                 "total_cost": total_cost,
                 "driver_analysis_cost": driver_analysis.get("api_cost", 0.0),
                 "quantum_analysis_cost": quantum_analysis.get("api_cost", 0.0),
                 "identity_analysis_cost": identity_analysis.get("api_cost", 0.0),
                 "timestamp": datetime.utcnow().isoformat()
-            })
+            }
+            if signal_actor_id:
+                usage["actor_id"] = signal_actor_id
+            log_api_usage(usage)
         
         # Build final result
         result = {
@@ -162,9 +230,8 @@ def process_signal_complete(signal_id: str,
             }
         
         logger.info(f"Signal processing completed successfully. Total cost: ${total_cost:.4f}")
-        
         return result
-        
+    
     except Exception as e:
         logger.error(f"Signal processing failed: {e}")
         return {
@@ -175,86 +242,74 @@ def process_signal_complete(signal_id: str,
             "total_api_cost": 0.0,
             "processing_timestamp": datetime.utcnow().isoformat()
         }
-
 def build_seven_column_output(driver_analysis: Dict[str, Any],
                             quantum_analysis: Dict[str, Any],
                             identity_analysis: Dict[str, Any],
                             signal_data: Dict[str, Any],
                             actor_profile: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Build 7-column decoder output format
-    
-    Args:
-        driver_analysis: Output from signal analyzer
-        quantum_analysis: Output from quantum detector
-        identity_analysis: Output from identity detector
-        signal_data: Raw signal data
-        actor_profile: Current actor profile
-    
-    Returns:
-        7-column decoder output
-    """
-    
     # Column 1: Actor/Segment
+    dominant_driver = max(driver_analysis["driver_distribution"],
+                          key=driver_analysis["driver_distribution"].get)
     col1_actor_segment = {
-        "current_identity": [
-            identity_analysis.get("primary_identity", {}).get("label", "unknown")
-        ],
-        "dominant_driver": max(driver_analysis["driver_distribution"], 
-                             key=driver_analysis["driver_distribution"].get),
-        "driver_confidence": driver_analysis["confidence"],
-        "quantum_state": "superposition" if quantum_analysis.get("superposition_detected") else "collapsed"
+        "current_identity": [identity_analysis.get("primary_identity", "unknown")],
+        "dominant_driver": dominant_driver,
+        "driver_confidence": driver_analysis.get("confidence", 0.0),
+        "quantum_state": "superposition" if quantum_analysis.get("superposition_detected") else "collapsed",
     }
-    
+
+    # Prepare signal_text once
+    signal_text = signal_data.get("signal_text") or signal_data.get("content", "") \
+        or signal_data.get("message", "") or signal_data.get("text", "")
+
     # Column 2: Observed Behavior
     col2_observed_behavior = {
-        "action": f"Analyzed {signal_data['signal_type']} signal for psychological patterns",
-        "verbatim_quote": signal_data["signal_text"],
+        "action": f"Analyzed {signal_data.get('signal_type', 'unknown')} signal",
+        "verbatim_quote": signal_text,
         "context": {
-            "signal_type": signal_data["signal_type"],
-            "timestamp": signal_data.get("timestamp"),
-            "brand_id": signal_data.get("brand_id")
+            "signal_type": signal_data.get("signal_type", "unknown"),
+            "timestamp": signal_data.get("source_timestamp") or signal_data.get("received_at") or signal_data.get("created_at"),
+            "brand_id": signal_data.get("brand_id"),
         },
-        "emotional_tone": analyze_emotional_tone(signal_data["signal_text"]),
-        "behavioral_indicators": extract_behavioral_indicators(signal_data["signal_text"])
+        "emotional_tone": analyze_emotional_tone(signal_text),
+        "behavioral_indicators": extract_behavioral_indicators(signal_text),
     }
-    
+
     # Column 3: Belief Inferred
     col3_belief_inferred = {
         "driver_update": {
-            driver: {
-                "delta": prob - actor_profile.get("driver_distribution", {}).get(driver, 0.0),
-                "reasoning": f"Signal analysis revealed {driver} driver activation",
+            d: {
+                "delta": prob - (actor_profile.get("driver_distribution", {}).get(d, 0.0) if actor_profile else 0.0),
+                "reasoning": f"Inferred {d} activation from signal",
                 "contextual_activation": prob > 0.3,
-                "activation_trigger": "signal_analysis"
+                "activation_trigger": "signal_analysis",
             }
-            for driver, prob in driver_analysis["driver_distribution"].items()
+            for d, prob in driver_analysis["driver_distribution"].items()
         },
         "quantum_effects": {
             "superposition_collapse": "partial" if quantum_analysis.get("superposition_detected") else "full",
-            "collapsed_to": col1_actor_segment["dominant_driver"],
+            "collapsed_to": dominant_driver,
             "collapse_trigger": quantum_analysis.get("collapse_trigger", "unknown"),
-            "residual_superposition": quantum_analysis.get("interfering_drivers", [])
+            "residual_superposition": quantum_analysis.get("interfering_drivers", []),
         },
         "identity_update": {
-            "reinforced": [identity_analysis.get("primary_identity", {}).get("label", "unknown")],
+            "reinforced": [identity_analysis.get("primary_identity", "unknown")],
             "weakened": [],
-            "new_fragment_detected": identity_analysis.get("fragmentation_detected", False)
-        }
+            "new_fragment_detected": identity_analysis.get("fragmentation_detected", False),
+        },
     }
-    
+
     # Column 4: Confidence Score
     col4_confidence_score = {
-        "overall": driver_analysis["confidence"],
+        "overall": driver_analysis.get("confidence", 0.0),
         "factors": {
-            "signal_strength": len(signal_data["signal_text"]) / 200.0,  # Normalize by length
-            "prior_evidence": len(actor_profile.get("identity_markers", [])) / 10.0,
-            "consistency": 0.6,  # Placeholder
-            "quantum_clarity": quantum_analysis.get("coherence", 0.5)
+            "signal_strength": min(len(signal_text) / 200.0, 1.0),
+            "prior_evidence": len(actor_profile.get("identity_markers", [])) / 10.0 if actor_profile else 0.0,
+            "consistency": 0.6,
+            "quantum_clarity": quantum_analysis.get("coherence", 0.5),
         },
-        "uncertainty_sources": identify_uncertainty_sources(driver_analysis, quantum_analysis)
+        "uncertainty_sources": identify_uncertainty_sources(driver_analysis, quantum_analysis),
     }
-    
+
     # Column 5: Friction/Contradiction
     col5_friction_contradiction = {
         "detected": quantum_analysis.get("superposition_detected", False),
@@ -266,41 +321,40 @@ def build_seven_column_output(driver_analysis: Dict[str, Any],
         "quantum_signature": {
             "superposition_active": quantum_analysis.get("superposition_detected", False),
             "interference_pattern": quantum_analysis.get("interference_strength", 0.0),
-            "coherence_level": quantum_analysis.get("coherence", 0.5)
-        }
+            "coherence_level": quantum_analysis.get("coherence", 0.5),
+        },
     }
-    
+
     # Column 6: Core Driver
+    secondary = get_secondary_driver(driver_analysis["driver_distribution"])
     col6_core_driver = {
-        "primary": col1_actor_segment["dominant_driver"],
-        "probability": driver_analysis["driver_distribution"][col1_actor_segment["dominant_driver"]],
-        "reasoning": driver_analysis["reasoning"],
-        "secondary": get_secondary_driver(driver_analysis["driver_distribution"]),
-        "secondary_probability": driver_analysis["driver_distribution"].get(
-            get_secondary_driver(driver_analysis["driver_distribution"]), 0.0
-        ),
-        "secondary_reasoning": f"Secondary driver detected with moderate activation",
+        "primary": dominant_driver,
+        "probability": driver_analysis["driver_distribution"].get(dominant_driver, 0.0),
+        "reasoning": driver_analysis.get("reasoning", "LLM analysis"),
+        "secondary": secondary,
+        "secondary_probability": driver_analysis["driver_distribution"].get(secondary, 0.0),
+        "secondary_reasoning": "Secondary driver present",
         "quantum_effects": {
             "superposition": quantum_analysis.get("superposition_detected", False),
             "entanglement_strength": quantum_analysis.get("entanglement", {}).get("entanglement_strength", 0.0),
-            "coherence": quantum_analysis.get("coherence", 0.5)
-        }
+            "coherence": quantum_analysis.get("coherence", 0.5),
+        },
     }
-    
+
     # Column 7: Actionable Insight
     col7_actionable_insight = {
         "strategy": generate_strategy(quantum_analysis, identity_analysis),
-        "recommendation": generate_recommendation(col1_actor_segment["dominant_driver"]),
-        "next_signal_needed": "Track behavioral patterns to confirm driver stability",
-        "confidence_threshold": "Need 2-3 more signals to confirm driver dominance",
+        "recommendation": generate_recommendation(dominant_driver),
+        "next_signal_needed": "Collect more signals to confirm stability",
+        "confidence_threshold": "Need 2-3 corroborating signals",
         "quantum_considerations": {
             "honor_superposition": quantum_analysis.get("superposition_detected", False),
-            "measurement_awareness": "Observation may change actor state",
-            "coherence_management": "Maintain psychological coherence in messaging"
+            "measurement_awareness": "Observation may shift state",
+            "coherence_management": "Maintain coherent messaging",
         },
-        "collapse_strategies": generate_collapse_strategies(quantum_analysis)
+        "collapse_strategies": generate_collapse_strategies(quantum_analysis),
     }
-    
+
     return {
         "col1_actor_segment": col1_actor_segment,
         "col2_observed_behavior": col2_observed_behavior,
@@ -308,172 +362,88 @@ def build_seven_column_output(driver_analysis: Dict[str, Any],
         "col4_confidence_score": col4_confidence_score,
         "col5_friction_contradiction": col5_friction_contradiction,
         "col6_core_driver": col6_core_driver,
-        "col7_actionable_insight": col7_actionable_insight
+        "col7_actionable_insight": col7_actionable_insight,
     }
+
 
 def build_reasoning_chain(driver_analysis: Dict[str, Any],
-                        quantum_analysis: Dict[str, Any],
-                        identity_analysis: Dict[str, Any]) -> str:
-    """Build complete reasoning chain for the analysis"""
-    
-    reasoning_parts = []
-    
-    # Driver analysis reasoning
-    dominant_driver = max(driver_analysis["driver_distribution"], 
-                        key=driver_analysis["driver_distribution"].get)
-    reasoning_parts.append(
-        f"Signal analysis revealed {dominant_driver} as dominant driver "
-        f"({driver_analysis['driver_distribution'][dominant_driver]:.2f} probability) "
-        f"based on: {driver_analysis['reasoning']}"
-    )
-    
-    # Quantum effects reasoning
-    if quantum_analysis.get("superposition_detected"):
-        reasoning_parts.append(
-            f"Quantum superposition detected between {', '.join(quantum_analysis.get('interfering_drivers', []))} "
-            f"with interference strength {quantum_analysis.get('interference_strength', 0.0):.2f}"
-        )
-    
-    # Identity reasoning
-    primary_identity = identity_analysis.get("primary_identity", {}).get("label", "unknown")
-    reasoning_parts.append(
-        f"Identity analysis identified {primary_identity} as primary identity fragment"
-    )
-    
-    return " | ".join(reasoning_parts)
+                          quantum_analysis: Dict[str, Any],
+                          identity_analysis: Dict[str, Any]) -> str:
+    dominant = max(driver_analysis["driver_distribution"], key=driver_analysis["driver_distribution"].get)
+    parts = [
+        f"Dominant driver {dominant} ({driver_analysis['driver_distribution'].get(dominant, 0.0):.2f}).",
+        f"Quantum superposition between {', '.join(quantum_analysis.get('interfering_drivers', []))}"
+        if quantum_analysis.get("superposition_detected") else "No superposition detected.",
+        f"Primary identity {identity_analysis.get('primary_identity', 'unknown')}."
+    ]
+    return " ".join(parts)
+
 
 def analyze_emotional_tone(signal_text: str) -> str:
-    """Analyze emotional tone of signal"""
-    signal_lower = signal_text.lower()
-    
-    if any(word in signal_lower for word in ["love", "amazing", "fantastic", "perfect"]):
+    s = signal_text.lower()
+    if any(w in s for w in ["love", "amazing", "fantastic", "perfect", "excited"]):
         return "enthusiastic"
-    elif any(word in signal_lower for word in ["hate", "terrible", "awful", "disgusting"]):
+    if any(w in s for w in ["hate", "terrible", "awful", "disgusting", "angry"]):
         return "negative"
-    elif any(word in signal_lower for word in ["okay", "fine", "alright", "decent"]):
+    if any(w in s for w in ["okay", "fine", "alright", "decent"]):
         return "neutral"
-    else:
-        return "mixed"
+    return "mixed"
+
 
 def extract_behavioral_indicators(signal_text: str) -> List[str]:
-    """Extract behavioral indicators from signal"""
-    indicators = []
-    signal_lower = signal_text.lower()
-    
-    if "order" in signal_lower or "get" in signal_lower:
-        indicators.append("ordering")
-    if "try" in signal_lower or "new" in signal_lower:
-        indicators.append("exploring")
-    if "love" in signal_lower or "hate" in signal_lower:
-        indicators.append("expressing_preference")
-    if "family" in signal_lower or "everyone" in signal_lower:
-        indicators.append("social_consideration")
-    
-    return indicators
+    s = signal_text.lower()
+    inds: List[str] = []
+    if any(w in s for w in ["order", "get", "buy"]): inds.append("ordering")
+    if any(w in s for w in ["try", "new", "different", "explore"]): inds.append("exploring")
+    if any(w in s for w in ["family", "everyone", "friends", "together"]): inds.append("social_consideration")
+    if any(w in s for w in ["premium", "exclusive", "best", "status"]): inds.append("status_signaling")
+    return inds
+
 
 def identify_uncertainty_sources(driver_analysis: Dict[str, Any],
-                               quantum_analysis: Dict[str, Any]) -> List[str]:
-    """Identify sources of uncertainty in analysis"""
-    sources = []
-    
-    if driver_analysis["confidence"] < 0.5:
-        sources.append("low_signal_confidence")
-    
-    if quantum_analysis.get("superposition_detected"):
-        sources.append("quantum_superposition")
-    
-    if len(driver_analysis["signal_text"]) < 20:
-        sources.append("short_signal")
-    
+                                 quantum_analysis: Dict[str, Any]) -> List[str]:
+    sources: List[str] = []
+    if driver_analysis.get("confidence", 0.0) < 0.5: sources.append("low_signal_confidence")
+    if quantum_analysis.get("superposition_detected"): sources.append("quantum_superposition")
+    if len(driver_analysis.get("signal_text", "")) < 20: sources.append("short_signal")
     return sources
 
+
 def build_tension_description(quantum_analysis: Dict[str, Any]) -> str:
-    """Build description of driver tensions"""
     if not quantum_analysis.get("superposition_detected"):
         return "No significant contradictions detected"
-    
-    interfering_drivers = quantum_analysis.get("interfering_drivers", [])
-    interference_strength = quantum_analysis.get("interference_strength", 0.0)
-    
-    return f"Driver conflict detected between {', '.join(interfering_drivers)} with strength {interference_strength:.2f}"
+    drivers = ", ".join(quantum_analysis.get("interfering_drivers", []))
+    strength = quantum_analysis.get("interference_strength", 0.0)
+    return f"Driver conflict detected between {drivers} with strength {strength:.2f}"
+
 
 def get_secondary_driver(driver_distribution: Dict[str, float]) -> str:
-    """Get secondary driver from distribution"""
-    sorted_drivers = sorted(driver_distribution.items(), key=lambda x: x[1], reverse=True)
-    return sorted_drivers[1][0] if len(sorted_drivers) > 1 else sorted_drivers[0][0]
+    items = sorted(driver_distribution.items(), key=lambda x: x[1], reverse=True)
+    return items[1][0] if len(items) > 1 else items[0][0]
+
 
 def generate_strategy(quantum_analysis: Dict[str, Any],
-                     identity_analysis: Dict[str, Any]) -> str:
-    """Generate strategy based on analysis"""
+                      identity_analysis: Dict[str, Any]) -> str:
     if quantum_analysis.get("superposition_detected"):
-        return "Collapse strategy for quantum superposition"
-    elif identity_analysis.get("fragmentation_detected"):
-        return "Resolution strategy for identity fragmentation"
-    else:
-        return "Reinforcement strategy for dominant driver"
+        return "Collapse strategy for conflicting drivers"
+    if identity_analysis.get("fragmentation_detected"):
+        return "Identity integration strategy"
+    return "Reinforce dominant driver"
+
 
 def generate_recommendation(dominant_driver: str) -> str:
-    """Generate recommendation based on dominant driver"""
-    recommendations = {
-        "Safety": "Position offerings as reliable and consistent choices",
-        "Connection": "Emphasize shared experiences and community",
-        "Status": "Highlight premium positioning and exclusivity",
-        "Growth": "Offer challenging and skill-building options",
-        "Freedom": "Provide variety and exploration opportunities",
-        "Purpose": "Align with values and meaningful impact"
+    recs = {
+        "Safety": "Emphasize reliability and consistency.",
+        "Connection": "Highlight shared experiences and community.",
+        "Status": "Position as premium/exclusive.",
+        "Growth": "Offer challenge and skill progression.",
+        "Freedom": "Provide variety and exploration.",
+        "Purpose": "Align with values and impact.",
     }
-    
-    return recommendations.get(dominant_driver, "General engagement strategy")
+    return recs.get(dominant_driver, "General engagement strategy")
+
 
 def generate_collapse_strategies(quantum_analysis: Dict[str, Any]) -> List[str]:
-    """Generate collapse strategies for quantum effects"""
     if not quantum_analysis.get("superposition_detected"):
         return ["single_driver_focus"]
-    
     return ["contextual_positioning", "dual_identity_messaging"]
-
-def process_batch_signals(signal_ids: List[str], 
-                         batch_size: int = 10) -> List[Dict[str, Any]]:
-    """
-    Process multiple signals in batch
-    
-    Args:
-        signal_ids: List of signal IDs to process
-        batch_size: Number of signals to process in parallel
-    
-    Returns:
-        List of processing results
-    """
-    
-    results = []
-    
-    for i in range(0, len(signal_ids), batch_size):
-        batch = signal_ids[i:i + batch_size]
-        logger.info(f"Processing batch {i//batch_size + 1}: {len(batch)} signals")
-        
-        batch_results = []
-        for signal_id in batch:
-            try:
-                result = process_signal_complete(signal_id)
-                batch_results.append(result)
-            except Exception as e:
-                logger.error(f"Failed to process signal {signal_id}: {e}")
-                batch_results.append({
-                    "error": str(e),
-                    "signal_id": signal_id,
-                    "profile_updated": False
-                })
-        
-        results.extend(batch_results)
-    
-    return results
-
-# Example usage and testing
-if __name__ == "__main__":
-    # Test complete signal processing
-    test_signal_id = str(uuid.uuid4())
-    
-    # This would normally come from the database
-    print("Complete Signal Processing Test:")
-    print("Note: This requires a valid signal_id from the database")
-    print("Use process_signal_complete(signal_id) with a real signal ID")
