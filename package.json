@@ -1,23 +1,45 @@
 {
   "name": "big-appetite-os",
   "version": "1.0.0",
-  "description": "Big Appetite OS - Self-aware, learning business operating system",
-  "main": "index.js",
+  "description": "Big Appetite OS - Self-aware, learning business operating system with adaptive creative feedback loop",
+  "main": "main/run_cycle.ts",
   "type": "module",
   "scripts": {
     "test": "node scripts/test-connection.js",
     "stage1": "node scripts/run-stage1.js",
-    "setup": "node scripts/setup-env.js"
+    "setup": "node scripts/setup-env.js",
+    "dev": "./node_modules/.bin/tsx main/run_cycle.ts",
+    "cycle": "./node_modules/.bin/tsx main/run_cycle.ts",
+    "observation": "tsx main/run_cycle.ts observation",
+    "adjustment": "tsx main/run_cycle.ts adjustment",
+    "copy": "tsx main/run_cycle.ts copy",
+    "asset": "tsx main/run_cycle.ts asset",
+    "feedback": "tsx main/run_cycle.ts feedback",
+    "build": "tsc",
+    "start": "node dist/main/run_cycle.js",
+    "realtime": "node start_realtime_system.js",
+    "monitor": "node monitor_system.js",
+    "realtime:start": "node start_realtime_system.js",
+    "realtime:monitor": "node monitor_system.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "openai": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.0.0"
   },
   "keywords": [
     "ai",
     "business-intelligence",
     "customer-analytics",
-    "supabase"
+    "supabase",
+    "adaptive-creative",
+    "bayesian-learning",
+    "markov-processes"
   ],
   "author": "Nigel Big Appetite",
   "license": "MIT"
