@@ -1,0 +1,27 @@
+🎯 YOUR GHL WEBHOOK URL
+========================
+
+Public URL (via ngrok):
+https://ungelded-nicholas-directively.ngrok-free.dev/api/webhook/ghl
+
+IMPORTANT: Copy this exact URL into GHL webhook settings
+
+GHL Location ID: GSEYlcxpbSqmFNOQcL0s
+
+How to configure in GHL:
+1. Go to Settings → Webhooks
+2. Click "Add Webhook"
+3. URL: https://ungelded-nicholas-directively.ngrok-free.dev/api/webhook/ghl
+4. Method: POST
+5. Events: "Social Media Post Published"
+6. Location ID: GSEYlcxpbSqmFNOQcL0s
+
+Test it:
+curl https://ungelded-nicholas-directively.ngrok-free.dev/api/webhook/ghl/test
+
+⚠️ NOTE: This ngrok URL expires when:
+- You restart ngrok
+- You close your terminal
+- After 2 hours of inactivity
+
+For permanent solution, deploy to a real server with your own domain.
